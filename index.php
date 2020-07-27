@@ -1092,11 +1092,11 @@ function qm_display_stats_admin(){
   </div>  
   ';
 
-  wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
-  wp_localize_script('stats-admin', 'myScript', array(
-      'script_directory' =>  WP_PLUGIN_URL.'/quiz_modules/script',
-      'home_url' => home_url()
-  ));
+  // wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
+  // wp_localize_script('stats-admin', 'myScript', array(
+  //     'script_directory' =>  WP_PLUGIN_URL.'/quiz_modules/script',
+  //     'home_url' => home_url()
+  // ));
 }
 
 ///// campagnes /////
@@ -1114,8 +1114,8 @@ function qm_creation_campagne(){
     <div class="confirm hidden">
       <p>Êtes-vous sur de vouloir supprimer cette campagne "<span class="nameCamp"></span>"?</p>
       <div>
-        <a class='yes'>Oui</a>
-        <span class='no close'>Non</span>
+        <a class="yes">Oui</a>
+        <span class="no close">Non</span>
       </div>
     </div>
     <div class="modifyDiv hidden">
@@ -1136,8 +1136,7 @@ function qm_creation_campagne(){
       <i class="fas fa-times close"></i>
     </div>
     <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_campaign.php" method="POST">
-      <h3>Créez votre campagne</h3>
-      <?php
+      <h3>Créez votre campagne</h3>';
         if(!empty($_SESSION["campaignSuccess"])){
           echo "<p class='mess good'>".$_SESSION["campaignSuccess"]."</p>";
           unset($_SESSION["campaignSuccess"]);
@@ -1146,7 +1145,7 @@ function qm_creation_campagne(){
           echo "<p class='mess error'>".$_SESSION["campaignError"]."</p>";
           unset($_SESSION["campaignError"]);
         }
-      ?>
+      echo '
       <div>
         <label>Nom de la campagne:</label>
         <input type="text" name="name">
@@ -1167,7 +1166,7 @@ function qm_creation_campagne(){
       </ul>
     </div>
   </div>
-  '
+  ';
 }
 
 function qm_display_campagne_stats(){
@@ -1178,22 +1177,22 @@ function qm_display_campagne_stats(){
   <div class="stats_camp">
     <div class="select">
       <label>Votre campagne: <span class="camp_name name_camp">votre choix</span></label>
-      <ul class="listCamp hidden">
-      <?php $campaigns = $wpdb->get_results( "SELECT campaign.id AS cId, campaign.name AS cName from campaign");
+      <ul class="listCamp hidden">';
+      $campaigns = $wpdb->get_results( "SELECT campaign.id AS cId, campaign.name AS cName from campaign");
         foreach($campaigns as $c){
           echo '<li class="liC" data-id="'.$c->cId.'">'.$c->cName.'</li>';
         }
-      ?>
+      echo '
       </ul>
     </div>
     <div class="selectC">
       <label>comparée à : <span class="compare_name compare_camp">votre choix</span></label>
-      <ul class="listCampC hidden">
-      <?php $campaigns = $wpdb->get_results( "SELECT campaign.id AS cId, campaign.name AS cName from campaign");
+      <ul class="listCampC hidden">';
+      $campaigns = $wpdb->get_results( "SELECT campaign.id AS cId, campaign.name AS cName from campaign");
         foreach($campaigns as $c){
           echo '<li class="liComp" data-id="'.$c->cId.'">'.$c->cName.'</li>';
         }
-      ?>
+      echo '
       </ul>
     </div>
     <p>Tableau des statisitques de la campagne <span class="camp_name"></span> comparée à <span class="compare_name"></span></p>
@@ -1294,7 +1293,5 @@ function qm_display_campagne_stats(){
       </div>
     </div>
   </div>
-  
-  ' 
-
+  ';
 }
