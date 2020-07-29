@@ -1091,20 +1091,20 @@ function qm_display_stats_admin(){
 
   </div>  
   ';
-
-  // wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
-  // wp_localize_script('stats-admin', 'myScript', array(
-  //     'script_directory' =>  WP_PLUGIN_URL.'/quiz_modules/script',
-  //     'home_url' => home_url()
-  // ));
+  wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
+  wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
+  wp_localize_script('stats-admin', 'myScript', array(
+      'script_directory' =>  WP_PLUGIN_URL.'/quiz_modules/script',
+      'home_url' => home_url()
+  ));
 }
 
 ///// campagnes /////
-add_shortcode( 'qm_creation_campagne', 'qm_creation_campagne' );
+add_shortcode( 'qm_display_creation_campagne', 'qm_display_creation_campagne' );
 
 add_shortcode( 'qm_display_campagne_stats', 'qm_display_campagne_stats' );
 
-function qm_creation_campagne(){
+function qm_display_creation_campagne(){
 
   global $wpdb;
   echo '
@@ -1167,6 +1167,12 @@ function qm_creation_campagne(){
     </div>
   </div>
   ';
+
+  wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/create_campaign.js', null, true);
+  wp_localize_script('createcamp', 'myScript', array(
+      'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
+      'home_url' => home_url()
+  ));
 }
 
 function qm_display_campagne_stats(){
@@ -1294,4 +1300,61 @@ function qm_display_campagne_stats(){
     </div>
   </div>
   ';
+
+  wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/stats_camps.js', null, true);
+        wp_localize_script('statscamp', 'myScript', array(
+            'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
+            'home_url' => home_url()
+        ));
 }
+
+//////////////////////////////////Acceuil/////////////////////////////////
+
+add_shortcode( 'qm_display_classement_acceuil', 'qm_display_classement_acceuil' );
+add_shortcode( 'qm_display_stats_acceuil', 'qm_display_stats_acceuil');
+
+function qm_display_stats_acceuil(){
+  
+  echo "
+  <canvas id=myChart></canvas>
+  ";
+
+  wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
+  // <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+}
+
+function qm_display_classement_acceuil(){
+  echo "
+  <table>
+
+  <thead>
+
+      <tr>
+
+          <th colspan=1>Pos</th>
+
+          <th colspan=1>Joueur</th>
+
+          <th colspan=1>Site</th>
+
+          <th colspan=1>Moyenne</th>
+
+      </tr>
+
+  </thead>
+
+  <tbody class=tbody>
+
+  </tbody>
+
+</table>
+  ";
+
+  wp_enqueue_script('my-script', WP_PLUGIN_URL . '/quiz_modules/js/home.js', null, true);
+  wp_localize_script('my-script', 'myScript', array(
+      'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
+      'admin' => current_user_can('administrator'),
+      'editor' => current_user_can('editor'),
+  ));
+}
+
