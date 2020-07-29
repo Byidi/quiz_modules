@@ -1,0 +1,162 @@
+@import 'mixin';
+.step1
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  @include flex(center, center, column);
+  h3
+  {
+    font-weight: 200;
+  }
+  .steps
+  {
+    position: relative;
+    width: 50%;
+    height: 20%;
+    @include flex(space-between, center, row);
+    .step
+    {
+      background: grey;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      @include flex(center, center, row);
+      z-index: 2;
+    }
+    .stepInto
+    {
+      background-color: blue;
+    }
+    .stick
+    {
+      @include positionTL(absolute, 50%, 50%);
+      transform: translate(-50%);
+      width: 90%;
+      height: 2%;
+      background: grey;
+      z-index: 1;
+    }
+  }
+  form
+  {
+    position: relative;
+    width: 55%;
+    height: 40%;
+    @include flex(space-between, center, "");
+    .moduleThemeLabel
+    {
+      width: 75%;
+    }
+    .textarea
+    {
+      position: relative;
+      width: 40%;
+      textarea
+      {
+        background: grey;
+        border: none;
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 150px;
+        min-height: 150px;
+        outline: none;
+      }
+    }
+    .content
+    {
+      position: relative;
+      width: 50%;
+      @include flex(space-around, center, column);
+      div
+      {
+        position: relative;
+        width: 100%;
+        @include flex(space-around, center, row);
+        label
+        {
+          position: relative;
+          width: 50%;
+          text-align: start;
+        }
+        input
+        {
+          position: relative;
+          width: 62%;
+          background: none;
+          border: none;
+          border-bottom: 1px solid black;
+        }
+        input:focus
+        {
+          
+          outline: none;
+          text-align: center;
+        }
+        input:not(:focus)
+        {
+          
+          outline: none;
+          text-align: center;
+        }
+        select
+        {
+          position: relative;
+          width: 62%;
+          appearance: none;
+          padding: 5px 15px;
+          border: none;
+          
+          outline: none;
+          transition: .2s;
+          text-transform: uppercase;
+          
+        }
+        select:hover
+        {
+          
+          cursor: pointer;
+        }
+        i
+        {
+          margin-bottom: 5px;
+          @include positionTR(absolute, 0px, 5px);
+        }
+        button
+        {
+          width: 200px;
+          background: none;
+          border: none;
+          padding: 0;
+          p
+          {
+            position: relative;
+            padding: 5px 10px;
+            width: 100%;
+            border: none;
+            outline: none;
+            transition: .2s;
+            
+            text-transform: uppercase;
+          }
+          p:hover
+          {
+            
+            cursor: pointer;
+          }
+        }
+        span
+        {
+          
+          @include positionBR(absolute, -10px, 5px);
+        }
+      }
+    }
+    input[type=submit]
+    {
+      @include positionBR(absolute, -50px, 50%);
+      transform: translate(50%);
+    }
+  }
+}

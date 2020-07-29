@@ -1,0 +1,286 @@
+@charset "UTF-8";
+.quizModules {
+  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  /* ---- ancre ---- */
+  /* ---- isotope ---- */
+}
+
+.quizModules .button-group {
+  width: 90%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.quizModules .button-group button {
+  border: none;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  outline: none;
+  margin: 5px;
+}
+
+.quizModules .ancreTop, .quizModules .ancreDown {
+  z-index: 24;
+}
+
+.quizModules .ancreTop i, .quizModules .ancreDown i {
+  font-size: 25px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .ancreTop {
+  z-index: 25;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+.quizModules .ancreDown {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.quizModules #end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.quizModules .grid {
+  position: absolute !important;
+  top: 25%;
+}
+
+.quizModules .grid .element-item {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 50px 50px;
+  padding: 10px;
+  font-weight: 600;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizModules .grid .element-item h3 {
+  position: relative;
+  z-index: 2;
+}
+
+.quizModules .grid .element-item .tag {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.quizModules .grid .element-item .mod {
+  z-index: 2;
+  position: absolute;
+  bottom: 26%;
+  left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizModules .grid .element-item .mod .spanQuiz {
+  margin-left: 5px;
+}
+
+.quizModules .grid .element-item .mod .spanQuiz a {
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .grid .element-item .mod .btnlist {
+  background: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+}
+
+.quizModules .grid .element-item .mod .list {
+  width: 100px;
+  height: 0px;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  right: -102px;
+}
+
+.quizModules .grid .element-item .mod .list li {
+  position: relative;
+  list-style: none;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizModules .grid .element-item .mod .list li a {
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.quizModules .grid .element-item .mod .listAppear {
+  height: 120px;
+}
+
+.quizModules .grid .element-item .score {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.quizModules .grid .element-item .imgQ {
+  width: 100%;
+  height: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.quizModules .grid .element-item .imgQ img {
+  position: relative;
+  max-width: 130%;
+  height: auto;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.quizModules .grid .element-item .imgQ .filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.quizModules .grid .element-item p {
+  position: relative;
+  padding: 5px 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.quizModules .grid .element-item p:hover {
+  cursor: pointer;
+}
