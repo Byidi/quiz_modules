@@ -1,0 +1,805 @@
+@charset "UTF-8";
+.quizModules {
+  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  /* ---- ancre ---- */
+  /* ---- isotope ---- */
+}
+
+.quizModules .button-group {
+  width: 90%;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.quizModules .button-group button {
+  background: grey;
+  border: none;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  outline: none;
+  margin: 5px;
+}
+
+.quizModules .button-group .button:hover {
+  background: blue;
+}
+
+.quizModules .button-group .button:active,
+.quizModules .button-group .button.is-checked {
+  background: blue;
+}
+
+.quizModules .ancreTop, .quizModules .ancreDown {
+  z-index: 24;
+}
+
+.quizModules .ancreTop i, .quizModules .ancreDown i {
+  font-size: 25px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .ancreTop {
+  z-index: 25;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+.quizModules .ancreDown {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.quizModules #end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.quizModules .grid .element-item {
+  background: grey;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 50px 50px;
+  padding: 10px;
+  font-weight: 600;
+  overflow: hidden;
+  color: black;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizModules .grid .element-item h3 {
+  position: relative;
+  z-index: 2;
+}
+
+.quizModules .grid .element-item .tag {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.quizModules .grid .element-item .mod {
+  z-index: 2;
+  position: absolute;
+  bottom: 26%;
+  left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizModules .grid .element-item .mod .spanQuiz {
+  margin-left: 5px;
+}
+
+.quizModules .grid .element-item .mod .spanQuiz a {
+  color: black;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .grid .element-item .mod .spanQuiz a:hover {
+  color: blue;
+}
+
+.quizModules .grid .element-item .mod .btnlist {
+  background: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 5px;
+}
+
+.quizModules .grid .element-item .mod .list {
+  width: 100px;
+  height: 0px;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  right: -102px;
+}
+
+.quizModules .grid .element-item .mod .list li {
+  position: relative;
+  list-style: none;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizModules .grid .element-item .mod .list li a {
+  color: black;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizModules .grid .element-item .mod .list li a:hover {
+  color: blue;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.quizModules .grid .element-item .mod .listAppear {
+  height: 120px;
+}
+
+.quizModules .grid .element-item .score {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.quizModules .grid .element-item .imgQ {
+  width: 100%;
+  height: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.quizModules .grid .element-item .imgQ img {
+  position: relative;
+  max-width: 130%;
+  height: auto;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.quizModules .grid .element-item .imgQ .filter {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.quizModules .grid .element-item p {
+  position: relative;
+  padding: 5px 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.quizModules .grid .element-item p:hover {
+  cursor: pointer;
+}
+
+.quizPlay {
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  background: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 12px;
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizPlay .quiz {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: inherit;
+}
+
+.quizPlay .quitQuiz {
+  color: black;
+  font-size: 15px;
+  z-index: inherit;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.quizPlay .btns {
+  position: relative;
+  width: 50%;
+  margin: 4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: inherit;
+}
+
+.quizPlay .btns button {
+  background: grey;
+  border-radius: 3px;
+  border: none;
+  padding: 5px 10px;
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: none;
+}
+
+.quizPlay .btns button:hover {
+  background: blue;
+}
+
+.quizPlay .progress {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70%;
+  height: 20px;
+  border-radius: 150px;
+  background: grey;
+}
+
+.quizPlay .progressDone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  background: blue;
+  font-size: 12px;
+  color: black;
+  font-weight: 600;
+  width: 0%;
+  height: 100%;
+  border-radius: 150px;
+  opacity: 0;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+.quizPlay .timer {
+  font-size: 15px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: inherit;
+}
+
+.quizPlay .slide {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizPlay .slide .img {
+  position: relative;
+  width: 53.4vh;
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizPlay .slide .img img {
+  position: relative;
+  max-width: auto;
+  max-height: 100%;
+}
+
+.quizPlay .slide .img iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.quizPlay .slide .span {
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.quizPlay .slide .question {
+  position: relative;
+  margin: 10px;
+  font-size: 15px;
+  width: 50%;
+  word-break: break-word;
+  text-align: center;
+  padding-left: 25px;
+  font-weight: 600;
+}
+
+.quizPlay .slide .question span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+}
+
+.quizPlay .slide .answers {
+  position: relative;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: grey;
+  border-radius: 5px;
+  overflow-y: scroll;
+  padding: 15px;
+}
+
+.quizPlay .slide .answers label {
+  position: relative;
+  width: 80%;
+  margin: 15px;
+}
+
+.quizPlay .slide .answers input {
+  outline: none;
+}
+
+.quizPlay .slide .answers input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 10%;
+  height: 0;
+}
+
+.quizPlay .slide .answers p {
+  position: relative;
+  text-align: initial;
+  word-wrap: break-word;
+  width: 100%;
+  padding-left: 25px;
+  color: black;
+  margin: 0;
+  font-size: 15px;
+}
+
+.quizPlay .slide .answers p span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+  color: black;
+}
+
+.quizPlay .slide .answers label:hover {
+  cursor: pointer;
+}
+
+.quizPlay .slide .answers label input:checked ~ p {
+  color: white;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar-thumb {
+  background: blue;
+  border-radius: 100px;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar-thumb:hover {
+  background: blue;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar-thumb:active {
+  background: blue;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 50px;
+}
+
+.quizPlay .slide .answers::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.quizPlay .active-slide {
+  opacity: 1;
+  z-index: 2;
+}
+
+.quizPlay .active-slideQuiz {
+  opacity: 1;
+  z-index: 2;
+}
+
+.quizPlay #results {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.quizPlay #results .btn {
+  background: blue;
+  padding: 5px 10px;
+  border-radius: 150px;
+  font-weight: 600;
+  color: black;
+  position: absolute;
+  bottom: 0px;
+  right: 50%;
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+  -webkit-transition: .2s;
+  transition: .2s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.quizPlay #results .btn:hover {
+  background: blue;
+  cursor: pointer;
+}
+
+.quizPlay #results .fa-times {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: blue;
+}
+
+.quizPlay #results .recap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 40%;
+  overflow-y: scroll;
+}
+
+.quizPlay #results .recap .question {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  background: grey;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.quizPlay #results .recap .question .questionRecap {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  padding-right: 30px;
+  padding-left: 30px;
+  word-wrap: break-word;
+}
+
+.quizPlay #results .recap .question .questionRecap span {
+  position: absolute;
+  left: 0;
+}
+
+.quizPlay #results .recap .question .answerRecap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizPlay #results .recap .question .answerRecap .answerTF {
+  width: 100%;
+  text-align: initial;
+  word-break: break-word;
+  padding-left: 25px;
+}
+
+.quizPlay #results .recap .question .answerRecap .answerTF span {
+  position: absolute;
+  left: 0;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar-thumb {
+  background: blue;
+  border-radius: 100px;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar-thumb:hover {
+  background: blue;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar-thumb:active {
+  background: blue;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar-track {
+  background: grey;
+  border-radius: 50px;
+}
+
+.quizPlay #results .recap::-webkit-scrollbar-corner {
+  background: transparent;
+}

@@ -1,0 +1,467 @@
+@import 'mixin';
+.quizModules
+{
+  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @include flex(center, center, column);
+  
+  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  .button-group
+  {
+    width: 90%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button 
+    {
+      background: grey;
+      border: none;
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 5px 10px;
+      outline: none;
+      margin: 5px;
+    }
+    
+    .button:hover 
+    {   
+      background: blue;
+    }
+    .button:active,
+    .button.is-checked 
+    {
+      background: blue;
+    }
+  }
+  /* ---- ancre ---- */
+  
+  .ancreTop, .ancreDown
+  {
+    z-index: 24;
+    i
+    {
+      font-size:25px;
+      transition:.2s;
+    }
+    i:hover
+    {
+      color: black;
+    }
+  }
+  .ancreTop
+  {
+    z-index: 25;
+    @include positionBR(fixed, 20px, 10px);
+  }
+  .ancreDown
+  {
+    @include positionBR(fixed, 10px, 10px);
+  }
+  #end
+  {
+    @include positionBL(absolute, 0, 0);
+  }
+  /* ---- isotope ---- */
+  .grid {
+    .element-item {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 50px 50px;
+      padding: 10px;
+      font-weight: 600;
+      overflow: hidden;
+      background: grey;
+      color: black;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+      @include flex(space-between, center, column);
+      h3
+      {
+        position: relative;
+        z-index: 2;
+      }
+      .tag
+      {
+        z-index: 2;
+        @include positionTL(absolute, 5px, 5px);
+      }
+      .mod
+      {
+        z-index: 2;
+        @include positionBL(absolute, 26%, 5px);
+        @include flex(space-between, center, "");
+        .spanQuiz
+        {
+          margin-left: 5px;
+          a
+          {
+            transition: .2s;
+          }
+          a:hover
+          {
+            color: blue;
+          }
+        }
+      }
+      .score
+      {
+        z-index: 2;
+        @include positionTR(absolute, 5px, 5px);
+      }
+      .imgQ
+      {
+        width: 100%;
+        height: 75%;
+        @include flex(center, center, column);
+        @include positionTL(absolute,0,0);
+        overflow: hidden;
+        img
+        {
+          position: relative;
+          max-width: 130%;
+          height: auto;
+          object-position: center;
+        }
+        .filter
+        {
+          background: rgba(0,0,0,0.4);
+          width: 100%;
+          height: 100%;
+          @include positionTL(absolute, 0, 0);
+        }
+      }
+      p
+      {
+        position: relative;
+        padding: 5px 10px;
+        transition: .2s;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+      p:hover
+      {
+        cursor: pointer;
+      }
+    }
+  }      
+}
+.modulePlay
+{
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  background: white;
+  @include positionTL(fixed, 0, 0);
+  @include flex(center, center, "");
+  .endModule
+  {
+    z-index: 25;
+    @include positionTL(fixed, 10px, 10px);
+    font-size: 12px;
+  }
+  .recapModule
+  {
+    width: 100%;
+    height: 100%;
+    background: grey;
+    z-index: 60;
+    @include positionTL(fixed, 0, 0);
+    .contentRecap
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      @include flex(center, center, column);
+      p
+      {
+        text-align: center;
+      }
+      .listQuizMod
+      {
+        width: 90%;
+        padding: 0;
+        overflow-y: scroll;
+        @include flex(center, "", "");
+        flex-wrap: wrap;
+        li
+        {
+          width: 150px;
+          height: 150px;
+          margin: 10px;
+          list-style: none;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+          @include flex(center, "", "");
+          .divQuiz
+          {
+            width: 100%;
+            position: relative;
+            color: black;
+            font-size: 12px; 
+            .contentQuiz
+            {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              background: blue;
+              overflow:hidden;
+              border-radius: 5px;
+              @include flex(space-between, center, column-reverse);
+              span
+              {
+                padding: 10px 0px;
+                font-weight: 600;
+                transition: .2s;
+                text-align: center;
+              }
+              .tag
+              {
+                z-index: 3;
+                padding: 0;
+                @include positionTL(absolute, 5px, 5px);
+              }
+              .img
+              {
+                position: relative;
+                width: 100%;
+                height: 80%;
+                overflow:hidden;
+                @include flex(center, center, "");
+                img
+                {
+                  max-width: 100%;
+                  height: auto;
+                }
+              }
+              .img::before
+              {
+                content: '';
+                background: rgba(0,0,0, 0.7);
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                transition: .2s;
+                @include positionTL(absolute, 0, 0);
+              }
+            }
+          }
+          .divQuiz:hover
+          {
+            cursor: pointer;
+            .img::before
+            {
+              background: rgba(0,0,0,0.5);
+            }
+            span
+            {
+              color: white;
+            }
+          }
+        }
+      }
+      .listQuizMod::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .listQuizMod::-webkit-scrollbar-thumb {
+        background: blue;
+        border-radius: 100px;
+      }
+      .listQuizMod::-webkit-scrollbar-thumb:hover {
+        background: blue;
+      }
+      .listQuizMod::-webkit-scrollbar-thumb:active {
+        background: blue;
+      }
+      .listQuizMod::-webkit-scrollbar-track {
+        background: grey;
+        border-radius: 50px;
+      }
+      .listQuizMod::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+    i
+    {
+      @include positionTL(fixed, 10px, 10px);
+      font-size: 12px;
+      z-index: 12;
+    }
+  }
+  .btns
+  {
+    @include positionBL(absolute, 10%, 50%);
+    z-index: 53;
+    transform: translateX(-50%);
+    button
+    {
+      position: relative;
+      padding: 5px 10px;
+      border-radius: 3px;
+      border: none;
+      background: grey;
+      color: grey;
+      font-family: "Muli";
+      font-size: 12px;
+      font-weight: 600;
+      transition: .2s;
+      outline: none;
+      margin: 10px;
+    }
+    button:hover
+    {
+      background: blue;
+    }
+  }
+  .module
+  {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    @include flex(space-evenly, center, column);
+    .slide{
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 90%;
+      height: 90%;
+      opacity: 0;
+      transition: opacity 0.5s;
+      color: black;
+      font-family: "Muli";
+      span
+      {
+        font-size: 12px;
+        font-weight: 600;
+        color: white;
+        @include positionTR(absolute, 10px, 10px);
+      }
+      .content
+      {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include flex(space-evenly, center, row);
+        .medias
+        {
+          position: relative;
+          width: 40%;
+          height: 100%;
+          @include flex(space-around, center, row);
+          img
+          {
+            position: relative;
+            width:auto;
+            max-height: 80%;
+          }
+          iframe
+          {
+            width: 100%;
+            height: 56%;
+          }
+        }
+        .mediaFull
+        {
+          width: 100%;
+          height: 90%;
+          iframe
+          {
+            width: 55%;
+            height: 80%;
+          }
+        }
+        .absoluteh3
+        {
+          @include positionTL(absolute, 0%, 50%);
+          transform: translate(-50%, -50%);
+          margin: 0;
+        }
+        .para
+        {
+          position: relative;
+          width: 50%;
+          height: 90%;
+          z-index: 100;
+          @include flex(flex-start, center, column);
+          border-bottom: 15px solid rgba(25, 34, 49, 0.4);
+          h3
+          {
+            font-size: 12px;
+          }
+          p
+          {
+            font-size: 12px;
+            padding: 30px;
+            overflow-y: scroll;
+          }
+          // .shadow
+          // {
+          //   position: absolute;
+          //   bottom: 0;
+          //   width: 100%;
+          //   height: 10%;
+          //   background: linear-gradient(0deg, rgba(25,34,49,1) 0%, rgba(25,34,49,0.7483368347338936) 25%, rgba(25,34,49,0.4990371148459384) 50%, rgba(25,34,49,0.24693627450980393) 75%, rgba(25,34,49,0) 100%);
+          // }
+          p::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          p::-webkit-scrollbar-thumb {
+            background: blue;
+            border-radius: 100px;
+          }
+          p::-webkit-scrollbar-thumb:hover {
+            background: blue;
+          }
+          p::-webkit-scrollbar-thumb:active {
+            background: blue;
+          }
+          p::-webkit-scrollbar-track {
+            background: white;
+            border-radius: 50px;
+          }
+          p::-webkit-scrollbar-corner {
+            background: transparent;
+          }
+        }
+        .paraFull
+        {
+          width: 100%;
+        }
+      }
+    }
+    .active-slide{
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+  .progress
+  {
+    @include positionBL(absolute, 5%, 50%);
+    transform: translateX(-50%);
+    width: 70%;
+    height: 20px;
+    border-radius: 150px;
+    background: grey;
+  }
+  .progressDone
+  {
+    @include flex(center, center, "");
+    @include positionBL(absolute, 0%, 0%);
+    background: white;
+    font-size: 12px;
+    color: grey;
+    font-weight: 600;
+    width: 0%;
+    height: 100%;
+    border-radius: 150px;
+    opacity: 0;
+    transition: .2s ease;
+  }
+}

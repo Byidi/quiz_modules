@@ -16,8 +16,8 @@ add_shortcode( 'qm_quiz_creation_3', 'qm_quiz_creation_3');
 function qm_display_quiz_menu(){
     global $wpdb;
     echo '
-        <h2 id="debut" class="h2">Nos quiz</h2>
-        <div class="quizModules">
+    <div class="quizModules">
+    <h2 id="debut" class="h2">Nos quiz</h2>
             <a class="ancreTop" href="#debut">
                 <i class="fas fa-sort-up"></i>
             </a>
@@ -39,7 +39,7 @@ function qm_display_quiz_menu(){
             </div>
         </div>
     ';
-
+    wp_enqueue_style( 'quizMenu', WP_PLUGIN_URL .'/quiz_modules/css/quizMenu.css',false,'1.1','all');
     wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/quiz.js', null, true);
     wp_localize_script('quiz-menu', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
@@ -50,6 +50,9 @@ function qm_display_quiz_menu(){
 function qm_quiz_creation_1(){
     global $wpdb;
     echo '
+
+    <div class="step1">
+    <h2 class="h2">Créez votre quiz</h2>
     <h3>Étape 1: Le sujet</h3>
     <div class="steps">
         <div class="step stepInto">1</div>
@@ -133,9 +136,10 @@ function qm_quiz_creation_1(){
         </div>
         <input type="submit" value="Suivant">
     </form>
-    
+    </div>
     ';
 
+    wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
     wp_enqueue_script('quiz_step1', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step1.js', null, true);
 }
 
@@ -255,9 +259,9 @@ function qm_quiz_creation_2(){
     }
 
   echo '
-  <h2 class="h2">'.$_SESSION['quizData']['quiz']['title'].'</h2>
-
+  
   <div class="step2">
+    <h2 class="h2">'.$_SESSION['quizData']['quiz']['title'].'</h2>
 
     <img src="'. get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
 
@@ -307,6 +311,7 @@ function qm_quiz_creation_2(){
     <p class="sketching">Enregistrer le brouillon</p>
   </div>';
 
+  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
   wp_enqueue_script('quiz_step2', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step2.js', null, true);
 }
 
@@ -399,6 +404,8 @@ function qm_quiz_creation_3(){
   <a href="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_3.php?status=0">Enregistrer le brouillon</a>
 
   </div>';
+
+  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
 }
 
 
@@ -414,9 +421,9 @@ function qm_display_module_menu(){
   global $wpdb;
   echo '  
 
-    <h2 id="debut" class="h2">Nos modules</h2>
-
-    <div class="quizModules">
+  
+  <div class="quizModules">
+  <h2 id="debut" class="h2">Nos modules</h2>
     <a class="ancreTop" href="#debut">
       <i class="fas fa-sort-up"></i>
     </a>
@@ -449,6 +456,7 @@ function qm_display_module_menu(){
 
     </div>';
 
+    wp_enqueue_style( 'moduleMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
     wp_enqueue_script('module-menu', WP_PLUGIN_URL .'/quiz_modules/js/modules.js', null, true);
     wp_localize_script('module-menu', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
@@ -460,9 +468,9 @@ function qm_display_module_menu(){
 function qm_module_creation_1(){
   global $wpdb;
   echo '
-  <h2 class="h2">Créez votre module</h2>
-
-  <div class="createQuizModule">
+  
+  <div class="step1">
+    <h2 class="h2">Créez votre module</h2>
     <h3>Étape 1: Le sujet</h3>
     <div class="steps">
         <div class="step stepInto">1</div>
@@ -528,6 +536,7 @@ function qm_module_creation_1(){
     </form>
   </div>';
 
+  wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
   wp_enqueue_script('module_step1', WP_PLUGIN_URL .'/quiz_modules/js/module_step1.js', null, true);
 }
 
@@ -631,6 +640,7 @@ function qm_module_creation_2(){
     <p class="sketching">Enregistrer en brouillon</p>
   </div>';
 
+  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
   wp_enqueue_script('module_step2', WP_PLUGIN_URL .'/quiz_modules/js/module_step2.js', null, true);
 }
 
@@ -740,6 +750,8 @@ function qm_module_creation_3(){
     <a href="'. WP_PLUGIN_URL.'/quiz_modules/script/create_module_3.php?status=0">Enregistrer le brouillon</a>
 
   </div>';
+
+  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
 }
 
 
