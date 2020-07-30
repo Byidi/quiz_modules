@@ -1,0 +1,191 @@
+@import 'mixin', 'colors', 'fontSize';
+.stats_camp
+{
+  position: relative;
+  width: 100%;
+  font-size: $fontSize2;
+  color: $police;
+  font-family: "Muli";
+  @include flex(center, center, column);
+  span
+  {
+    font-weight: bold;
+    color: $color-imp;
+  }
+  p
+  {
+    text-align: center;
+  }
+  .select, .selectC
+  {
+    position: relative;
+    z-index: 3;
+    user-select: none;
+    margin: 5px;
+    span
+    {
+      padding: 5px 10px;
+      font-weight: bold; 
+      color: $police;
+      transition: .2s;
+      border-radius: 3px;
+      font-weight: bold;
+      background: $color1;
+    }
+    span:hover
+    {
+      cursor: pointer;
+      color: $color-imp;
+    }
+    ul
+    {
+      @include positionTR(absolute, 100%, 0);
+      max-height: 150px;
+      margin: 0;
+      background: $color1;
+      overflow-y: scroll;
+      list-style: none;
+      border-radius: 3px;
+      padding: 5px 10px;
+      li
+      {
+        margin: 5px;
+        font-weight: lighter;
+        transition: .2s;
+        margin: 5;
+        text-align: center;
+      }
+      li:hover
+      {
+        cursor: pointer;
+        color: $color-imp;
+      }
+    }
+    ul::-webkit-scrollbar {
+      width: 2px;
+    }
+    ul::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    ul::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    ul::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    ul::-webkit-scrollbar-track {
+      background: $color1;
+      border-radius: 50px;
+    }
+    ul::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+  .select
+  {
+    z-index: 4;
+  }
+  .container
+  {
+    position: relative;
+    width: 100%;
+    @include flex(space-around, center, row);
+  }
+  .tableContainer
+  {
+    position: relative;
+    width: 45%;
+    @include flex(space-around, flex-start, column);
+    div
+    {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow-y: scroll;
+      padding: 5px;
+      margin-bottom: 10px;
+      @include flex("", center, column);
+      h3
+      {
+        margin: 0;
+      }
+      .part, .moyQ
+      {
+        margin-right:5px;
+      }
+      table
+      {
+        position: relative;
+        width: 100%;
+        padding: 5px;
+        th, td
+        {
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+        tr
+        {
+          td:nth-child(1)
+          {
+            text-align: left;
+          }
+          text-align: center;
+        }
+        tr:nth-child(even) 
+        {
+          background-color: $color1;
+        }
+      }
+      .totalTable
+      {
+        tr
+        {
+          td:nth-child(1)
+          {
+            text-align: center;
+          }
+        }
+      }
+      .red
+      {
+        color: red;
+        font-weight: bold;
+      }
+      .green
+      {
+        color: #3AD29F;
+        font-weight: bold;
+      }
+      .orange
+      {
+        color: $color-imp;
+        font-weight: bold;
+      }
+    }
+    div::-webkit-scrollbar {
+      width: 2px;
+    }
+    div::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    div::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    div::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    div::-webkit-scrollbar-track {
+      background: $color1;
+      border-radius: 50px;
+    }
+    div::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+  .hidden
+  {
+    display: none;
+  }
+}

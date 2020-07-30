@@ -1,0 +1,248 @@
+.stats_camp {
+  position: relative;
+  width: 100%;
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  font-family: "Muli";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats_camp span {
+  font-weight: bold;
+  color: #EBB94A;
+}
+
+.stats_camp p {
+  text-align: center;
+}
+
+.stats_camp .select, .stats_camp .selectC {
+  position: relative;
+  z-index: 3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 5px;
+}
+
+.stats_camp .select span, .stats_camp .selectC span {
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #e6e6e6;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 3px;
+  font-weight: bold;
+  background: #131A28;
+}
+
+.stats_camp .select span:hover, .stats_camp .selectC span:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.stats_camp .select ul, .stats_camp .selectC ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  max-height: 150px;
+  margin: 0;
+  background: #131A28;
+  overflow-y: scroll;
+  list-style: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.stats_camp .select ul li, .stats_camp .selectC ul li {
+  margin: 5px;
+  font-weight: lighter;
+  -webkit-transition: .2s;
+  transition: .2s;
+  margin: 5;
+  text-align: center;
+}
+
+.stats_camp .select ul li:hover, .stats_camp .selectC ul li:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.stats_camp .select ul::-webkit-scrollbar, .stats_camp .selectC ul::-webkit-scrollbar {
+  width: 2px;
+}
+
+.stats_camp .select ul::-webkit-scrollbar-thumb, .stats_camp .selectC ul::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats_camp .select ul::-webkit-scrollbar-thumb:hover, .stats_camp .selectC ul::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats_camp .select ul::-webkit-scrollbar-thumb:active, .stats_camp .selectC ul::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats_camp .select ul::-webkit-scrollbar-track, .stats_camp .selectC ul::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.stats_camp .select ul::-webkit-scrollbar-corner, .stats_camp .selectC ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.stats_camp .select {
+  z-index: 4;
+}
+
+.stats_camp .container {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.stats_camp .tableContainer {
+  position: relative;
+  width: 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats_camp .tableContainer div {
+  position: relative;
+  width: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats_camp .tableContainer div h3 {
+  margin: 0;
+}
+
+.stats_camp .tableContainer div .part, .stats_camp .tableContainer div .moyQ {
+  margin-right: 5px;
+}
+
+.stats_camp .tableContainer div table {
+  position: relative;
+  width: 100%;
+  padding: 5px;
+}
+
+.stats_camp .tableContainer div table th, .stats_camp .tableContainer div table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.stats_camp .tableContainer div table tr {
+  text-align: center;
+}
+
+.stats_camp .tableContainer div table tr td:nth-child(1) {
+  text-align: left;
+}
+
+.stats_camp .tableContainer div table tr:nth-child(even) {
+  background-color: #131A28;
+}
+
+.stats_camp .tableContainer div .totalTable tr td:nth-child(1) {
+  text-align: center;
+}
+
+.stats_camp .tableContainer div .red {
+  color: red;
+  font-weight: bold;
+}
+
+.stats_camp .tableContainer div .green {
+  color: #3AD29F;
+  font-weight: bold;
+}
+
+.stats_camp .tableContainer div .orange {
+  color: #EBB94A;
+  font-weight: bold;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar {
+  width: 2px;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.stats_camp .tableContainer div::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.stats_camp .hidden {
+  display: none;
+}

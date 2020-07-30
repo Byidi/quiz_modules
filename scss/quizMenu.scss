@@ -1,38 +1,43 @@
-@import 'mixin';
+@import 'mixin', 'colors', 'fontSize';
 .quizModules
 {
-  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
   position: relative;
   width: 100%;
   height: 100%;
   @include flex(center, center, column);
-  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  
+  /* ---- button ---- */
   .button-group
   {
     width: 90%;
+    border-radius: 100px;
     z-index: 2;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     button 
     {
-      background: grey;
+      background-color: $color-btn;
       border: none;
+      border-radius: 3px;
+      color: $color1;
       font-weight: 600;
       text-transform: capitalize;
       padding: 5px 10px;
       outline: none;
       margin: 5px;
+      font-size: $fontSize2;
     }
     
     .button:hover 
-    {   
-      background: blue;
+    {
+      background-color: $police;        
     }
+    
     .button:active,
     .button.is-checked 
     {
-      background: blue;
+      background-color: $police;
     }
   }
   /* ---- ancre ---- */
@@ -42,12 +47,13 @@
     z-index: 24;
     i
     {
+      color: $police;
       font-size:25px;
       transition:.2s;
     }
     i:hover
     {
-      
+      color: $color-imp;
     }
   }
   .ancreTop
@@ -66,18 +72,20 @@
   }
   /* ---- isotope ---- */
   
-  .grid 
-  {
+  .grid {
+    top: 25%;
     .element-item {
-      background: grey;
       position: relative;
       width: 250px;
       height: 250px;
       margin: 50px 50px;
       padding: 10px;
+      border-radius: 5px;
+      background: $color3;
+      color: $police;
       font-weight: 600;
+      font-size: $fontSize2;
       overflow: hidden;
-      color: black;
       box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
       @include flex(space-between, center, column);
       h3
@@ -100,12 +108,12 @@
           margin-left: 5px;
           a
           {
-            color: black;
+            color: $color-imp;
             transition: .2s;
           }
           a:hover
           {
-            color: blue;
+            color: rgb(211, 198, 169);
           }
         }
         .btnlist
@@ -114,9 +122,11 @@
           padding: 0;
           margin: 0;
           margin-left: 5px;
+          color: $color-imp;
         }
         .btnlist:hover
         {
+          color: rgb(211, 198, 169);
         }
         .list
         {
@@ -124,7 +134,9 @@
           height: 0px;
           margin: 0;
           padding: 0;
+          background: $color1;
           overflow-y:scroll;
+          border-radius: 3px;
           transition: .2s;
           @include flex("", "", column);
           @include positionBR(absolute, 0%, -102px);
@@ -136,12 +148,12 @@
             @include flex(center, "", "");
             a
             {
-              color: black;
+              color: $color-imp;
               transition: .2s;
             }
             a:hover
             {
-              color: blue;
+              color: rgb(211, 198, 169);
             }
           }
         }
@@ -150,14 +162,17 @@
           height: 2px;
         }
         .list::-webkit-scrollbar-thumb {
+          background: $color-btn;
           border-radius: 100px;
         }
         .list::-webkit-scrollbar-thumb:hover {
-
+          background: $color-btn;
         }
         .list::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
         }
         .list::-webkit-scrollbar-track {
+          background: $color2;
           border-radius: 50px;
         }
         .list::-webkit-scrollbar-corner {
@@ -189,22 +204,26 @@
         }
         .filter
         {
-          background: rgba(0,0,0,0.4);
           width: 100%;
           height: 100%;
           @include positionTL(absolute, 0, 0);
+          background: rgba(0,0,0, 0.8);
         }
       }
       p
       {
         position: relative;
+        background: $color-btn;
         padding: 5px 10px;
+        border-radius: 3px;
         transition: .2s;
+        color: $color1;
         font-weight: 600;
         margin-bottom: 7px;
       }
       p:hover
       {
+        background: $police;
         cursor: pointer;
       }
     }
@@ -215,10 +234,10 @@
   width: 100%;
   height: 100%;
   z-index: 25;
-  background: white;
+  background: $color2;
   transition: .2s;
-  font-size: 12px;
-  color: black;
+  font-size: $fontSize2;
+  color: $police;
   @include positionTL(fixed, 0, 0);
   @include flex(center, center, column);
   .quiz
@@ -231,8 +250,8 @@
   }
   .quitQuiz
   {
-    color: black;
-    font-size: 15px;
+    color: $police;
+    font-size: $fontSize3;
     z-index: inherit;
     @include positionTL(absolute, 10px, 10px);
   }
@@ -245,19 +264,19 @@
     z-index: inherit;
     button
     {
-      background: grey;
+      background: $color-btn;
       border-radius: 3px;
       border: none;
       padding: 5px 10px;
-      color: black;
-      font-size: 12px;
+      color: $color1;
+      font-size: $fontSize2;
       font-weight: 600;
       transition: .2s;
       outline: none;
     }
     button:hover
     {
-      background: blue;
+      background: $police;
     }
   }
   .progress
@@ -267,15 +286,15 @@
     width: 70%;
     height: 20px;
     border-radius: 150px;
-    background: grey;
+    background: $color1;
   }
   .progressDone
   {
     @include flex(center, center, "");
     @include positionBL(absolute, 0%, 0%);
-    background: blue;
-    font-size: 12px;
-    color: black;
+    background: $color-imp;
+    font-size: $fontSize2;
+    color: $color1;
     font-weight: 600;
     width: 0%;
     height: 100%;
@@ -285,7 +304,7 @@
   }
   .timer
   {
-    font-size: 15px;
+    font-size: $fontSize3;
     font-weight: 600;
     @include flex(center, center, row);
     @include positionBR(absolute, 20px, 20px);
@@ -320,16 +339,16 @@
     }
     .span
     {
-      font-size: 15px;
+      font-size: $fontSize3;
       font-weight: 600;
-      color: black;
+      color: $color-imp;
       @include positionTR(absolute, 10px, 10px);
     }
     .question
     {
       position: relative;
       margin: 10px;
-      font-size: 15px;
+      font-size: $fontSize3;
       width: 50%;
       word-break: break-word;
       text-align: center;
@@ -340,7 +359,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        color: black;
+        color: $color-imp;
       }
     }
     .answers
@@ -351,7 +370,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      background: grey;
+      background: $color3;
       border-radius: 5px;
       overflow-y: scroll;
       padding: 15px;
@@ -379,16 +398,16 @@
         word-wrap: break-word;  
         width: 100%;
         padding-left: 25px;
-        color: black;
+        color: $police;
         margin: 0;
-        font-size: 15px;
+        font-size: $fontSize3;
         span
         {
           position: absolute;
           top: 0;
           left: 0;
           font-weight: 600;
-          color: black;
+          color: $color-imp;
         }
       }
       label:hover
@@ -397,7 +416,7 @@
       }
       label input:checked ~ p        
       {
-        color: white;
+        color: $color-imp;
       }
     }
     .answers::-webkit-scrollbar {
@@ -405,14 +424,14 @@
       height: 5px;
     }
     .answers::-webkit-scrollbar-thumb {
-      background: blue;
+      background: $color-btn;
       border-radius: 100px;
     }
     .answers::-webkit-scrollbar-thumb:hover {
-      background: blue;
+      background: $color-btn;
     }
     .answers::-webkit-scrollbar-thumb:active {
-      background: blue;
+      background: $color-btn;
     }
     .answers::-webkit-scrollbar-track {
       background: transparent;
@@ -434,18 +453,18 @@
   {
     width: 100%;
     height: 100%;
-    background: white;
+    background: $color1;
     @include flex(flex-start, center, column);
     @include positionTR(fixed, 0, 0);
     z-index: 2;
     opacity: 0;
     .btn
     {
-      background: blue;
+      background: $color-btn;
       padding: 5px 10px;
       border-radius: 150px;
       font-weight: 600;
-      color: black;
+      color: $color1;
       @include positionBR(absolute, 0px, 50%);
       transform: translate(50%);
       transition: .2s;
@@ -453,14 +472,13 @@
     }
     .btn:hover
     {
-      background: blue;
+      background: $police;
       cursor: pointer;
     }
     .fa-times
     {
       @include positionTR(absolute, 20px, 20px);
       font-size: 28px;
-      color: blue;
     }
     .recap
     {
@@ -472,7 +490,7 @@
         position: relative;
         @include flex(center, center, column);
         width: 90%;
-        background: grey;
+        background: $color2;
         border-radius: 5px;
         margin-bottom: 15px;
         padding: 15px;
@@ -515,17 +533,17 @@
       height: 5px;
     }
     .recap::-webkit-scrollbar-thumb {
-      background: blue;
+      background: $color-btn;
       border-radius: 100px;
     }
     .recap::-webkit-scrollbar-thumb:hover {
-      background: blue;
+      background: $color-btn;
     }
     .recap::-webkit-scrollbar-thumb:active {
-      background: blue;
+      background: $color-btn;
     }
     .recap::-webkit-scrollbar-track {
-      background: grey;
+      background: $color2;
       border-radius: 50px;
     }
     .recap::-webkit-scrollbar-corner {

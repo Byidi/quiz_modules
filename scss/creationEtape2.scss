@@ -1,9 +1,13 @@
-@import 'mixin';
+@import 'mixin', 'colors', 'fontSize';
 .step2
 {
+  font-family: "Muli";
+  font-size: $fontSize2;
+  color: $police;
   z-index: 2;
   width: 100%;
   @include flex(space-around, center, column);
+  // @include positionTL(absolute, 10%, 0);
   img
   {
     max-width: 30%;
@@ -16,16 +20,19 @@
     @include flex(space-between, center, row);
     .step
     {
-      background: grey;
+      background: $color3;
       width: 70px;
       height: 70px;
       border-radius: 50%;
       @include flex(center, center, row);
+      font-size: $fontSize3;
+      font-family: "Muli";
+      color: $police;
       z-index: 2;
     }
     .stepInto
     {
-      background: blue;
+      background: $color-imp;
     }
     .stick
     {
@@ -33,17 +40,20 @@
       transform: translate(-50%);
       width: 90%;
       height: 2%;
-      background: grey;
+      background: $color3;
       z-index: 1;
     }
   }
   .plus
   {
     margin-bottom: 10px;
+    font-size: $fontSize3;
   }
   h3
   {
+    font-size: $fontSize2;
     font-weight: 200;
+    font-family: "Montserrat";
   }
   .trash
   {
@@ -69,8 +79,10 @@
     {
       position: relative;
       width: 80%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(36, 51, 76, 0.5);
+      border-radius: 5px;
       padding: 10px 10px;
+      font-size: $fontSize2;
       margin-top: 15px;
       margin-bottom: 15px;
       @include flex(flex-start, flex-start, column);
@@ -84,7 +96,7 @@
           width: 70%;
           background: none;
           border:none;
-          border-bottom: 1px solid black;
+          border-bottom: 1px solid $police;
         }
         textarea
         {
@@ -93,18 +105,24 @@
           min-width: 100%;
           min-height: 150px;
           outline: none;
+          background: $color1;
+          color: $police;
           border: none;
+          border-radius: 5px;
           padding: 10px;
         }
         label
         {
           font-weight: 600;
+          color: $color-imp;
         }
         input:focus
         {
+          color: $color-imp;
         }
         input:not(:focus)
         {
+          color: $color-imp;
         }
       }
       .answers
@@ -122,6 +140,7 @@
           width: 100%;
           label
           {
+            color: $police;
           }
           .answer
           {
@@ -179,23 +198,30 @@
             position: relative;
             padding: 5px 10px;
             width: 100%;
+            background: $color-btn;
             border: none;
+            border-radius: 3px;
+            color: $color1;
             outline: none;
             transition: .2s;
+            font-size:$fontSize1;
             font-weight: 600;
             text-transform: uppercase;
           }
           p:hover
           {
+            background: $police;
             cursor: pointer;
           }
         }
         span
         {
+          font-size: $fontSize1;
           @include positionBR(absolute, -10px, 0px);
         }
         label
         {
+          color: $police;
         }
       }
       div:nth-child(3)
@@ -211,11 +237,15 @@
   .validate, .sketching
   {
     padding: 5px 10px;
+    background: $color-btn;
+    border-radius: 3px;
+    color: $color1;
     font-weight: 600;
     transition: .2s;
   }
   .validate:hover, .sketching:hover
   {
+    background: $police;
     cursor: pointer;
   }
 }

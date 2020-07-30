@@ -1,5 +1,7 @@
 .step3 {
   font-family: "Muli";
+  font-size: 1.5rem;
+  color: #e6e6e6;
   z-index: 5;
   width: 100%;
   display: -webkit-box;
@@ -14,9 +16,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: absolute;
-  top: 10%;
-  left: 0;
 }
 
 .step3 .img {
@@ -48,7 +47,7 @@
 }
 
 .step3 .steps .step {
-  background: grey;
+  background: #24344D;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -65,11 +64,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  font-size: 2rem;
+  font-family: "Muli";
+  color: #e6e6e6;
   z-index: 2;
 }
 
 .step3 .steps .stepInto {
-  background: blue;
+  background: #EBB94A;
 }
 
 .step3 .steps .stick {
@@ -80,17 +82,32 @@
           transform: translate(-50%);
   width: 90%;
   height: 2%;
-  background: grey;
+  background: #24344D;
   z-index: 1;
 }
 
 .step3 a {
   padding: 5px 10px;
+  background: #EBB94A;
+  color: #131A28;
   margin-bottom: 35px;
   border-radius: 3px;
   -webkit-transition: .2s;
   transition: .2s;
+  font-size: 1.5rem;
   font-weight: 600;
+}
+
+.step3 a:hover {
+  background: #e6e6e6;
+}
+
+.step3 .error {
+  color: red;
+}
+
+.step3 .good {
+  color: #3AD29F;
 }
 
 .step3 .recap {
@@ -114,7 +131,7 @@
 .step3 .recap .questions {
   position: relative;
   width: 70%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(36, 52, 77, 0.7);
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 45px;
@@ -137,7 +154,9 @@
 }
 
 .step3 .recap .questions .numQ {
+  font-size: 2rem;
   font-weight: 600;
+  color: #EBB94A;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -263,7 +282,7 @@
   position: relative;
   width: 800px;
   height: 500px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #24344D;
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 45px;
@@ -288,7 +307,9 @@
 }
 
 .step3 .recap .pages span {
+  font-size: 2rem;
   font-weight: 600;
+  color: #EBB94A;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -356,10 +377,20 @@
 }
 
 .step3 .recap .pages .content::-webkit-scrollbar-thumb {
+  background: #EBB94A;
   border-radius: 100px;
 }
 
+.step3 .recap .pages .content::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
 .step3 .recap .pages .content::-webkit-scrollbar-track {
+  background: #192231;
   border-radius: 50px;
 }
 

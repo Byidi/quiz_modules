@@ -1,6 +1,4 @@
-@charset "UTF-8";
 .quizModules {
-  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
   position: relative;
   width: 100%;
   height: 100%;
@@ -17,13 +15,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  /* ---- button ---- */
   /* ---- ancre ---- */
   /* ---- isotope ---- */
 }
 
 .quizModules .button-group {
   width: 90%;
+  border-radius: 100px;
   z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,22 +35,25 @@
 }
 
 .quizModules .button-group button {
-  background: grey;
+  background-color: #EBB94A;
   border: none;
+  border-radius: 3px;
+  color: #131A28;
   font-weight: 600;
   text-transform: capitalize;
   padding: 5px 10px;
   outline: none;
   margin: 5px;
+  font-size: 1.5rem;
 }
 
 .quizModules .button-group .button:hover {
-  background: blue;
+  background-color: #e6e6e6;
 }
 
 .quizModules .button-group .button:active,
 .quizModules .button-group .button.is-checked {
-  background: blue;
+  background-color: #e6e6e6;
 }
 
 .quizModules .ancreTop, .quizModules .ancreDown {
@@ -59,9 +61,14 @@
 }
 
 .quizModules .ancreTop i, .quizModules .ancreDown i {
+  color: #e6e6e6;
   font-size: 25px;
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+.quizModules .ancreTop i:hover, .quizModules .ancreDown i:hover {
+  color: #EBB94A;
 }
 
 .quizModules .ancreTop {
@@ -83,16 +90,22 @@
   left: 0;
 }
 
+.quizModules .grid {
+  top: 25%;
+}
+
 .quizModules .grid .element-item {
-  background: grey;
   position: relative;
   width: 250px;
   height: 250px;
   margin: 50px 50px;
   padding: 10px;
+  border-radius: 5px;
+  background: #24344D;
+  color: #e6e6e6;
   font-weight: 600;
+  font-size: 1.5rem;
   overflow: hidden;
-  color: black;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
@@ -147,13 +160,13 @@
 }
 
 .quizModules .grid .element-item .mod .spanQuiz a {
-  color: black;
+  color: #EBB94A;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .quizModules .grid .element-item .mod .spanQuiz a:hover {
-  color: blue;
+  color: #d3c6a9;
 }
 
 .quizModules .grid .element-item .mod .btnlist {
@@ -161,6 +174,11 @@
   padding: 0;
   margin: 0;
   margin-left: 5px;
+  color: #EBB94A;
+}
+
+.quizModules .grid .element-item .mod .btnlist:hover {
+  color: #d3c6a9;
 }
 
 .quizModules .grid .element-item .mod .list {
@@ -168,7 +186,9 @@
   height: 0px;
   margin: 0;
   padding: 0;
+  background: #131A28;
   overflow-y: scroll;
+  border-radius: 3px;
   -webkit-transition: .2s;
   transition: .2s;
   display: -webkit-box;
@@ -209,13 +229,13 @@
 }
 
 .quizModules .grid .element-item .mod .list li a {
-  color: black;
+  color: #EBB94A;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .quizModules .grid .element-item .mod .list li a:hover {
-  color: blue;
+  color: #d3c6a9;
 }
 
 .quizModules .grid .element-item .mod .list::-webkit-scrollbar {
@@ -224,10 +244,20 @@
 }
 
 .quizModules .grid .element-item .mod .list::-webkit-scrollbar-thumb {
+  background: #EBB94A;
   border-radius: 100px;
 }
 
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.quizModules .grid .element-item .mod .list::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
 .quizModules .grid .element-item .mod .list::-webkit-scrollbar-track {
+  background: #192231;
   border-radius: 50px;
 }
 
@@ -277,24 +307,28 @@
 }
 
 .quizModules .grid .element-item .imgQ .filter {
-  background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .quizModules .grid .element-item p {
   position: relative;
+  background: #EBB94A;
   padding: 5px 10px;
+  border-radius: 3px;
   -webkit-transition: .2s;
   transition: .2s;
+  color: #131A28;
   font-weight: 600;
   margin-bottom: 7px;
 }
 
 .quizModules .grid .element-item p:hover {
+  background: #e6e6e6;
   cursor: pointer;
 }
 
@@ -302,11 +336,11 @@
   width: 100%;
   height: 100%;
   z-index: 25;
-  background: white;
+  background: #192231;
   -webkit-transition: .2s;
   transition: .2s;
-  font-size: 12px;
-  color: black;
+  font-size: 1.5rem;
+  color: #e6e6e6;
   position: fixed;
   top: 0;
   left: 0;
@@ -348,8 +382,8 @@
 }
 
 .quizPlay .quitQuiz {
-  color: black;
-  font-size: 15px;
+  color: #e6e6e6;
+  font-size: 2rem;
   z-index: inherit;
   position: absolute;
   top: 10px;
@@ -376,12 +410,12 @@
 }
 
 .quizPlay .btns button {
-  background: grey;
+  background: #EBB94A;
   border-radius: 3px;
   border: none;
   padding: 5px 10px;
-  color: black;
-  font-size: 12px;
+  color: #131A28;
+  font-size: 1.5rem;
   font-weight: 600;
   -webkit-transition: .2s;
   transition: .2s;
@@ -389,7 +423,7 @@
 }
 
 .quizPlay .btns button:hover {
-  background: blue;
+  background: #e6e6e6;
 }
 
 .quizPlay .progress {
@@ -401,7 +435,7 @@
   width: 70%;
   height: 20px;
   border-radius: 150px;
-  background: grey;
+  background: #131A28;
 }
 
 .quizPlay .progressDone {
@@ -421,9 +455,9 @@
   position: absolute;
   bottom: 0%;
   left: 0%;
-  background: blue;
-  font-size: 12px;
-  color: black;
+  background: #EBB94A;
+  font-size: 1.5rem;
+  color: #131A28;
   font-weight: 600;
   width: 0%;
   height: 100%;
@@ -434,7 +468,7 @@
 }
 
 .quizPlay .timer {
-  font-size: 15px;
+  font-size: 2rem;
   font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -510,9 +544,9 @@
 }
 
 .quizPlay .slide .span {
-  font-size: 15px;
+  font-size: 2rem;
   font-weight: 600;
-  color: black;
+  color: #EBB94A;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -521,7 +555,7 @@
 .quizPlay .slide .question {
   position: relative;
   margin: 10px;
-  font-size: 15px;
+  font-size: 2rem;
   width: 50%;
   word-break: break-word;
   text-align: center;
@@ -533,7 +567,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: black;
+  color: #EBB94A;
 }
 
 .quizPlay .slide .answers {
@@ -550,7 +584,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: grey;
+  background: #24344D;
   border-radius: 5px;
   overflow-y: scroll;
   padding: 15px;
@@ -579,9 +613,9 @@
   word-wrap: break-word;
   width: 100%;
   padding-left: 25px;
-  color: black;
+  color: #e6e6e6;
   margin: 0;
-  font-size: 15px;
+  font-size: 2rem;
 }
 
 .quizPlay .slide .answers p span {
@@ -589,7 +623,7 @@
   top: 0;
   left: 0;
   font-weight: 600;
-  color: black;
+  color: #EBB94A;
 }
 
 .quizPlay .slide .answers label:hover {
@@ -597,7 +631,7 @@
 }
 
 .quizPlay .slide .answers label input:checked ~ p {
-  color: white;
+  color: #EBB94A;
 }
 
 .quizPlay .slide .answers::-webkit-scrollbar {
@@ -606,16 +640,16 @@
 }
 
 .quizPlay .slide .answers::-webkit-scrollbar-thumb {
-  background: blue;
+  background: #EBB94A;
   border-radius: 100px;
 }
 
 .quizPlay .slide .answers::-webkit-scrollbar-thumb:hover {
-  background: blue;
+  background: #EBB94A;
 }
 
 .quizPlay .slide .answers::-webkit-scrollbar-thumb:active {
-  background: blue;
+  background: #EBB94A;
 }
 
 .quizPlay .slide .answers::-webkit-scrollbar-track {
@@ -640,7 +674,7 @@
 .quizPlay #results {
   width: 100%;
   height: 100%;
-  background: white;
+  background: #131A28;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -662,11 +696,11 @@
 }
 
 .quizPlay #results .btn {
-  background: blue;
+  background: #EBB94A;
   padding: 5px 10px;
   border-radius: 150px;
   font-weight: 600;
-  color: black;
+  color: #131A28;
   position: absolute;
   bottom: 0px;
   right: 50%;
@@ -681,7 +715,7 @@
 }
 
 .quizPlay #results .btn:hover {
-  background: blue;
+  background: #e6e6e6;
   cursor: pointer;
 }
 
@@ -690,7 +724,6 @@
   top: 20px;
   right: 20px;
   font-size: 28px;
-  color: blue;
 }
 
 .quizPlay #results .recap {
@@ -727,7 +760,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 90%;
-  background: grey;
+  background: #192231;
   border-radius: 5px;
   margin-bottom: 15px;
   padding: 15px;
@@ -783,20 +816,20 @@
 }
 
 .quizPlay #results .recap::-webkit-scrollbar-thumb {
-  background: blue;
+  background: #EBB94A;
   border-radius: 100px;
 }
 
 .quizPlay #results .recap::-webkit-scrollbar-thumb:hover {
-  background: blue;
+  background: #EBB94A;
 }
 
 .quizPlay #results .recap::-webkit-scrollbar-thumb:active {
-  background: blue;
+  background: #EBB94A;
 }
 
 .quizPlay #results .recap::-webkit-scrollbar-track {
-  background: grey;
+  background: #192231;
   border-radius: 50px;
 }
 

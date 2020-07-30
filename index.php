@@ -16,8 +16,8 @@ add_shortcode( 'qm_quiz_creation_3', 'qm_quiz_creation_3');
 function qm_display_quiz_menu(){
     global $wpdb;
     echo '
-        <h2 id="debut" class="h2">Nos quiz</h2>
-        <div class="quizModules">
+    <div class="quizModules">
+    <h2 id="debut" class="h2">Nos quiz</h2>
             <a class="ancreTop" href="#debut">
                 <i class="fas fa-sort-up"></i>
             </a>
@@ -40,6 +40,7 @@ function qm_display_quiz_menu(){
         </div>
     ';
 
+    wp_enqueue_style( 'quizMenu', WP_PLUGIN_URL .'/quiz_modules/css/quizMenu.css',false,'1.1','all');
     wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/quiz.js', null, true);
     wp_localize_script('quiz-menu', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
@@ -50,6 +51,8 @@ function qm_display_quiz_menu(){
 function qm_quiz_creation_1(){
     global $wpdb;
     echo '
+    <div class="step1">
+  <h2 class="h2">Créez votre quiz</h2>
     <h3>Étape 1: Le sujet</h3>
     <div class="steps">
         <div class="step stepInto">1</div>
@@ -133,9 +136,10 @@ function qm_quiz_creation_1(){
         </div>
         <input type="submit" value="Suivant">
     </form>
-    
+    </div>
     ';
 
+    wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
     wp_enqueue_script('quiz_step1', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step1.js', null, true);
 }
 
@@ -307,14 +311,15 @@ function qm_quiz_creation_2(){
     <p class="sketching">Enregistrer le brouillon</p>
   </div>';
 
+  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
   wp_enqueue_script('quiz_step2', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step2.js', null, true);
 }
 
 function qm_quiz_creation_3(){
   global $wpdb;
   echo '
-  <h2 class="h2">'. $_SESSION['quizData']['quiz']['title'].'</h2>
   <div class="step3">
+  <h2 class="h2">'. $_SESSION['quizData']['quiz']['title'].'</h2>
 
     <img class="img" src="'.get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
 
@@ -399,6 +404,8 @@ function qm_quiz_creation_3(){
   <a href="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_3.php?status=0">Enregistrer le brouillon</a>
 
   </div>';
+
+  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
 }
 
 
@@ -414,9 +421,9 @@ function qm_display_module_menu(){
   global $wpdb;
   echo '  
 
-    <h2 id="debut" class="h2">Nos modules</h2>
-
-    <div class="quizModules">
+  
+  <div class="quizModules">
+  <h2 id="debut" class="h2">Nos modules</h2>
     <a class="ancreTop" href="#debut">
       <i class="fas fa-sort-up"></i>
     </a>
@@ -449,6 +456,7 @@ function qm_display_module_menu(){
 
     </div>';
 
+    wp_enqueue_style( 'modMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
     wp_enqueue_script('module-menu', WP_PLUGIN_URL .'/quiz_modules/js/modules.js', null, true);
     wp_localize_script('module-menu', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
@@ -460,9 +468,9 @@ function qm_display_module_menu(){
 function qm_module_creation_1(){
   global $wpdb;
   echo '
+  
+  <div class="step1">
   <h2 class="h2">Créez votre module</h2>
-
-  <div class="createQuizModule">
     <h3>Étape 1: Le sujet</h3>
     <div class="steps">
         <div class="step stepInto">1</div>
@@ -528,15 +536,16 @@ function qm_module_creation_1(){
     </form>
   </div>';
 
+  wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
   wp_enqueue_script('module_step1', WP_PLUGIN_URL .'/quiz_modules/js/module_step1.js', null, true);
 }
 
 function qm_module_creation_2(){
   global $wpdb;
   echo '
-  <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
-
+  
   <div class="step2">
+  <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
 
     <img src="'.get_template_directory_uri().'/img/modules/'. $_SESSION['moduleData']['module']['img'].'" alt="votre image">
 
@@ -631,15 +640,16 @@ function qm_module_creation_2(){
     <p class="sketching">Enregistrer en brouillon</p>
   </div>';
 
+  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
   wp_enqueue_script('module_step2', WP_PLUGIN_URL .'/quiz_modules/js/module_step2.js', null, true);
 }
 
 function qm_module_creation_3(){
   global $wpdb;
   echo '
-  <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
-
+  
   <div class="step3">
+  <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
 
     <img class="img" src="'. get_template_directory_uri(); ?>/img/modules/<?php echo $_SESSION['moduleData']['module']['img'].'" alt="votre image">
 
@@ -740,6 +750,8 @@ function qm_module_creation_3(){
     <a href="'. WP_PLUGIN_URL.'/quiz_modules/script/create_module_3.php?status=0">Enregistrer le brouillon</a>
 
   </div>';
+
+  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
 }
 
 
@@ -751,11 +763,11 @@ function qm_display_module_list(){
   global $wpdb;
 
   echo '
-  <h2 class="h2"> Liste Modules </h2>
-
-
-
+  
+  
+  
   <div class="modulesL">
+  <h2 class="h2"> Liste Modules </h2>
   
     <div class="listModules">
   
@@ -786,6 +798,7 @@ function qm_display_module_list(){
   </div>
   ';
 
+  wp_enqueue_style( 'moduleListe', WP_PLUGIN_URL .'/quiz_modules/css/moduleListe.css',false,'1.1','all');
   wp_enqueue_script('list_module', WP_PLUGIN_URL.'/quiz_modules/js/list_module.js', null, true);
         wp_localize_script('list_module', 'myScript', array(
             'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -799,11 +812,9 @@ add_shortcode( 'qm_display_quiz_list', 'qm_display_quiz_list' );
 function qm_display_quiz_list(){
   global $wpdb;
   echo '
-    <h2 class="h2"> Liste des Quizs </h2>
-
-
-
-    <div class="quizsL">
+  
+  <div class="quizsL">
+  <h2 class="h2"> Liste des Quizs </h2>
     
       <div class="listQuiz">
     
@@ -837,6 +848,7 @@ function qm_display_quiz_list(){
     ';
 
 
+  wp_enqueue_style( 'quizListe', WP_PLUGIN_URL .'/quiz_modules/css/quizListe.css',false,'1.1','all');
   wp_enqueue_script('list_quiz', WP_PLUGIN_URL.'/quiz_modules/js/list_quiz.js', null, true);
   wp_localize_script('list_quiz', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -851,9 +863,9 @@ function qm_display_tag_list(){
   global $wpdb;
   echo '
   
+  
+  <div class="add_tag">
     <h2 id="debut" class="h2">Gestion des tags</h2>
-
-    <div class="add_tag">
         <div class="contentTag">
             <div class="listTag">
                 <h3>Tags existants</h3>
@@ -895,7 +907,8 @@ function qm_display_tag_list(){
         </div>
     </div>';
 
-    wp_enqueue_script('gestion_tag', WP_PLUGIN_URL.'/quiz_modules/js/tag.js', null, true);
+  wp_enqueue_style( 'tagListe', WP_PLUGIN_URL .'/quiz_modules/css/tagListe.css',false,'1.1','all');
+  wp_enqueue_script('gestion_tag', WP_PLUGIN_URL.'/quiz_modules/js/tag.js', null, true);
 }
 ///// Classements quiz admin ///// 
 add_shortcode( 'qm_display_classement_admin', 'qm_display_classement_admin' );
@@ -903,9 +916,9 @@ add_shortcode( 'qm_display_classement_admin', 'qm_display_classement_admin' );
 function qm_display_classement_admin(){
   global $wpdb;
   echo '
-      <h2 class="h2 h2board">Classements</h2>
-
-    <div class="board">
+  
+  <div class="board">
+    <h2 class="h2 h2board">Classements</h2>
       <div class="legend">
         <p>Légende <i class="dropIcon fas fa-sort-down"></i></p>
         <div class="square_legend dropLegend">
@@ -969,6 +982,7 @@ function qm_display_classement_admin(){
       </div>
     </div>';
 
+    wp_enqueue_style( 'classement', WP_PLUGIN_URL .'/quiz_modules/css/classement.css',false,'1.1','all');
     wp_enqueue_script('classement-admin', WP_PLUGIN_URL.'/quiz_modules/js/board.js', null, true);
     wp_localize_script('classement-admin', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script'
@@ -982,9 +996,9 @@ add_shortcode( 'qm_display_stats_admin', 'qm_display_stats_admin' );
 function qm_display_stats_admin(){
   global $wpdb;
   echo '
-  <h2 id="debut" class="h2">Statistiques</h2>
-
+  
   <div class="stats">
+  <h2 id="debut" class="h2">Statistiques</h2>
 
     <div class="btns">
       <div>
@@ -1091,6 +1105,8 @@ function qm_display_stats_admin(){
 
   </div>  
   ';
+
+  wp_enqueue_style( 'statistiques', WP_PLUGIN_URL .'/quiz_modules/css/statistiques.css',false,'1.1','all');
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
   wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
   wp_localize_script('stats-admin', 'myScript', array(
@@ -1108,66 +1124,69 @@ function qm_display_creation_campagne(){
 
   global $wpdb;
   echo '
-  <h2 class="h2"> Nouvelle Campagne </h2>
-
+  
   <div class="new_camp">
-    <div class="confirm hidden">
-      <p>Êtes-vous sur de vouloir supprimer cette campagne "<span class="nameCamp"></span>"?</p>
-      <div>
-        <a class="yes">Oui</a>
-        <span class="no close">Non</span>
+    <h2 class="h2"> Nouvelle Campagne </h2>
+    <div class="createContainer">
+      <div class="confirm hidden">
+        <p>Êtes-vous sur de vouloir supprimer cette campagne "<span class="nameCamp"></span>"?</p>
+        <div>
+          <a class="yes">Oui</a>
+          <span class="no close">Non</span>
+        </div>
       </div>
-    </div>
-    <div class="modifyDiv hidden">
-      <h3>Modifiez votre campagne</h3>
-      <div>
-        <label>Nom de la campagne:</label>
-        <input type="text" class="name">
+      <div class="modifyDiv hidden">
+        <h3>Modifiez votre campagne</h3>
+        <div>
+          <label>Nom de la campagne:</label>
+          <input type="text" class="name">
+        </div>
+        <div>
+          <label>Début de la campagne:</label>
+          <input type="date" class="start">
+        </div>
+        <div>
+          <label>Fin de la campagne:</label>
+          <input type="date" class="end">
+        </div>
+        <button class="confirmMod">Valider</button>
+        <i class="fas fa-times close"></i>
       </div>
-      <div>
-        <label>Début de la campagne:</label>
-        <input type="date" class="start">
+      <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_campaign.php" method="POST">
+        <h3>Créez votre campagne</h3>';
+          if(!empty($_SESSION["campaignSuccess"])){
+            echo "<p class='mess good'>".$_SESSION["campaignSuccess"]."</p>";
+            unset($_SESSION["campaignSuccess"]);
+          }
+          elseif(!empty($_SESSION["campaignError"])){
+            echo "<p class='mess error'>".$_SESSION["campaignError"]."</p>";
+            unset($_SESSION["campaignError"]);
+          }
+        echo '
+        <div>
+          <label>Nom de la campagne:</label>
+          <input type="text" name="name">
+        </div>
+        <div>
+          <label> Début de la campagne:</label>
+          <input type="date" name="dateStart">
+        </div> 
+        <div>
+          <label>Fin de la campagne:</label>
+          <input type="date" name="dateEnd">
+        </div>
+        <input type="submit" value="Valider">
+      </form>
+      <div class="listCamp">
+        <h3>Liste des Campagnes</h3>
+        <ul class="camps">
+        </ul>
       </div>
-      <div>
-        <label>Fin de la campagne:</label>
-        <input type="date" class="end">
-      </div>
-      <button class="confirmMod">Valider</button>
-      <i class="fas fa-times close"></i>
-    </div>
-    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_campaign.php" method="POST">
-      <h3>Créez votre campagne</h3>';
-        if(!empty($_SESSION["campaignSuccess"])){
-          echo "<p class='mess good'>".$_SESSION["campaignSuccess"]."</p>";
-          unset($_SESSION["campaignSuccess"]);
-        }
-        elseif(!empty($_SESSION["campaignError"])){
-          echo "<p class='mess error'>".$_SESSION["campaignError"]."</p>";
-          unset($_SESSION["campaignError"]);
-        }
-      echo '
-      <div>
-        <label>Nom de la campagne:</label>
-        <input type="text" name="name">
-      </div>
-      <div>
-        <label> Début de la campagne:</label>
-        <input type="date" name="dateStart">
-      </div> 
-      <div>
-        <label>Fin de la campagne:</label>
-        <input type="date" name="dateEnd">
-      </div>
-      <input type="submit" value="Valider">
-    </form>
-    <div class="listCamp">
-      <h3>Liste des Campagnes</h3>
-      <ul class="camps">
-      </ul>
     </div>
   </div>
   ';
 
+  wp_enqueue_style( 'campagneCreation', WP_PLUGIN_URL .'/quiz_modules/css/campagneCreation.css',false,'1.1','all');
   wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/create_campaign.js', null, true);
   wp_localize_script('createcamp', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -1178,9 +1197,9 @@ function qm_display_creation_campagne(){
 function qm_display_campagne_stats(){
   global $wpdb;
   echo '
-  <h2 class="h2"> Statistiques des Campagnes </h2>
-
+  
   <div class="stats_camp">
+  <h2 class="h2"> Statistiques des Campagnes </h2>
     <div class="select">
       <label>Votre campagne: <span class="camp_name name_camp">votre choix</span></label>
       <ul class="listCamp hidden">';
@@ -1292,7 +1311,6 @@ function qm_display_campagne_stats(){
               </tr>
             </thead>
             <tbody class="totalCompare">
-        
             </tbody>
           </table>
         </div>
@@ -1301,6 +1319,7 @@ function qm_display_campagne_stats(){
   </div>
   ';
 
+  // wp_enqueue_style( 'statsCampagne', WP_PLUGIN_URL .'/quiz_modules/css/statsCampagne.css',false,'1.1','all');
   wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/stats_camps.js', null, true);
         wp_localize_script('statscamp', 'myScript', array(
             'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',

@@ -1,4 +1,7 @@
 .step2 {
+  font-family: "Muli";
+  font-size: 1.5rem;
+  color: #e6e6e6;
   z-index: 2;
   width: 100%;
   display: -webkit-box;
@@ -39,7 +42,7 @@
 }
 
 .step2 .steps .step {
-  background: grey;
+  background: #24344D;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -56,11 +59,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  font-size: 2rem;
+  font-family: "Muli";
+  color: #e6e6e6;
   z-index: 2;
 }
 
 .step2 .steps .stepInto {
-  background: blue;
+  background: #EBB94A;
 }
 
 .step2 .steps .stick {
@@ -71,16 +77,19 @@
           transform: translate(-50%);
   width: 90%;
   height: 2%;
-  background: grey;
+  background: #24344D;
   z-index: 1;
 }
 
 .step2 .plus {
   margin-bottom: 10px;
+  font-size: 2rem;
 }
 
 .step2 h3 {
+  font-size: 1.5rem;
   font-weight: 200;
+  font-family: "Montserrat";
 }
 
 .step2 .trash {
@@ -122,8 +131,10 @@
 .step2 form .questionPage {
   position: relative;
   width: 80%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(36, 51, 76, 0.5);
+  border-radius: 5px;
   padding: 10px 10px;
+  font-size: 1.5rem;
   margin-top: 15px;
   margin-bottom: 15px;
   display: -webkit-box;
@@ -151,7 +162,7 @@
   width: 70%;
   background: none;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .step2 form .questionPage div textarea {
@@ -160,12 +171,24 @@
   min-width: 100%;
   min-height: 150px;
   outline: none;
+  background: #131A28;
+  color: #e6e6e6;
   border: none;
+  border-radius: 5px;
   padding: 10px;
 }
 
 .step2 form .questionPage div label {
   font-weight: 600;
+  color: #EBB94A;
+}
+
+.step2 form .questionPage div input:focus {
+  color: #EBB94A;
+}
+
+.step2 form .questionPage div input:not(:focus) {
+  color: #EBB94A;
 }
 
 .step2 form .questionPage .answers {
@@ -196,6 +219,10 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+}
+
+.step2 form .questionPage .answers .abcd label {
+  color: #e6e6e6;
 }
 
 .step2 form .questionPage .answers .abcd .answer {
@@ -288,22 +315,32 @@
   position: relative;
   padding: 5px 10px;
   width: 100%;
+  background: #EBB94A;
   border: none;
+  border-radius: 3px;
+  color: #131A28;
   outline: none;
   -webkit-transition: .2s;
   transition: .2s;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .step2 form .media div button p:hover {
+  background: #e6e6e6;
   cursor: pointer;
 }
 
 .step2 form .media div span {
+  font-size: 1rem;
   position: absolute;
   bottom: -10px;
   right: 0px;
+}
+
+.step2 form .media div label {
+  color: #e6e6e6;
 }
 
 .step2 form .media div:nth-child(3) {
@@ -327,11 +364,15 @@
 
 .step2 .validate, .step2 .sketching {
   padding: 5px 10px;
+  background: #EBB94A;
+  border-radius: 3px;
+  color: #131A28;
   font-weight: 600;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .step2 .validate:hover, .step2 .sketching:hover {
+  background: #e6e6e6;
   cursor: pointer;
 }

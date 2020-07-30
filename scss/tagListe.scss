@@ -1,0 +1,160 @@
+@import 'mixin', 'colors', 'fontSize';
+.add_tag
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  font-size: $fontSize2;
+  @include flex(space-evenly, center, column);
+  h3
+  {
+    font-family: "Montserrat";
+    text-align: center;
+  }
+  .contentTag
+  {
+    background: rgba(36, 51, 76, 0.5);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 5px;
+    color: $police;
+    @include flex(space-evenly, center, "");
+  }
+  .listTag
+  {
+    height: 300px;
+    background: rgba(19, 26, 40, 0.9);
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 15px;
+    ul
+    {
+      height: 200px;
+      color: $police;
+      list-style: none;
+      margin: 0;
+      padding:0px 5px;
+      overflow-y: scroll;
+      @include flex("", center, column);
+      li
+      {
+        position: relative;
+        margin: 5px;
+        width: 150px;
+        padding: 10px 5px;
+        text-align: center;
+        background: $color-imp;
+        color: $color1;
+        font-weight: 600;
+        border-radius: 3px;
+        word-break: break-word;
+        .deleteBtn
+        {
+          width: 10px;
+          @include positionTR(absolute, 0px, 5px);
+          i
+          {
+            color: rgb(235, 13, 13);
+          }
+        }
+        .deleteBtn:hover
+        {
+          i
+          {
+            color: rgb(136, 13, 13);
+          }
+        }
+        .confirm
+        {
+          @include positionTR(fixed, 50%, 50%);
+          transform: translate(50%, -50%);
+          background: $color3;
+          padding: 5px 10px;
+          border-radius: 5px;
+          color:$police;
+          // box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+          z-index: 45;
+          a, span
+          {
+            font-weight: 100;
+            margin: 5px;
+            color: rgb(235, 13, 13);
+          }
+          span
+          {
+            color: #3AD29F;
+          }
+          span:hover, a:hover
+          {
+            cursor: pointer;
+            font-weight: 600;
+          }
+        }
+        .hidden
+        {
+          display:none;
+        }
+      }
+    }
+    ul::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ul::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    ul::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    ul::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    ul::-webkit-scrollbar-track {
+      background: $color2;
+      border-radius: 50px;
+    }
+    ul::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+  form
+  {
+    height: 300px;
+    color: $police;
+    background: rgba(19, 26, 40, 0.9);
+    padding: 15px;
+    border-radius: 5px;
+    @include flex(space-evenly, center, column);
+    div
+    {
+      position: relative;
+      input
+      {
+        width: 150px;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $police;
+        outline: none;
+        color: $police;
+        text-align: center;
+        margin-bottom: 35px;
+      }
+      input:focus
+      {
+        text-align: center;
+        color: $police;
+      }
+      input:not(:focus)
+      {
+        text-align: center;
+        color: $police;
+      }
+    }
+    input[type="submit"]
+    {
+      font-size: $fontSize2;
+    }
+  }
+}
