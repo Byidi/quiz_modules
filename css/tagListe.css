@@ -24,6 +24,22 @@
   text-align: center;
 }
 
+.add_tag input[type=submit] {
+  background: #EBB94A;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #131A28;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.add_tag input[type=submit]:hover {
+  background: #e6e6e6;
+}
+
 .add_tag .contentTag {
   background: rgba(36, 51, 76, 0.5);
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);

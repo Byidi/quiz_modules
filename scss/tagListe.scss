@@ -12,6 +12,21 @@
     font-family: "Montserrat";
     text-align: center;
   }
+  input[type=submit]
+  {
+    background: $color-btn;
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: none;
+    font-size: $fontSize3;
+    font-weight: 600;
+    color: $color1;
+    transition: .2s;
+  }
+  input[type=submit]:hover
+  {
+    background: $police;
+  }
   .contentTag
   {
     background: rgba(36, 51, 76, 0.5);
