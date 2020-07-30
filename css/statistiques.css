@@ -1,0 +1,525 @@
+.stats {
+  z-index: 9;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Muli";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats .mailSend {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #EBB94A;
+  color: #131A28;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: 5px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.stats .mailSend:hover {
+  cursor: pointer;
+  background: #e6e6e6;
+}
+
+.stats .confirmMess {
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #131A28;
+  color: #e6e6e6;
+  padding: 10px;
+  text-align: center;
+  z-index: 15;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.stats .confirmMess .yesNo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+.stats .confirmMess .yesNo a {
+  color: #3AD29F;
+}
+
+.stats .confirmMess .yesNo p {
+  color: red;
+  margin: 0;
+}
+
+.stats .confirmMess .yesNo a:hover, .stats .confirmMess .yesNo p:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.stats .notifyConfirm {
+  padding: 15px;
+  background: #131A28;
+  color: #e6e6e6;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  z-index: 20;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  position: fixed;
+  top: 50%;
+  right: 50%;
+}
+
+.stats .notifyConfirm i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.stats .users {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #192231;
+  z-index: 11;
+}
+
+.stats .users p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.stats .users .imp {
+  color: #EBB94A;
+}
+
+.stats .users .select {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  color: #e6e6e6;
+  font-size: 1.5rem;
+  z-index: 4;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.stats .users .select label {
+  font-family: "Muli";
+  font-weight: bold;
+}
+
+.stats .users .select label span {
+  background: #131A28;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: lighter;
+}
+
+.stats .users .select label span:hover {
+  color: #EBB94A;
+  cursor: pointer;
+}
+
+.stats .users .select ul {
+  width: 100%;
+  height: 150px;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px;
+  background: #131A28;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.stats .users .select ul li {
+  text-align: center;
+}
+
+.stats .users .select ul li:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.stats .users .select ul::-webkit-scrollbar {
+  width: 2px;
+  height: 3px;
+}
+
+.stats .users .select ul::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats .users .select ul::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats .users .select ul::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats .users .select ul::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.stats .users .select ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.stats .users .nbrUsers {
+  background: #131A28;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: #e6e6e6;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.stats .users .table {
+  position: relative;
+  width: 50%;
+  height: 60%;
+  overflow-y: scroll;
+  z-index: 2;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: "";
+      -ms-flex-align: "";
+          align-items: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.stats .users .table table {
+  position: relative;
+  color: #e6e6e6;
+  font-size: 1.5rem;
+  width: 80%;
+}
+
+.stats .users .table table thead {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stats .users .table table thead :nth-child(1) {
+  border-left: none;
+}
+
+.stats .users .table table thead :nth-child(2) {
+  width: 50%;
+}
+
+.stats .users .table table thead th {
+  padding: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stats .users .table table tr {
+  text-align: center;
+}
+
+.stats .users .table table tr :nth-child(1) {
+  border-left: none;
+}
+
+.stats .users .table table tr td {
+  padding: 10px;
+  word-break: break-word;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stats .users .table::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+}
+
+.stats .users .table::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats .users .table::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats .users .table::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats .users .table::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.stats .users .table::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.stats .users i {
+  font-size: 2rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.stats button {
+  width: 70px;
+  background: #EBB94A;
+  border: none;
+  color: #131A28;
+  font-weight: 600;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  outline: none;
+  font-size: 14px;
+}
+
+.stats button:hover {
+  background: #e6e6e6;
+}
+
+.stats p {
+  color: #e6e6e6;
+}
+
+.stats .extract {
+  width: 150px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.stats .hidden {
+  display: none !important;
+}
+
+.stats .activated {
+  background: #e6e6e6;
+}
+
+.stats .btns {
+  width: 100%;
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.stats .btns label {
+  color: #e6e6e6;
+  font-family: "Muli";
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.stats .btns .listDiv {
+  position: relative;
+  color: #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.stats .btns .listDiv .labelSite {
+  -webkit-transition: .2s;
+  transition: .2s;
+  background: #131A28;
+  border-radius: 3px;
+  font-weight: lighter;
+  padding: 5px 10px;
+}
+
+.stats .btns .listDiv .labelSite:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.stats .btns .listDiv ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #131A28;
+  border-radius: 3px;
+  height: 150px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: "";
+      -ms-flex-pack: "";
+          justify-content: "";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.stats .btns .listDiv ul li {
+  text-align: center;
+  margin: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 1.5rem;
+}
+
+.stats .btns .listDiv ul li:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.stats .btns .listDiv ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.stats canvas {
+  margin-top: 12%;
+  margin-bottom: 15px;
+  z-index: 3;
+  position: relative;
+  width: 82vw !important;
+  height: 41vw !important;
+}
+
+.stats canvas::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.stats canvas::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.stats canvas::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.stats canvas::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.stats canvas::-webkit-scrollbar-track {
+  background: #192231;
+  border-radius: 50px;
+}
+
+.stats canvas::-webkit-scrollbar-corner {
+  background: transparent;
+}

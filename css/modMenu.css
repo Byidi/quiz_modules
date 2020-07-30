@@ -1,6 +1,4 @@
-@charset "UTF-8";
 .quizModules {
-  /* ---- width et height dépendant du parent de la div, attention a bien définir la taille du parent---- */
   position: relative;
   width: 100%;
   height: 100%;
@@ -17,13 +15,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* ---- button classe de la div regroupant les boutons .button-group ---- */
+  /* ---- button ---- */
   /* ---- ancre ---- */
   /* ---- isotope ---- */
 }
 
 .quizModules .button-group {
   width: 90%;
+  border-radius: 100px;
   z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,22 +35,25 @@
 }
 
 .quizModules .button-group button {
-  background: grey;
+  background-color: #EBB94A;
   border: none;
+  border-radius: 3px;
+  color: #131A28;
   font-weight: 600;
   text-transform: capitalize;
   padding: 5px 10px;
   outline: none;
   margin: 5px;
+  font-size: 1.5rem;
 }
 
 .quizModules .button-group .button:hover {
-  background: blue;
+  background-color: #e6e6e6;
 }
 
 .quizModules .button-group .button:active,
 .quizModules .button-group .button.is-checked {
-  background: blue;
+  background-color: #e6e6e6;
 }
 
 .quizModules .ancreTop, .quizModules .ancreDown {
@@ -59,13 +61,14 @@
 }
 
 .quizModules .ancreTop i, .quizModules .ancreDown i {
+  color: #e6e6e6;
   font-size: 25px;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .quizModules .ancreTop i:hover, .quizModules .ancreDown i:hover {
-  color: black;
+  color: #EBB94A;
 }
 
 .quizModules .ancreTop {
@@ -87,16 +90,22 @@
   left: 0;
 }
 
+.quizModules .grid {
+  top: 25%;
+}
+
 .quizModules .grid .element-item {
   position: relative;
   width: 250px;
   height: 250px;
   margin: 50px 50px;
   padding: 10px;
+  border-radius: 5px;
+  background: #24344D;
+  color: #e6e6e6;
   font-weight: 600;
+  font-size: 1.5rem;
   overflow: hidden;
-  background: grey;
-  color: black;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   display: -webkit-box;
@@ -151,12 +160,13 @@
 }
 
 .quizModules .grid .element-item .mod .spanQuiz a {
+  color: #EBB94A;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .quizModules .grid .element-item .mod .spanQuiz a:hover {
-  color: blue;
+  color: #d3c6a9;
 }
 
 .quizModules .grid .element-item .score {
@@ -197,24 +207,28 @@
 }
 
 .quizModules .grid .element-item .imgQ .filter {
-  background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .quizModules .grid .element-item p {
   position: relative;
+  background: #EBB94A;
   padding: 5px 10px;
+  border-radius: 3px;
   -webkit-transition: .2s;
   transition: .2s;
+  color: #131A28;
   font-weight: 600;
   margin-bottom: 7px;
 }
 
 .quizModules .grid .element-item p:hover {
+  background: #e6e6e6;
   cursor: pointer;
 }
 
@@ -222,7 +236,7 @@
   width: 100%;
   height: 100%;
   z-index: 25;
-  background: white;
+  background: #192231;
   position: fixed;
   top: 0;
   left: 0;
@@ -246,13 +260,13 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  font-size: 12px;
+  font-size: 2rem;
 }
 
 .modulePlay .recapModule {
   width: 100%;
   height: 100%;
-  background: grey;
+  background: #131A28;
   z-index: 60;
   position: fixed;
   top: 0;
@@ -328,15 +342,15 @@
 .modulePlay .recapModule .contentRecap .listQuizMod li .divQuiz {
   width: 100%;
   position: relative;
-  color: black;
-  font-size: 12px;
+  color: #e6e6e6;
+  font-size: 1.5rem;
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod li .divQuiz .contentQuiz {
   position: relative;
   width: 100%;
   height: 100%;
-  background: blue;
+  background: #24344D;
   overflow: hidden;
   border-radius: 5px;
   display: -webkit-box;
@@ -417,7 +431,7 @@
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod li .divQuiz:hover span {
-  color: white;
+  color: #EBB94A;
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod::-webkit-scrollbar {
@@ -426,20 +440,20 @@
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod::-webkit-scrollbar-thumb {
-  background: blue;
+  background: #EBB94A;
   border-radius: 100px;
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod::-webkit-scrollbar-thumb:hover {
-  background: blue;
+  background: #EBB94A;
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod::-webkit-scrollbar-thumb:active {
-  background: blue;
+  background: #EBB94A;
 }
 
 .modulePlay .recapModule .contentRecap .listQuizMod::-webkit-scrollbar-track {
-  background: grey;
+  background: #192231;
   border-radius: 50px;
 }
 
@@ -451,7 +465,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  font-size: 12px;
+  font-size: 2rem;
   z-index: 12;
 }
 
@@ -469,10 +483,10 @@
   padding: 5px 10px;
   border-radius: 3px;
   border: none;
-  background: grey;
-  color: grey;
+  background: #EBB94A;
+  color: #131A28;
   font-family: "Muli";
-  font-size: 12px;
+  font-size: 1.5rem;
   font-weight: 600;
   -webkit-transition: .2s;
   transition: .2s;
@@ -481,7 +495,7 @@
 }
 
 .modulePlay .btns button:hover {
-  background: blue;
+  background: #e6e6e6;
 }
 
 .modulePlay .module {
@@ -514,14 +528,14 @@
   opacity: 0;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  color: black;
+  color: #e6e6e6;
   font-family: "Muli";
 }
 
 .modulePlay .module .slide span {
-  font-size: 12px;
+  font-size: 2rem;
   font-weight: 600;
-  color: white;
+  color: #EBB94A;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -620,11 +634,11 @@
 }
 
 .modulePlay .module .slide .content .para h3 {
-  font-size: 12px;
+  font-size: 2rem;
 }
 
 .modulePlay .module .slide .content .para p {
-  font-size: 12px;
+  font-size: 1.5rem;
   padding: 30px;
   overflow-y: scroll;
 }
@@ -635,20 +649,20 @@
 }
 
 .modulePlay .module .slide .content .para p::-webkit-scrollbar-thumb {
-  background: blue;
+  background: #EBB94A;
   border-radius: 100px;
 }
 
 .modulePlay .module .slide .content .para p::-webkit-scrollbar-thumb:hover {
-  background: blue;
+  background: #EBB94A;
 }
 
 .modulePlay .module .slide .content .para p::-webkit-scrollbar-thumb:active {
-  background: blue;
+  background: #EBB94A;
 }
 
 .modulePlay .module .slide .content .para p::-webkit-scrollbar-track {
-  background: white;
+  background: #192231;
   border-radius: 50px;
 }
 
@@ -674,7 +688,7 @@
   width: 70%;
   height: 20px;
   border-radius: 150px;
-  background: grey;
+  background: #131A28;
 }
 
 .modulePlay .progressDone {
@@ -694,9 +708,9 @@
   position: absolute;
   bottom: 0%;
   left: 0%;
-  background: white;
-  font-size: 12px;
-  color: grey;
+  background: #EBB94A;
+  font-size: 1.5rem;
+  color: #131A28;
   font-weight: 600;
   width: 0%;
   height: 100%;

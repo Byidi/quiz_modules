@@ -1,0 +1,307 @@
+.new_camp {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: "Muli";
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.new_camp .createContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.new_camp .createContainer input[type=submit] {
+  background: #EBB94A;
+  border-radius: 3px;
+  padding: 5px 10px;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #131A28;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.new_camp .createContainer input[type=submit]:hover {
+  background: #e6e6e6;
+}
+
+.new_camp .createContainer form, .new_camp .createContainer .modifyDiv {
+  height: 400px;
+  position: relative;
+  padding: 15px;
+  background: #131A28;
+  border-radius: 5px;
+  color: #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.new_camp .createContainer form div, .new_camp .createContainer .modifyDiv div {
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.new_camp .createContainer form div label, .new_camp .createContainer .modifyDiv div label {
+  width: 50%;
+  font-weight: bold;
+}
+
+.new_camp .createContainer form div input[type="text"], .new_camp .createContainer .modifyDiv div input[type="text"] {
+  width: 50%;
+  background: #131A28;
+  border: none;
+  border-bottom: 1px solid #e6e6e6;
+  color: #e6e6e6;
+}
+
+.new_camp .createContainer form div input[type="date"], .new_camp .createContainer .modifyDiv div input[type="date"] {
+  width: 50%;
+  background: #EBB94A;
+  border: none;
+  color: #131A28;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.new_camp .createContainer form input[type="submit"], .new_camp .createContainer .modifyDiv input[type="submit"] {
+  font-size: 1.5rem;
+}
+
+.new_camp .createContainer .modifyDiv {
+  position: absolute;
+  background: #24344D;
+  z-index: 5;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.new_camp .createContainer .modifyDiv div input[type="text"] {
+  background: #24344D;
+}
+
+.new_camp .createContainer .modifyDiv .confirmMod {
+  background: #EBB94A;
+  border: none;
+  padding: 5px 10px;
+  color: #131A28;
+  font-weight: bold;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 3px;
+  outline: none;
+}
+
+.new_camp .createContainer .modifyDiv .confirmMod:hover {
+  background: #e6e6e6;
+}
+
+.new_camp .createContainer .modifyDiv i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.new_camp .createContainer .listCamp {
+  height: 400px;
+  width: 300px;
+  position: relative;
+  padding: 15px;
+  background: #131A28;
+  color: #e6e6e6;
+  border-radius: 5px;
+  margin-left: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.new_camp .createContainer .listCamp ul {
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  height: 70%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.new_camp .createContainer .listCamp ul li {
+  background: #24344D;
+  padding: 5px;
+  border-radius: 3px;
+  color: #e6e6e6;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.new_camp .createContainer .listCamp ul li span {
+  color: #EBB94A;
+}
+
+.new_camp .createContainer .listCamp ul li button {
+  background: #EBB94A;
+  color: #131A28;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 5px 10px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: none;
+}
+
+.new_camp .createContainer .listCamp ul li button:nth-child(2) {
+  background: red;
+}
+
+.new_camp .createContainer .listCamp ul li button:hover {
+  background: #e6e6e6;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar {
+  width: 2px;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar-track {
+  background: #192231;
+  border-radius: 50px;
+}
+
+.new_camp .createContainer .listCamp ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.new_camp .createContainer .confirm {
+  width: 300px;
+  padding: 15px;
+  z-index: 3;
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  background: #24344D;
+  border-radius: 3px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.new_camp .createContainer .confirm p {
+  margin: 0;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.new_camp .createContainer .confirm div {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.new_camp .createContainer .confirm div .yes {
+  color: #3AD29F;
+}
+
+.new_camp .createContainer .confirm div .no {
+  color: red;
+}
+
+.new_camp .createContainer .confirm div .yes:hover, .new_camp .createContainer .confirm div .no:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.new_camp .createContainer .hidden {
+  display: none;
+}

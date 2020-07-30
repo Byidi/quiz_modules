@@ -18,6 +18,7 @@ function qm_display_quiz_menu(){
     echo '
         <h2 id="debut" class="h2">Nos quiz</h2>
         <div class="quizModules">
+        
             <a class="ancreTop" href="#debut">
                 <i class="fas fa-sort-up"></i>
             </a>

@@ -1,0 +1,398 @@
+.board {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.board .legend {
+  width: 100px;
+  border-radius: 5px;
+  padding: 10px;
+  background: #131A28;
+  font-size: 13px;
+  overflow: hidden;
+  z-index: 9;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.board .legend p {
+  width: 100%;
+  position: relative;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+.board .legend p i {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  padding-bottom: 5px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.board .legend .square_legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.board .legend .square_legend .you, .board .legend .square_legend .gold, .board .legend .square_legend .silver, .board .legend .square_legend .bronze {
+  width: 80px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.board .legend .square_legend .you div, .board .legend .square_legend .gold div, .board .legend .square_legend .silver div, .board .legend .square_legend .bronze div {
+  border-radius: 2px;
+  width: 30px;
+  height: 15px;
+}
+
+.board .legend .square_legend .you div {
+  background: #EBB94A;
+}
+
+.board .legend .square_legend .gold div {
+  background: #FFD700;
+}
+
+.board .legend .square_legend .silver div {
+  background: #C0C0C0;
+}
+
+.board .legend .square_legend .bronze div {
+  background: #CD7F32;
+}
+
+.board .dropLegend {
+  display: none !important;
+}
+
+.board .spans {
+  padding: 5px;
+  border-radius: 5px;
+  background: #131A28;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.board .spans .span_under, .board .spans .span_above {
+  color: #3AD29F;
+  font-weight: 600;
+}
+
+.board .spans .span_under {
+  color: #eb0d0d;
+}
+
+.board .btns {
+  width: 100%;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.board .btns button {
+  background: #EBB94A;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  color: #131A28;
+  font-weight: 600;
+  -webkit-transition: .2s;
+  transition: .2s;
+  outline: none;
+}
+
+.board .btns div {
+  margin: 10px;
+}
+
+.board .btns label {
+  font-weight: bold;
+  font-family: "Muli";
+  margin-right: 5px;
+}
+
+.board .btns .select {
+  position: relative;
+  z-index: 2;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.board .btns .select .labelSpan {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.board .btns .select .labelSpan .labelList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.board .btns .select .labelSpan .selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 0;
+  background: #131A28;
+}
+
+.board .btns .select .labelSpan .selected:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.board .btns .select ul {
+  background: #24344D;
+  border-radius: 3px;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  min-height: 100px;
+  max-height: 200px;
+  min-width: 100px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.board .btns .select ul li {
+  margin-bottom: 10px;
+}
+
+.board .btns .select ul::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.board .btns .select ul::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.board .btns .select ul::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.board .btns .select ul::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.board .btns .select ul::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.board .btns .select ul::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.board .btns .select li:hover {
+  cursor: pointer;
+  color: #EBB94A;
+}
+
+.board .btns .none {
+  display: none !important;
+}
+
+.board .btns button:hover {
+  background: #e6e6e6;
+}
+
+.board .leadboard {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  border-collapse: collapse;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.board .leadboard table {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.board .leadboard table thead {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.board .leadboard table thead :nth-child(1) {
+  width: 5%;
+  border-left: none;
+}
+
+.board .leadboard table thead th {
+  width: 15%;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.board .leadboard table tr {
+  text-align: center;
+}
+
+.board .leadboard table tr :nth-child(1) {
+  border-left: none;
+}
+
+.board .leadboard table tr td {
+  word-break: break-word;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.board .leadboard table .imp {
+  font-weight: 600;
+  color: #EBB94A;
+}
+
+.board .leadboard table .green {
+  color: #3AD29F;
+  font-weight: 600;
+}
+
+.board .leadboard table .red {
+  color: #eb0d0d;
+  font-weight: 600;
+}
+
+.board .leadboard table .gold {
+  font-weight: 600;
+  color: #FFD700;
+}
+
+.board .leadboard table .silver {
+  font-weight: 600;
+  color: #C0C0C0;
+}
+
+.board .leadboard table .bronze {
+  font-weight: 600;
+  color: #CD7F32;
+}
+
+.board .leadboard::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.board .leadboard::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.board .leadboard::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.board .leadboard::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.board .leadboard::-webkit-scrollbar-track {
+  background: #192231;
+  border-radius: 50px;
+}
+
+.board .leadboard::-webkit-scrollbar-corner {
+  background: transparent;
+}
