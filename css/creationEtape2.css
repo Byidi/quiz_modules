@@ -1,0 +1,378 @@
+.step2 {
+  font-family: "Muli";
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  z-index: 2;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step2 img {
+  max-width: 30%;
+}
+
+.step2 .steps {
+  position: relative;
+  width: 50%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 .steps .step {
+  background: #24344D;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 2rem;
+  font-family: "Muli";
+  color: #e6e6e6;
+  z-index: 2;
+}
+
+.step2 .steps .stepInto {
+  background: #EBB94A;
+}
+
+.step2 .steps .stick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  width: 90%;
+  height: 2%;
+  background: #24344D;
+  z-index: 1;
+}
+
+.step2 .plus {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.step2 h3 {
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: "Montserrat";
+}
+
+.step2 .trash {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.step2 .total {
+  margin: 0;
+  font-weight: 600;
+  position: fixed;
+  top: 20%;
+  right: 25px;
+}
+
+.step2 form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step2 form .hidden {
+  display: none !important;
+}
+
+.step2 form .questionPage {
+  position: relative;
+  width: 80%;
+  background: rgba(36, 51, 76, 0.5);
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step2 form .questionPage div {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.step2 form .questionPage div input {
+  width: 70%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.step2 form .questionPage div textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 150px;
+  outline: none;
+  background: #131A28;
+  color: #e6e6e6;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.step2 form .questionPage div label {
+  font-weight: 600;
+  color: #EBB94A;
+}
+
+.step2 form .questionPage div input:focus {
+  color: #EBB94A;
+}
+
+.step2 form .questionPage div input:not(:focus) {
+  color: #EBB94A;
+}
+
+.step2 form .questionPage .answers {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step2 form .questionPage .answers .abcd {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.step2 form .questionPage .answers .abcd label {
+  color: #e6e6e6;
+}
+
+.step2 form .questionPage .answers .abcd .answer {
+  width: 50%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 form .questionPage .answers .abcd .answer input {
+  outline: none;
+  width: 60%;
+}
+
+.step2 form .questionPage .answers .abcd .answer input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 10%;
+  height: 0;
+}
+
+.step2 form .questionPage .answers .abcd .answer .true:hover input ~ span i {
+  color: #3AD29F;
+}
+
+.step2 form .questionPage .answers .abcd .answer .true input:checked ~ span i {
+  color: #3AD29F;
+}
+
+.step2 form .questionPage .answers .abcd .answer .false:hover input ~ span i {
+  color: red;
+}
+
+.step2 form .questionPage .answers .abcd .answer .false input:checked ~ span i {
+  color: red;
+}
+
+.step2 form .media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 form .media div {
+  position: relative;
+  width: 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 form .media div button {
+  width: 70%;
+  background: none;
+  border: none;
+}
+
+.step2 form .media div button p {
+  position: relative;
+  padding: 5px 10px;
+  width: 100%;
+  background: #EBB94A;
+  border: none;
+  border-radius: 3px;
+  color: #131A28;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.step2 form .media div button p:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+
+.step2 form .media div span {
+  font-size: 1rem;
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+}
+
+.step2 form .media div label {
+  color: #e6e6e6;
+}
+
+.step2 form .media div:nth-child(3) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 form .media div:nth-child(3) input {
+  width: 70%;
+}
+
+.step2 .validate, .step2 .sketching {
+  padding: 5px 10px;
+  background: #EBB94A;
+  border-radius: 3px;
+  color: #131A28;
+  font-weight: 600;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.step2 .validate:hover, .step2 .sketching:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}

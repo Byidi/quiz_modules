@@ -1,0 +1,399 @@
+.step3 {
+  font-family: "Muli";
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  z-index: 5;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step3 .img {
+  position: relative;
+  max-width: 30%;
+}
+
+.step3 h3 {
+  font-weight: 200;
+}
+
+.step3 .steps {
+  position: relative;
+  width: 50%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .steps .step {
+  background: #24344D;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 2rem;
+  font-family: "Muli";
+  color: #e6e6e6;
+  z-index: 2;
+}
+
+.step3 .steps .stepInto {
+  background: #EBB94A;
+}
+
+.step3 .steps .stick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  width: 90%;
+  height: 2%;
+  background: #24344D;
+  z-index: 1;
+}
+
+.step3 a {
+  padding: 5px 10px;
+  background: #EBB94A;
+  color: #131A28;
+  margin-bottom: 35px;
+  border-radius: 3px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.step3 a:hover {
+  background: #e6e6e6;
+}
+
+.step3 .error {
+  color: red;
+}
+
+.step3 .good {
+  color: #3AD29F;
+}
+
+.step3 .recap {
+  margin-top: 40px;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step3 .recap .questions {
+  position: relative;
+  width: 70%;
+  background: rgba(36, 52, 77, 0.7);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.step3 .recap .questions .introP {
+  padding: 15px;
+}
+
+.step3 .recap .questions .numQ {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #EBB94A;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.step3 .recap .questions .medias {
+  width: 35%;
+  margin-top: 5px;
+}
+
+.step3 .recap .questions .medias img {
+  width: 100%;
+  height: auto;
+}
+
+.step3 .recap .questions iframe {
+  width: 90%;
+}
+
+.step3 .recap .questions .question {
+  width: 100%;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .questions .question p {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 20px 0 20px;
+  word-wrap: break-word;
+}
+
+.step3 .recap .questions .answers {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.step3 .recap .questions .answers div {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .questions .answers div .spanP {
+  position: relative;
+  width: 92%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .questions .answers div .spanP span {
+  margin-right: 15px;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.step3 .recap .questions .answers div .spanP p {
+  width: 80%;
+  word-wrap: break-word;
+}
+
+.step3 .recap .questions .answers div div {
+  position: relative;
+  width: 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .pages {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: #24344D;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 45px;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .pages .introP {
+  padding: 55px;
+}
+
+.step3 .recap .pages span {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #EBB94A;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.step3 .recap .pages .medias {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step3 .recap .pages .medias img {
+  position: relative;
+  width: auto;
+  max-height: 80%;
+}
+
+.step3 .recap .pages .full {
+  width: 100%;
+}
+
+.step3 .recap .pages .content {
+  position: relative;
+  width: 50%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+}
+
+.step3 .recap .pages .content p {
+  padding: 30px;
+}
+
+.step3 .recap .pages .contentFull {
+  width: 100%;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-track {
+  background: #192231;
+  border-radius: 50px;
+}
+
+.step3 .recap .pages .content::-webkit-scrollbar-corner {
+  background: transparent;
+}

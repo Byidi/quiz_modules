@@ -1,0 +1,49 @@
+@mixin flex($justify, $align, $direction)
+{
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@mixin positionTL($position, $top, $left) 
+{
+    position:  $position;
+    top: $top;
+    left: $left;
+}
+
+@mixin positionTR($position, $top, $right) 
+{
+    position:  $position;
+    top: $top;
+    right: $right;
+}
+
+@mixin positionBL($position, $bottom, $left) 
+{
+    position:  $position;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin positionBR($position, $bottom, $right) 
+{
+    position:  $position;
+    bottom: $bottom;
+    right: $right;
+}
+
+@mixin gridRepeat($columns, $columnsRepeat, $rows, $rowsRepeat, $gap) {
+    display: grid;
+    grid-template-columns: repeat($columnsRepeat, $columns);
+    grid-template-rows: repeat($rowsRepeat, $rows);
+    grid-gap: $gap;
+}
+
+@mixin grid($columns, $rows, $gap) {
+    display: grid;
+    grid-template-columns: $columns;
+    grid-template-rows: $rows;
+    grid-gap: $gap;
+}

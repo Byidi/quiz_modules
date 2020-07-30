@@ -1,0 +1,245 @@
+@import 'mixin', 'colors', 'fontSize';
+.step3
+{
+  font-family: "Muli";
+  font-size: $fontSize2;
+  color: $police;
+  z-index: 5;
+  width: 100%;
+  @include flex(space-around, center, column);
+  // @include positionTL(absolute, 10%, 0);
+  .img
+  {
+    position: relative;
+    max-width: 30%;
+  }
+  h3
+  {
+    font-weight: 200;
+  }
+  .steps
+  {
+    position: relative;
+    width: 50%;
+    height: 20%;
+    @include flex(space-between, center, row);
+    .step
+    {
+      background: $color3;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      @include flex(center, center, row);
+      font-size: $fontSize3;
+      font-family: "Muli";
+      color: $police;
+      z-index: 2;
+    }
+    .stepInto
+    {
+      background: $color-imp;
+    }
+    .stick
+    {
+      @include positionTL(absolute, 50%, 50%);
+      transform: translate(-50%);
+      width: 90%;
+      height: 2%;
+      background: $color3;
+      z-index: 1;
+    }
+  }
+
+  a
+  {
+    padding: 5px 10px;
+    background: $color-btn;
+    color: $color1;
+    margin-bottom: 35px;
+    border-radius: 3px;
+    transition: .2s;
+    font-size: $fontSize2;
+    font-weight: 600;
+  }
+  a:hover
+  {
+    background: $police;
+  }
+  .error
+  {
+    color: red;
+  }
+  .good
+  {
+    color: #3AD29F;
+  }
+  .recap
+  {
+    margin-top: 40px;
+    width: 80%;
+    @include flex(center, center, column);
+    .questions
+    {
+      position: relative;
+      width: 70%;
+      background: rgba(36, 52, 77, 0.7);
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 45px;
+      @include flex(space-around, center, column);
+      .introP
+      {
+        padding: 15px;
+      }
+      .numQ
+      {
+        font-size: $fontSize3;
+        font-weight: 600;
+        color: $color-imp;
+        @include positionTL(absolute, 10px, 10px);
+      }
+      .medias
+      {
+        width: 35%;
+        margin-top: 5px;
+        img
+        {
+          width: 100%;
+          height: auto;
+        }
+      }
+      iframe
+      {
+        width: 90%;
+      }
+      .question
+      {
+        width: 100%;
+        font-weight: 600;
+        @include flex(center, center, row);
+        p
+        {
+          margin-top: 30px;
+          margin-bottom: 30px;
+          width: 100%;
+          font-weight: 600;
+          text-align: center;
+          padding: 0 20px 0 20px;
+          word-wrap: break-word;
+        }
+      }
+      .answers
+      {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        div
+        {
+          position: relative;
+          width: 100%;
+          @include flex(center, center, row);
+          .spanP
+          {
+            position: relative;
+            width: 92%;
+            @include flex(flex-start, center, row);
+            span
+            {
+              margin-right: 15px;
+              margin-left: 2px;
+              font-weight: 600;
+            }
+            p
+            {
+              width: 80%;
+              word-wrap: break-word;
+            }
+          }
+          div
+          {
+            position: relative;
+            width: 8%;
+            @include flex(space-evenly, center, row);
+          }
+        }
+      }
+    }
+    .pages
+    {
+      position: relative;
+      width: 800px;
+      height: 500px;
+      background: $color3;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-bottom: 45px;
+      overflow-y: hidden;
+      @include flex(space-evenly, center, row);
+      .introP
+      {
+        padding: 55px;
+      }
+      span
+      {
+        font-size: $fontSize3;
+        font-weight: 600;
+        color: $color-imp;
+        @include positionTL(absolute, 10px, 10px);
+      }
+      .medias
+      {
+        position: relative;
+        width: 40%;
+        height: 100%;
+        @include flex(space-around, center, row);
+        img
+        {
+          position: relative;
+          width:auto;
+          max-height: 80%;
+        }
+      }
+      .full
+      { 
+        width: 100%;
+      }
+      .content
+      {
+        position: relative;
+        width: 50%;
+        height: 90%;
+        @include flex(flex-start, center, column);
+        overflow-y: scroll;
+        p
+        {
+          padding: 30px;
+        }
+      }
+      .contentFull
+      {
+        width: 100%;
+      }
+      .content::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      .content::-webkit-scrollbar-thumb {
+        background: $color-btn;
+        border-radius: 100px;
+      }
+      .content::-webkit-scrollbar-thumb:hover {
+        background: $color-btn;
+      }
+      .content::-webkit-scrollbar-thumb:active {
+        background: $color-btn;
+      }
+      .content::-webkit-scrollbar-track {
+        background: $color2;
+        border-radius: 50px;
+      }
+      .content::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+    }
+  }
+}

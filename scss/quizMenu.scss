@@ -1,0 +1,553 @@
+@import 'mixin', 'colors', 'fontSize';
+.quizModules
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @include flex(center, center, column);
+  
+  /* ---- button ---- */
+  .button-group
+  {
+    width: 90%;
+    border-radius: 100px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button 
+    {
+      background-color: $color-btn;
+      border: none;
+      border-radius: 3px;
+      color: $color1;
+      font-weight: 600;
+      text-transform: capitalize;
+      padding: 5px 10px;
+      outline: none;
+      margin: 5px;
+      font-size: $fontSize2;
+    }
+    
+    .button:hover 
+    {
+      background-color: $police;        
+    }
+    
+    .button:active,
+    .button.is-checked 
+    {
+      background-color: $police;
+    }
+  }
+  /* ---- ancre ---- */
+  
+  .ancreTop, .ancreDown
+  {
+    z-index: 24;
+    i
+    {
+      color: $police;
+      font-size:25px;
+      transition:.2s;
+    }
+    i:hover
+    {
+      color: $color-imp;
+    }
+  }
+  .ancreTop
+  {
+    z-index: 25;
+    @include positionBR(fixed, 20px, 10px);
+  }
+  .ancreDown
+  {
+    @include positionBR(fixed, 10px, 10px);
+  }
+
+  #end
+  {
+    @include positionBL(absolute, 0, 0);
+  }
+  /* ---- isotope ---- */
+  
+  .grid {
+    top: 25%;
+    .element-item {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 50px 50px;
+      padding: 10px;
+      border-radius: 5px;
+      background: $color3;
+      color: $police;
+      font-weight: 600;
+      font-size: $fontSize2;
+      overflow: hidden;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+      @include flex(space-between, center, column);
+      h3
+      {
+        position: relative;
+        z-index: 2;
+      }
+      .tag
+      {
+        z-index: 2;
+        @include positionTL(absolute, 5px, 5px);
+      }
+      .mod
+      {
+        z-index: 2;
+        @include positionBL(absolute, 26%, 5px);
+        @include flex(space-between, center, "");
+        .spanQuiz
+        {
+          margin-left: 5px;
+          a
+          {
+            color: $color-imp;
+            transition: .2s;
+          }
+          a:hover
+          {
+            color: rgb(211, 198, 169);
+          }
+        }
+        .btnlist
+        {
+          background: none;
+          padding: 0;
+          margin: 0;
+          margin-left: 5px;
+          color: $color-imp;
+        }
+        .btnlist:hover
+        {
+          color: rgb(211, 198, 169);
+        }
+        .list
+        {
+          width: 100px;
+          height: 0px;
+          margin: 0;
+          padding: 0;
+          background: $color1;
+          overflow-y:scroll;
+          border-radius: 3px;
+          transition: .2s;
+          @include flex("", "", column);
+          @include positionBR(absolute, 0%, -102px);
+          li
+          {
+            position: relative;
+            list-style: none;
+            margin: 5px;
+            @include flex(center, "", "");
+            a
+            {
+              color: $color-imp;
+              transition: .2s;
+            }
+            a:hover
+            {
+              color: rgb(211, 198, 169);
+            }
+          }
+        }
+        .list::-webkit-scrollbar {
+          width: 2px;
+          height: 2px;
+        }
+        .list::-webkit-scrollbar-thumb {
+          background: $color-btn;
+          border-radius: 100px;
+        }
+        .list::-webkit-scrollbar-thumb:hover {
+          background: $color-btn;
+        }
+        .list::-webkit-scrollbar-thumb:active {
+          background: $color-btn;
+        }
+        .list::-webkit-scrollbar-track {
+          background: $color2;
+          border-radius: 50px;
+        }
+        .list::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+        .listAppear
+        {
+          height: 120px;
+        }
+      }
+      .score
+      {
+        z-index: 2;
+        @include positionTR(absolute, 5px, 5px);
+      }
+      .imgQ
+      {
+        width: 100%;
+        height: 75%;
+        @include flex(center, center, column);
+        @include positionTL(absolute,0,0);
+        overflow: hidden;
+        img
+        {
+          position: relative;
+          max-width: 130%;
+          height: auto;
+          object-position: center;
+        }
+        .filter
+        {
+          width: 100%;
+          height: 100%;
+          @include positionTL(absolute, 0, 0);
+          background: rgba(0,0,0, 0.8);
+        }
+      }
+      p
+      {
+        position: relative;
+        background: $color-btn;
+        padding: 5px 10px;
+        border-radius: 3px;
+        transition: .2s;
+        color: $color1;
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+      p:hover
+      {
+        background: $police;
+        cursor: pointer;
+      }
+    }
+  }      
+}
+.quizPlay
+{
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  background: $color2;
+  transition: .2s;
+  font-size: $fontSize2;
+  color: $police;
+  @include positionTL(fixed, 0, 0);
+  @include flex(center, center, column);
+  .quiz
+  {
+    @include positionTL(relative, 0 ,0);
+    width: 100%;
+    height: 100%;
+    @include flex(space-between, center, column);
+    z-index: inherit;
+  }
+  .quitQuiz
+  {
+    color: $police;
+    font-size: $fontSize3;
+    z-index: inherit;
+    @include positionTL(absolute, 10px, 10px);
+  }
+  .btns
+  {
+    position: relative;
+    width: 50%;
+    margin: 4%;
+    @include flex(space-around, center, row);
+    z-index: inherit;
+    button
+    {
+      background: $color-btn;
+      border-radius: 3px;
+      border: none;
+      padding: 5px 10px;
+      color: $color1;
+      font-size: $fontSize2;
+      font-weight: 600;
+      transition: .2s;
+      outline: none;
+    }
+    button:hover
+    {
+      background: $police;
+    }
+  }
+  .progress
+  {
+    @include positionBL(absolute, 2%, 50%);
+    transform: translateX(-50%);
+    width: 70%;
+    height: 20px;
+    border-radius: 150px;
+    background: $color1;
+  }
+  .progressDone
+  {
+    @include flex(center, center, "");
+    @include positionBL(absolute, 0%, 0%);
+    background: $color-imp;
+    font-size: $fontSize2;
+    color: $color1;
+    font-weight: 600;
+    width: 0%;
+    height: 100%;
+    border-radius: 150px;
+    opacity: 0;
+    transition: .2s ease;
+  }
+  .timer
+  {
+    font-size: $fontSize3;
+    font-weight: 600;
+    @include flex(center, center, row);
+    @include positionBR(absolute, 20px, 20px);
+    z-index: inherit;
+  }
+  .slide{
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+    @include flex(center, center, column);
+    .img
+    {
+      position: relative;
+      width: 53.4vh;
+      height: 30vh;
+      @include flex(center, center, "");
+      img
+      {
+        position: relative;
+        max-width: auto;
+        max-height: 100%;
+      }
+      iframe
+      {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .span
+    {
+      font-size: $fontSize3;
+      font-weight: 600;
+      color: $color-imp;
+      @include positionTR(absolute, 10px, 10px);
+    }
+    .question
+    {
+      position: relative;
+      margin: 10px;
+      font-size: $fontSize3;
+      width: 50%;
+      word-break: break-word;
+      text-align: center;
+      padding-left: 25px;
+      font-weight: 600;
+      span
+      {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $color-imp;
+      }
+    }
+    .answers
+    {
+      position: relative;
+      width: 50%;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: $color3;
+      border-radius: 5px;
+      overflow-y: scroll;
+      padding: 15px;
+      label
+      {
+        position: relative;
+        width: 80%;
+        margin: 15px;
+      }
+      input
+      {
+        outline: none;
+      }
+      input[type=checkbox]
+      {
+        position: absolute;
+        opacity: 0;
+        width: 10%;
+        height: 0;
+      }
+      p
+      {
+        position: relative;
+        text-align: initial;
+        word-wrap: break-word;  
+        width: 100%;
+        padding-left: 25px;
+        color: $police;
+        margin: 0;
+        font-size: $fontSize3;
+        span
+        {
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-weight: 600;
+          color: $color-imp;
+        }
+      }
+      label:hover
+      {
+        cursor: pointer;
+      }
+      label input:checked ~ p        
+      {
+        color: $color-imp;
+      }
+    }
+    .answers::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .answers::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    .answers::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    .answers::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    .answers::-webkit-scrollbar-track {
+      background: transparent;
+      border-radius: 50px;
+    }
+    .answers::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+  .active-slide{
+    opacity: 1;
+    z-index: 2;
+  }
+  .active-slideQuiz{
+    opacity: 1;
+    z-index: 2;
+  }
+  #results
+  {
+    width: 100%;
+    height: 100%;
+    background: $color1;
+    @include flex(flex-start, center, column);
+    @include positionTR(fixed, 0, 0);
+    z-index: 2;
+    opacity: 0;
+    .btn
+    {
+      background: $color-btn;
+      padding: 5px 10px;
+      border-radius: 150px;
+      font-weight: 600;
+      color: $color1;
+      @include positionBR(absolute, 0px, 50%);
+      transform: translate(50%);
+      transition: .2s;
+      user-select: none;
+    }
+    .btn:hover
+    {
+      background: $police;
+      cursor: pointer;
+    }
+    .fa-times
+    {
+      @include positionTR(absolute, 20px, 20px);
+      font-size: 28px;
+    }
+    .recap
+    {
+      @include flex(flex-start, center, column);
+      width: 40%;
+      overflow-y: scroll;
+      .question
+      {
+        position: relative;
+        @include flex(center, center, column);
+        width: 90%;
+        background: $color2;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 15px;
+        .questionRecap
+        {
+          position: relative;
+          width: 100%;
+          text-align: center;
+          font-weight: 600;
+          padding-right: 30px;
+          padding-left: 30px;
+          word-wrap: break-word;
+          span
+          {
+            position: absolute;
+            left: 0;
+          }
+        }
+        .answerRecap
+        {
+          position: relative;
+          @include flex(center, center, column);
+          .answerTF
+          {
+            width: 100%;
+            text-align: initial;
+            word-break: break-word;
+            padding-left: 25px;
+            span
+            {
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+    .recap::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .recap::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    .recap::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    .recap::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    .recap::-webkit-scrollbar-track {
+      background: $color2;
+      border-radius: 50px;
+    }
+    .recap::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+  }
+}

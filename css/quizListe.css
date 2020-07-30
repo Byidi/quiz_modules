@@ -1,0 +1,229 @@
+.quizsL {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "";
+          flex-direction: "";
+}
+
+.quizsL .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #131A28;
+  color: #e6e6e6;
+  padding: 15px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizsL .popup #yes, .quizsL .popup #no {
+  padding: 10px;
+}
+
+.quizsL .popup #yes {
+  color: #3AD29F;
+}
+
+.quizsL .popup #no {
+  color: red;
+}
+
+.quizsL .popup #yes:hover, .quizsL .popup #no:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.quizsL .listQuiz table tr :nth-child(4), .quizsL .listModules table tr :nth-child(4) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.quizsL .listQuiz, .quizsL .listModules, .quizsL .listUser {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 80%;
+  border-collapse: collapse;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.quizsL .listQuiz table, .quizsL .listModules table, .quizsL .listUser table {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.quizsL .listQuiz table p, .quizsL .listQuiz table a, .quizsL .listModules table p, .quizsL .listModules table a, .quizsL .listUser table p, .quizsL .listUser table a {
+  font-family: "Muli";
+  margin: 10px;
+  width: 100px;
+  color: #131A28;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: #EBB94A;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-weight: 600;
+}
+
+.quizsL .listQuiz table p, .quizsL .listModules table p, .quizsL .listUser table p {
+  background: #eb0d0d;
+  color: #e6e6e6;
+}
+
+.quizsL .listQuiz table p:hover, .quizsL .listQuiz table a:hover, .quizsL .listModules table p:hover, .quizsL .listModules table a:hover, .quizsL .listUser table p:hover, .quizsL .listUser table a:hover {
+  cursor: pointer;
+  background: #e6e6e6;
+  color: #131A28;
+}
+
+.quizsL .listQuiz table thead, .quizsL .listModules table thead, .quizsL .listUser table thead {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.quizsL .listQuiz table thead :nth-child(1), .quizsL .listModules table thead :nth-child(1), .quizsL .listUser table thead :nth-child(1) {
+  border-left: none;
+}
+
+.quizsL .listQuiz table thead :nth-child(2), .quizsL .listModules table thead :nth-child(2), .quizsL .listUser table thead :nth-child(2) {
+  width: 30%;
+}
+
+.quizsL .listQuiz table thead :nth-child(4), .quizsL .listModules table thead :nth-child(4), .quizsL .listUser table thead :nth-child(4) {
+  margin: 0;
+}
+
+.quizsL .listQuiz table thead th, .quizsL .listModules table thead th, .quizsL .listUser table thead th {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.quizsL .listQuiz table tr:nth-child(1) :nth-child(4), .quizsL .listModules table tr:nth-child(1) :nth-child(4), .quizsL .listUser table tr:nth-child(1) :nth-child(4) {
+  border-top: none;
+}
+
+.quizsL .listQuiz table tr, .quizsL .listModules table tr, .quizsL .listUser table tr {
+  text-align: center;
+}
+
+.quizsL .listQuiz table tr :nth-child(1), .quizsL .listModules table tr :nth-child(1), .quizsL .listUser table tr :nth-child(1) {
+  border-left: none;
+}
+
+.quizsL .listQuiz table tr td, .quizsL .listModules table tr td, .quizsL .listUser table tr td {
+  word-break: break-word;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.quizsL .bigger {
+  width: 100%;
+}
+
+.quizsL .bigger table thead :nth-child(1) {
+  border-left: none;
+  width: 12%;
+}
+
+.quizsL .bigger table thead :nth-child(2) {
+  width: 12%;
+}
+
+.quizsL .bigger table thead :nth-child(3) {
+  width: 10%;
+}
+
+.quizsL .bigger table thead :nth-child(4) {
+  width: 35%;
+}
+
+.quizsL .bigger table thead :nth-child(5) {
+  width: 15%;
+}
+
+.quizsL .bigger table button {
+  background: #EBB94A;
+  border: none;
+  border-radius: 3px;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-weight: bold;
+  color: #131A28;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.quizsL .bigger table button:hover {
+  background: #e6e6e6;
+}
+
+.quizsL .bigger table .red {
+  background: red;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar, .quizsL .listModules::-webkit-scrollbar, .quizsL .listUser::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar-thumb, .quizsL .listModules::-webkit-scrollbar-thumb, .quizsL .listUser::-webkit-scrollbar-thumb {
+  background: #EBB94A;
+  border-radius: 100px;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar-thumb:hover, .quizsL .listModules::-webkit-scrollbar-thumb:hover, .quizsL .listUser::-webkit-scrollbar-thumb:hover {
+  background: #EBB94A;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar-thumb:active, .quizsL .listModules::-webkit-scrollbar-thumb:active, .quizsL .listUser::-webkit-scrollbar-thumb:active {
+  background: #EBB94A;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar-track, .quizsL .listModules::-webkit-scrollbar-track, .quizsL .listUser::-webkit-scrollbar-track {
+  background: #131A28;
+  border-radius: 50px;
+}
+
+.quizsL .listQuiz::-webkit-scrollbar-corner, .quizsL .listModules::-webkit-scrollbar-corner, .quizsL .listUser::-webkit-scrollbar-corner {
+  background: transparent;
+}
