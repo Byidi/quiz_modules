@@ -48,7 +48,7 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         $name_file = md5($_POST['title']).'.'.preg_replace("#image\/#","",$type_file);
         $img = $name_file;
 
-        if( !move_uploaded_file($tmp_file, $content_dir . $name_file) )
+        if( wp_upload_bits($name_file, null, $tmp_file)['error'] !== false )
         {
             $error_module = "Impossible de copier le fichier $name_file dans $content_dir";
         }
