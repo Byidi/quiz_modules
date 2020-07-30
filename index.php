@@ -1168,7 +1168,7 @@ function qm_display_creation_campagne(){
   </div>
   ';
 
-  wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/create_campaign.js', null, true);
+  wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/camps.js', null, true);
   wp_localize_script('createcamp', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
       'home_url' => home_url()
