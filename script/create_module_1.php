@@ -27,6 +27,7 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         $error_module = "Veuillez selectionner une image en format jpg ou png.";
 
     }else if($_FILES['img_module']['type'] !== ''){
+        //Enregistrement image
         $dir = md5($_POST['title']);
         mkdir("../img/modules/".$dir, 0755, true);
         $content_dir =  get_template_directory()."/img/modules/".$dir."/";
