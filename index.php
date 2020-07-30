@@ -550,7 +550,7 @@ function qm_module_creation_2(){
   <div class="step2">
   <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
 
-    <img src="'.get_template_directory_uri().'/img/modules/'. $_SESSION['moduleData']['module']['img'].'" alt="votre image">
+    <img src="'. $_SESSION['moduleData']['module']['img'].'" alt="votre image">
 
     <h3>Étape 2: Les pages</h3>
 
@@ -654,7 +654,7 @@ function qm_module_creation_3(){
   <div class="step3">
   <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
 
-    <img class="img" src="'. get_template_directory_uri(); ?>/img/modules/<?php echo $_SESSION['moduleData']['module']['img'].'" alt="votre image">
+    <img class="img" src="'.$_SESSION['moduleData']['module']['img'].'" alt="votre image">
 
     <h3>Étape 3: Confirmation</h3>
 
@@ -668,7 +668,6 @@ function qm_module_creation_3(){
 
     <div class="recap">';
 
-    $img = get_template_directory_uri();
     $num = 0;
     if(!empty($_SESSION['moduleData']['pages']))
     {
@@ -686,7 +685,7 @@ function qm_module_creation_3(){
         {
           echo '
           <div class="medias">
-            <img src="'.$img.'/img/modules/'.$q['info']['img'].'" alt="votre image">
+            <img src="'.$q['info']['img'].'" alt="votre image">
           </div>
           <span class="numP">'.$num.'</span>
           <div class="content">
@@ -699,7 +698,7 @@ function qm_module_creation_3(){
         {
           echo '
           <div class="medias full">
-            <img src="'.$img.'/img/modules/'.$q['info']['img'].'" alt="votre image">
+            <img src="'.$q['info']['img'].'" alt="votre image">
           </div>
           <span class="numP">'.$num.'</span>
           ';
@@ -1341,29 +1340,42 @@ function qm_display_stats_acceuil(){
 
 function qm_display_classement_acceuil(){
   echo "
-  <table>
+  <h3>Classement</h3>
 
-  <thead>
+  <div class=btns>
 
-      <tr>
+    <button class=gen>Général</button>
 
-          <th colspan=1>Pos</th>
+    <button class=town>Votre site</button>
 
-          <th colspan=1>Joueur</th>
+  </div>
 
-          <th colspan=1>Site</th>
+  <div class=leadboard>
 
-          <th colspan=1>Moyenne</th>
+    <table>
 
-      </tr>
+    <thead>
 
-  </thead>
+        <tr>
 
-  <tbody class=tbody>
+            <th colspan=1>Pos</th>
 
-  </tbody>
+            <th colspan=1>Joueur</th>
 
-</table>
+            <th colspan=1>Site</th>
+
+            <th colspan=1>Moyenne</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody class=tbody>
+
+    </tbody>
+
+  </table>
+  </div>
   ";
 
   wp_enqueue_script('my-script', WP_PLUGIN_URL . '/quiz_modules/js/home.js', null, true);

@@ -48,11 +48,13 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         $name_file = md5($_POST['title']).'.'.preg_replace("#image\/#","",$type_file);
         $img = $name_file;
 
-        if( wp_upload_bits($name_file, null, $tmp_file)['error'] !== false )
+        $uploading = wp_upload_bits($_FILES['img_module']['name'], null, file_get_contents($_FILES["img_module"]["tmp_name"]));
+
+        if( $uploading['error'] !== false )
         {
             $error_module = "Impossible de copier le fichier $name_file dans $content_dir";
         }
-        $img = $dir.'/'.$img;
+        $img = $uploading['url'];
     }
      //enregistrement des POST en SESSION pour passer à la seconde étape sans enregistrer en base de données en cas d'abandon
      $title = htmlspecialchars($_POST['title']);
