@@ -1,11 +1,12 @@
 @import 'mixin', 'colors', 'fontSize';
 .quizsL
 {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   font-size: $fontSize2;
   color: $police;
-  @include flex(center, center, "");
+  @include flex(center, center, column);
   .popup
   {
     position: absolute;
@@ -50,7 +51,6 @@
   }
   .listQuiz, .listModules, .listUser
   {
-    position: absolute;
     bottom: 0;
     width: 50%;
     height: 80%;

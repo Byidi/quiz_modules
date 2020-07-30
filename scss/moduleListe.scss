@@ -5,7 +5,7 @@
   height: 100%;
   font-size: $fontSize2;
   color: $police;
-  @include flex(center, center, "");
+  @include flex(center, center, column);
   .popup
   {
     position: absolute;
@@ -50,7 +50,7 @@
   }
   .listQuiz, .listModules, .listUser
   {
-    position: absolute;
+    // position: absolute;
     bottom: 0;
     width: 50%;
     height: 80%;
