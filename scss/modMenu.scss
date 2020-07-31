@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  @include flex(center, center, column);
+  @include flex(space-between, center, column);
   
   /* ---- button ---- */
   .button-group
@@ -73,7 +73,6 @@
   /* ---- isotope ---- */
   
   .grid {
-    top: 25%;
     .element-item {
       position: relative;
       width: 250px;
@@ -162,6 +161,38 @@
       }
     }
   }      
+}
+.intro
+{
+  z-index: 26;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  background: $color2;
+  @include positionTL(fixed, 0, 0);
+  @include flex(center, center, column);
+  .introP
+  {
+    padding: 15px 30px;
+    text-align: center; 
+    border-radius: 3px;
+  }
+  .begin
+  {
+    border: none; 
+    outline: none; 
+    background: $color-btn;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: $color1;
+    font-family: "Muli";
+    font-size: $fontSize2;
+    font-weight: bold;
+    transition: .2s;
+  }
+  .begin:hover{
+    background: $police;
+  }
 }
 .modulePlay
 {
@@ -478,5 +509,20 @@
     border-radius: 150px;
     opacity: 0;
     transition: .2s ease;
+  }
+}
+@media (min-width: 320px) and (max-width: 320px)
+{
+  .quizModules
+  {
+    .grid
+    {
+      .element-item
+      {
+        width: 220px;
+        height: 220px;
+        margin: 10px;
+      }
+    }
   }
 }

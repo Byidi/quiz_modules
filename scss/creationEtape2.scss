@@ -1,6 +1,8 @@
 @import 'mixin', 'colors', 'fontSize';
 .step2
 {
+  position: absolute;
+  top: 0;
   font-family: "Muli";
   font-size: $fontSize2;
   color: $police;

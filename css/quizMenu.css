@@ -5,9 +5,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -88,10 +88,6 @@
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-.quizModules .grid {
-  top: 25%;
 }
 
 .quizModules .grid .element-item {
@@ -330,6 +326,54 @@
 .quizModules .grid .element-item p:hover {
   background: #e6e6e6;
   cursor: pointer;
+}
+
+.intro {
+  z-index: 26;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  background: #192231;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.intro .introP {
+  padding: 15px 30px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.intro .begin {
+  border: none;
+  outline: none;
+  background: #EBB94A;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #131A28;
+  font-family: "Muli";
+  font-size: 1.5rem;
+  font-weight: bold;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.intro .begin:hover {
+  background: #e6e6e6;
 }
 
 .quizPlay {
@@ -835,4 +879,12 @@
 
 .quizPlay #results .recap::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+@media (min-width: 320px) and (max-width: 320px) {
+  .quizModules .grid .element-item {
+    width: 220px;
+    height: 220px;
+    margin: 10px;
+  }
 }

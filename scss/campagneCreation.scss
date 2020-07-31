@@ -222,3 +222,26 @@
     }
   }
 }
+@media (max-width: 825px)
+{
+  .new_camp
+  {
+    height: auto;
+    .createContainer
+    {
+      justify-content: flex-start;
+      align-items:center;
+      flex-direction : column;
+      form
+      {
+        width: 300px;
+        margin-bottom: 10px;
+      }
+      .listCamp
+      {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

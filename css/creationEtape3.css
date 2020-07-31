@@ -1,4 +1,6 @@
 .step3 {
+  position: absolute;
+  top: 0;
   font-family: "Muli";
   font-size: 1.5rem;
   color: #e6e6e6;
