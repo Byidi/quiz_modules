@@ -1340,44 +1340,46 @@ function qm_display_stats_acceuil(){
 
 function qm_display_classement_acceuil(){
   echo "
-  <h3>Classement</h3>
+  <div class=containerLeadboard>
+    <h3>Classement</h3>
 
-  <div class=btns>
+    <div class=btns>
 
-    <button class=gen>Général</button>
+      <button class=gen>Général</button>
 
-    <button class=town>Votre site</button>
+      <button class=town>Votre site</button>
 
-  </div>
+    </div>
 
-  <div class=leadboard>
+    <div class=leadboard>
 
-    <table>
+      <table>
 
-    <thead>
+      <thead>
 
-        <tr>
+          <tr>
 
-            <th colspan=1>Pos</th>
+              <th colspan=1>Pos</th>
 
-            <th colspan=1>Joueur</th>
+              <th colspan=1>Joueur</th>
 
-            <th colspan=1>Site</th>
+              <th colspan=1>Site</th>
 
-            <th colspan=1>Moyenne</th>
+              <th colspan=1>Moyenne</th>
 
-        </tr>
+          </tr>
 
-    </thead>
+      </thead>
 
-    <tbody class=tbody>
+      <tbody class=tbody>
 
-    </tbody>
+      </tbody>
 
-  </table>
+    </table>
   </div>
   ";
 
+  wp_enqueue_style( 'leadboardTemplate', WP_PLUGIN_URL .'/quiz_modules/css/leadboardTemplate.css',false,'1.1','all');
   wp_enqueue_script('my-script', WP_PLUGIN_URL . '/quiz_modules/js/home.js', null, true);
   wp_localize_script('my-script', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
