@@ -48,7 +48,7 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         $name_file = md5($_POST['title']).'.'.preg_replace("#image\/#","",$type_file);
         $img = $name_file;
 
-        $uploading = wp_upload_bits($_FILES['img_module']['name'], null, file_get_contents($_FILES["img_module"]["tmp_name"]));
+        $uploading = wp_upload_bits($name_file, null, file_get_contents($_FILES["img_module"]["tmp_name"]));
 
         if( $uploading['error'] !== false )
         {

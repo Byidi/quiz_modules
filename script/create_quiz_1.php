@@ -45,11 +45,13 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         $name_file = md5($_POST['title']).'.'.preg_replace("#image\/#","",$type_file);
         $img = $name_file;
 
-        if( !move_uploaded_file($tmp_file, $content_dir . $name_file) )
+        $uploading = wp_upload_bits($name_file, null, file_get_contents($_FILES["img_quiz"]["tmp_name"]));
+
+        if( $uploading['error'] !== false )
         {
-            $error_quiz = "Impossible de copier le fichier $name_file dans $content_dir";
+            $error_module = "Impossible de copier le fichier $name_file dans $content_dir";
         }
-        $img_path = $dir."/".$img;
+        $img = $uploading['url'];
     }
     //enregistrement des POST en SESSION pour passer à la seconde étape sans enregistrer en base de données en cas d'abandon
     $title = htmlspecialchars($_POST['title']);

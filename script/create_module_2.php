@@ -105,7 +105,7 @@ function processImg($id, $isNew){
         }
 
         $name_file = md5($tmp_file).'.'.preg_replace("#image\/#","",$type_file);
-        $uploading = wp_upload_bits($_FILES['content_'.$id.'_img']['name'], null, file_get_contents($_FILES['content_'.$id.'_img']["tmp_name"]));
+        $uploading = wp_upload_bits($name_file, null, file_get_contents($_FILES['content_'.$id.'_img']["tmp_name"]));
         if( $uploading['error'] !== false )
         {
             return [

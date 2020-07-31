@@ -118,8 +118,8 @@ function processImg($id, $isNew){
         }
 
         $name_file = md5($tmp_file).'.'.preg_replace("#image\/#","",$type_file);
-
-        if( !move_uploaded_file($tmp_file, $content_dir . $name_file) )
+        $uploading = wp_upload_bits($name_file, null, file_get_contents($_FILES['content_'.$id.'_img']["tmp_name"]));
+        if( $uploading['error'] !== false )
         {
             return [
                 'type' => 'error',
