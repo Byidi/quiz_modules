@@ -235,12 +235,12 @@ function qm_quiz_creation_2(){
                 global $wpdb;
                 $img = $wpdb->get_var("SELECT img_path FROM question WHERE id='".$i."'");
                 if(!empty($img)){
-                    $html .= '<img style="width : 50px; margin-left : 6px;" src="'.get_template_directory_uri().'/img/quizs/'.$img.'">';
+                    $html .= '<img style="width : 50px; margin-left : 6px;" src="'.get_template_directory().'/img/quiz/'.$img.'">';
                 }
               }
               $html .= '
               </label>
-              <button type="button" disabled><p id="fakebtn" data-id="'.$i.'">Séléctionnez une image</p></button>
+              <button type="button" disabled><p id="fakebtn" data-id="'.$i.'">Sélectionnez une image</p></button>
               <span id="img_select'.$i.'">Aucune image sélectionnée.</span>
               <input id="realbtn'.$i.'" type="file" name="q_'.$i.'_img" hidden>
             </div>
@@ -261,7 +261,7 @@ function qm_quiz_creation_2(){
   
   <div class="step2">
   <h2 class="h2">'.$_SESSION['quizData']['quiz']['title'].'</h2>
-    <img src="'. get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
+    <img src="'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
     <h3>Étape 2: Les questions</h3>
     <div class="steps">
       <div class="step">1</div>
@@ -315,7 +315,7 @@ function qm_quiz_creation_3(){
   echo '
   <div class="step3">
   <h2 class="h2">'. $_SESSION['quizData']['quiz']['title'].'</h2>
-    <img class="img" src="'.get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
+    <img class="img" src="'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
    <h3>Étape 3: Confirmation</h3>
     <div class="steps">
       <div class="step">1</div>
@@ -325,7 +325,6 @@ function qm_quiz_creation_3(){
     </div>
     <div class="recap">';
 
-      $img = get_template_directory_uri();
       $num = 0;
       if(!empty($_SESSION['quizData']['questions'])){
         echo '<div class="questions"><p class="introP"><span class="numQ">Description</span>'.nl2br(stripslashes($_SESSION['quizData']['quiz']['description'])).'</p></div>';
@@ -337,7 +336,7 @@ function qm_quiz_creation_3(){
           if(!empty($q['info']['img'])){
             echo '
             <div class="medias">
-              <img src="'.$img.'/img/quizs/'.$q['info']['img'].'" alt="votre image">
+              <img src="'.$q['info']['img'].'" alt="votre image">
             </div>
             ';
           }elseif (!empty($q['info']['video'])) {
