@@ -36,7 +36,7 @@ window.addEventListener('load', function () {
       {
         quizContent +=` pts</span>
         <div class="imgQ">
-          <img src="${ url + `/img/quizs/${myArray.quiz[i].img}`}" alt="photo du quiz"/>
+          <img src="${myArray.quiz[i].img}" alt="photo du quiz"/>
           <div class="filter"></div>
           </div>
       `;
@@ -300,7 +300,7 @@ window.addEventListener('load', function () {
                             ${numQuestion}/${myQuestions.length}
                           </span>
                           <div class="img">
-                            <img src="${ url + `/img/quizs/${currentQuestion.img_path}`}" alt="photo de la question"/>
+                            <img src="${currentQuestion.img_path}" alt="photo de la question"/>
                           </div>
                           <div class="question"><span>${numQuestion}.</span> ${currentQuestion.content} </div>
                           <div class="answers">${answers.join('')}</div>
