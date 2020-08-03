@@ -39,7 +39,7 @@ window.addEventListener('load', function () {
           window.location.reload();
         }
       }
-      xmlhttpPost.open("POST", urlList  + '/app/campaign_list.php', true);
+      xmlhttpPost.open("POST", urlList  + '/campaign_list.php', true);
       xmlhttpPost.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xmlhttpPost.send(dbParamPost);
     }
