@@ -1,4 +1,5 @@
 .board {
+  position: relative;
   width: 100%;
   height: 100%;
   font-size: 1.5rem;
@@ -18,13 +19,41 @@
           flex-direction: column;
 }
 
-.board .legend {
+.board .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.board .legendSpans {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.board .legendSpans .legend {
   width: 100px;
   border-radius: 5px;
   padding: 10px;
   background: #131A28;
   font-size: 13px;
-  overflow: hidden;
   z-index: 9;
   position: absolute;
   top: 10px;
@@ -43,7 +72,7 @@
           flex-direction: column;
 }
 
-.board .legend p {
+.board .legendSpans .legend p {
   width: 100%;
   position: relative;
   text-align: left;
@@ -52,7 +81,7 @@
   font-weight: 600;
 }
 
-.board .legend p i {
+.board .legendSpans .legend p i {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -61,7 +90,7 @@
           transform: translateY(-50%);
 }
 
-.board .legend .square_legend {
+.board .legendSpans .legend .square_legend {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,7 +105,7 @@
           flex-direction: column;
 }
 
-.board .legend .square_legend .you, .board .legend .square_legend .gold, .board .legend .square_legend .silver, .board .legend .square_legend .bronze {
+.board .legendSpans .legend .square_legend .you, .board .legendSpans .legend .square_legend .gold, .board .legendSpans .legend .square_legend .silver, .board .legendSpans .legend .square_legend .bronze {
   width: 80px;
   margin: 5px;
   display: -webkit-box;
@@ -94,33 +123,33 @@
           flex-direction: "";
 }
 
-.board .legend .square_legend .you div, .board .legend .square_legend .gold div, .board .legend .square_legend .silver div, .board .legend .square_legend .bronze div {
+.board .legendSpans .legend .square_legend .you div, .board .legendSpans .legend .square_legend .gold div, .board .legendSpans .legend .square_legend .silver div, .board .legendSpans .legend .square_legend .bronze div {
   border-radius: 2px;
   width: 30px;
   height: 15px;
 }
 
-.board .legend .square_legend .you div {
+.board .legendSpans .legend .square_legend .you div {
   background: #EBB94A;
 }
 
-.board .legend .square_legend .gold div {
+.board .legendSpans .legend .square_legend .gold div {
   background: #FFD700;
 }
 
-.board .legend .square_legend .silver div {
+.board .legendSpans .legend .square_legend .silver div {
   background: #C0C0C0;
 }
 
-.board .legend .square_legend .bronze div {
+.board .legendSpans .legend .square_legend .bronze div {
   background: #CD7F32;
 }
 
-.board .dropLegend {
+.board .legendSpans .dropLegend {
   display: none !important;
 }
 
-.board .spans {
+.board .legendSpans .spans {
   padding: 5px;
   border-radius: 5px;
   background: #131A28;
@@ -142,12 +171,12 @@
           flex-direction: column;
 }
 
-.board .spans .span_under, .board .spans .span_above {
+.board .legendSpans .spans .span_under, .board .legendSpans .spans .span_above {
   color: #3AD29F;
   font-weight: 600;
 }
 
-.board .spans .span_under {
+.board .legendSpans .spans .span_under {
   color: #eb0d0d;
 }
 
@@ -293,8 +322,6 @@
 }
 
 .board .leadboard {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 80%;
   border-collapse: collapse;
@@ -395,4 +422,16 @@
 
 .board .leadboard::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+@media (max-width: 825px) {
+  .board .legendSpans {
+    position: relative;
+  }
+  .board .btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }

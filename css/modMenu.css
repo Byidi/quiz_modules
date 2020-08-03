@@ -5,9 +5,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -18,6 +18,14 @@
   /* ---- button ---- */
   /* ---- ancre ---- */
   /* ---- isotope ---- */
+}
+
+.quizModules .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .quizModules .button-group {
@@ -54,44 +62,6 @@
 .quizModules .button-group .button:active,
 .quizModules .button-group .button.is-checked {
   background-color: #e6e6e6;
-}
-
-.quizModules .ancreTop, .quizModules .ancreDown {
-  z-index: 24;
-}
-
-.quizModules .ancreTop i, .quizModules .ancreDown i {
-  color: #e6e6e6;
-  font-size: 25px;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.quizModules .ancreTop i:hover, .quizModules .ancreDown i:hover {
-  color: #EBB94A;
-}
-
-.quizModules .ancreTop {
-  z-index: 25;
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-}
-
-.quizModules .ancreDown {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
-
-.quizModules #end {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.quizModules .grid {
-  top: 25%;
 }
 
 .quizModules .grid .element-item {
@@ -232,6 +202,54 @@
   cursor: pointer;
 }
 
+.intro {
+  z-index: 26;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  background: #192231;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.intro .introP {
+  padding: 15px 30px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.intro .begin {
+  border: none;
+  outline: none;
+  background: #EBB94A;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #131A28;
+  font-family: "Muli";
+  font-size: 1.5rem;
+  font-weight: bold;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.intro .begin:hover {
+  background: #e6e6e6;
+}
+
 .modulePlay {
   width: 100%;
   height: 100%;
@@ -251,8 +269,8 @@
           align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: "";
-          flex-direction: "";
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .modulePlay .endModule {
@@ -261,6 +279,13 @@
   top: 10px;
   left: 10px;
   font-size: 2rem;
+  color: #e6e6e6;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.modulePlay .endModule:hover {
+  color: #EBB94A;
 }
 
 .modulePlay .recapModule {
@@ -470,12 +495,9 @@
 }
 
 .modulePlay .btns {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
+  position: relative;
   z-index: 53;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  margin: 5px 0px;
 }
 
 .modulePlay .btns button {
@@ -630,7 +652,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-bottom: 15px solid rgba(25, 34, 49, 0.4);
 }
 
 .modulePlay .module .slide .content .para h3 {
@@ -680,15 +701,12 @@
 }
 
 .modulePlay .progress {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  position: relative;
   width: 70%;
   height: 20px;
   border-radius: 150px;
   background: #131A28;
+  margin-bottom: 15px;
 }
 
 .modulePlay .progressDone {
@@ -718,4 +736,106 @@
   opacity: 0;
   -webkit-transition: .2s ease;
   transition: .2s ease;
+}
+
+@media (max-width: 825px) {
+  .modulePlay .module .slide span {
+    top: 0px;
+    right: 0px;
+  }
+  .modulePlay .module .slide .content {
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .modulePlay .module .slide .content .medias {
+    width: 100%;
+    height: 50%;
+  }
+  .modulePlay .module .slide .content .medias img {
+    max-height: 100%;
+  }
+  .modulePlay .module .slide .content .medias iframe {
+    width: 100%;
+    height: 60%;
+  }
+  .modulePlay .module .slide .content .mediaFull {
+    height: 100%;
+  }
+  .modulePlay .module .slide .content .mediaFull iframe {
+    width: 100%;
+    height: 70%;
+  }
+  .modulePlay .module .slide .content .para {
+    width: 100%;
+    height: 50%;
+  }
+  .modulePlay .progress {
+    width: 95%;
+  }
+  .modulePlay .btns {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 760px) and (max-width: 1100px) {
+  .modulePlay .module .slide .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .modulePlay .module .slide .content .medias {
+    width: 100%;
+  }
+  .modulePlay .module .slide .content .medias iframe {
+    width: 65%;
+    height: 80%;
+  }
+  .modulePlay .module .slide .content .mediaFull iframe {
+    width: 100%;
+    height: 70%;
+  }
+  .modulePlay .module .slide .content .para {
+    width: 100%;
+    height: 50%;
+  }
+  .modulePlay .module .slide .content .para p {
+    padding: 5px;
+  }
+  .modulePlay .progress {
+    width: 95%;
+  }
+  .modulePlay .btns {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 320px) {
+  .quizModules .grid .element-item {
+    width: 220px;
+    height: 220px;
+    margin: 10px;
+  }
+}
+
+@media (max-height: 500px) {
+  .modulePlay .module .slide .content .medias iframe {
+    width: 38%;
+    height: 90%;
+  }
 }

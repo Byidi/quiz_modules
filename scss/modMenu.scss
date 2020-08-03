@@ -4,8 +4,15 @@
   position: relative;
   width: 100%;
   height: 100%;
-  @include flex(center, center, column);
-  
+  @include flex(space-between, center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   /* ---- button ---- */
   .button-group
   {
@@ -42,38 +49,32 @@
   }
   /* ---- ancre ---- */
   
-  .ancreTop, .ancreDown
-  {
-    z-index: 24;
-    i
-    {
-      color: $police;
-      font-size:25px;
-      transition:.2s;
-    }
-    i:hover
-    {
-      color: $color-imp;
-    }
-  }
-  .ancreTop
-  {
-    z-index: 25;
-    @include positionBR(fixed, 20px, 10px);
-  }
-  .ancreDown
-  {
-    @include positionBR(fixed, 10px, 10px);
-  }
-
-  #end
-  {
-    @include positionBL(absolute, 0, 0);
-  }
+  // .ancreTop, .ancreDown
+  // {
+  //   z-index: 24;
+  //   i
+  //   {
+  //     color: $police;
+  //     font-size:25px;
+  //     transition:.2s;
+  //   }
+  //   i:hover
+  //   {
+  //     color: $color-imp;
+  //   }
+  // }
+  // .ancreTop
+  // {
+  //   z-index: 25;
+  //   @include positionBR(fixed, 20px, 10px);
+  // }
+  // .ancreDown
+  // {
+  //   @include positionBR(fixed, 10px, 10px);
+  // }
   /* ---- isotope ---- */
   
   .grid {
-    top: 25%;
     .element-item {
       position: relative;
       width: 250px;
@@ -163,6 +164,38 @@
     }
   }      
 }
+.intro
+{
+  z-index: 26;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  background: $color2;
+  @include positionTL(fixed, 0, 0);
+  @include flex(center, center, column);
+  .introP
+  {
+    padding: 15px 30px;
+    text-align: center; 
+    border-radius: 3px;
+  }
+  .begin
+  {
+    border: none; 
+    outline: none; 
+    background: $color-btn;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: $color1;
+    font-family: "Muli";
+    font-size: $fontSize2;
+    font-weight: bold;
+    transition: .2s;
+  }
+  .begin:hover{
+    background: $police;
+  }
+}
 .modulePlay
 {
   width: 100%;
@@ -170,12 +203,18 @@
   z-index: 25;
   background: $color2;
   @include positionTL(fixed, 0, 0);
-  @include flex(center, center, "");
+  @include flex(center, center, column);
   .endModule
   {
     z-index: 25;
     @include positionTL(fixed, 10px, 10px);
     font-size: $fontSize3;
+    color: $police;
+    transition: .2s;
+  }
+  .endModule:hover
+  {
+    color: $color-imp;
   }
   .recapModule
   {
@@ -307,9 +346,9 @@
   }
   .btns
   {
-    @include positionBL(absolute, 10%, 50%);
+    position: relative;
     z-index: 53;
-    transform: translateX(-50%);
+    margin: 5px 0px;
     button
     {
       position: relative;
@@ -404,7 +443,6 @@
           height: 90%;
           z-index: 100;
           @include flex(flex-start, center, column);
-          border-bottom: 15px solid rgba(25, 34, 49, 0.4);
           h3
           {
             font-size: $fontSize3;
@@ -415,14 +453,6 @@
             padding: 30px;
             overflow-y: scroll;
           }
-          // .shadow
-          // {
-          //   position: absolute;
-          //   bottom: 0;
-          //   width: 100%;
-          //   height: 10%;
-          //   background: linear-gradient(0deg, rgba(25,34,49,1) 0%, rgba(25,34,49,0.7483368347338936) 25%, rgba(25,34,49,0.4990371148459384) 50%, rgba(25,34,49,0.24693627450980393) 75%, rgba(25,34,49,0) 100%);
-          // }
           p::-webkit-scrollbar {
             width: 5px;
             height: 5px;
@@ -458,12 +488,12 @@
   }
   .progress
   {
-    @include positionBL(absolute, 5%, 50%);
-    transform: translateX(-50%);
+    position: relative;
     width: 70%;
     height: 20px;
     border-radius: 150px;
     background: $color1;
+    margin-bottom: 15px;
   }
   .progressDone
   {
@@ -478,5 +508,157 @@
     border-radius: 150px;
     opacity: 0;
     transition: .2s ease;
+  }
+}
+// mobile responsive
+@media (max-width: 825px)
+{
+  .modulePlay
+  {
+    .module
+    {
+      .slide
+      {
+        span
+        {
+          top: 0px;
+          right: 0px;
+        }
+        .content
+        {
+          height: 100%;
+          flex-direction: column;
+          .medias
+          {
+            width: 100%;
+            height: 50%;
+            img
+            {
+              max-height: 100%;
+            }
+            iframe{
+              width: 100%;
+              height: 60%;
+            }
+          }
+          .mediaFull
+          {
+            height: 100%;
+            iframe
+            {
+              width: 100%;
+              height: 70%;
+            }
+          }
+          .para
+          {
+            width: 100%;
+            height: 50%;
+          }
+        }
+      }
+    }
+    .progress
+    {
+      width: 95%;
+    }
+    .btns
+    {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+// tablets responsive
+@media (min-width: 760px) and (max-width: 1100px)
+{
+  .modulePlay
+  {
+    .module
+    {
+      .slide
+      {
+        .content
+        {
+          flex-direction: column;
+          .medias
+          {
+            width: 100%;
+            iframe{
+              width: 65%;
+              height: 80%;
+            }
+          }
+          .mediaFull
+          {
+            iframe
+            {
+              width: 100%;
+              height: 70%;
+            }
+          }
+          .para
+          {
+            width: 100%;
+            height: 50%;
+            p
+            {
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+    .progress
+    {
+      width: 95%;
+    }
+    .btns
+    {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+// iphone 5 size responsive
+@media (min-width: 320px) and (max-width: 320px)
+{
+  .quizModules
+  {
+    .grid
+    {
+      .element-item
+      {
+        width: 220px;
+        height: 220px;
+        margin: 10px;
+      }
+    }
+  }
+}
+// responsive landscape
+@media (max-height: 500px)
+{
+  .modulePlay
+  {
+    .module
+    {
+      .slide
+      {
+        .content
+        {
+          .medias
+          {
+            iframe
+            {
+              width: 38%;
+              height: 90%;
+            }
+          }
+        }
+      }
+    }
   }
 }

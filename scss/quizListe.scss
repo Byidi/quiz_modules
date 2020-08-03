@@ -7,6 +7,14 @@
   font-size: $fontSize2;
   color: $police;
   @include flex(center, center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   .popup
   {
     position: absolute;
@@ -17,6 +25,7 @@
     color: $police;
     padding: 15px;
     border-radius: 5px;
+    text-align: center;
     @include flex(center, center, column);
     #yes, #no
     {
@@ -36,20 +45,7 @@
       font-weight: 600;
     }
   }
-  .listQuiz, .listModules
-  {
-    table
-    {
-      tr
-      {
-        :nth-child(4)
-        {
-          @include flex(center, center, column);
-        }
-      }
-    }
-  }
-  .listQuiz, .listModules, .listUser
+  .listQuiz
   {
     bottom: 0;
     width: 50%;
@@ -62,6 +58,13 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+      tr
+      {
+        :nth-child(4)
+        {
+          @include flex(center, center, column);
+        }
+      }
       p, a
       {
         font-family: "Muli";
@@ -179,25 +182,53 @@
       }
     }
   }
-  .listQuiz::-webkit-scrollbar, .listModules::-webkit-scrollbar, .listUser::-webkit-scrollbar {
+  .listQuiz::-webkit-scrollbar {
     width: 5px;
     height: 5px;
   }
-  .listQuiz::-webkit-scrollbar-thumb, .listModules::-webkit-scrollbar-thumb, .listUser::-webkit-scrollbar-thumb {
+  .listQuiz::-webkit-scrollbar-thumb{
     background: $color-btn;
     border-radius: 100px;
   }
-  .listQuiz::-webkit-scrollbar-thumb:hover, .listModules::-webkit-scrollbar-thumb:hover, .listUser::-webkit-scrollbar-thumb:hover{
+  .listQuiz::-webkit-scrollbar-thumb:hover{
     background: $color-btn;
   }
-  .listQuiz::-webkit-scrollbar-thumb:active, .listModules::-webkit-scrollbar-thumb:active, .listUser::-webkit-scrollbar-thumb:active{
+  .listQuiz::-webkit-scrollbar-thumb:active{
     background: $color-btn;
   }
-  .listQuiz::-webkit-scrollbar-track, .listModules::-webkit-scrollbar-track, .listUser::-webkit-scrollbar-track{
+  .listQuiz::-webkit-scrollbar-track{
     background: $color1;
     border-radius: 50px;
   }
-  .listQuiz::-webkit-scrollbar-corner, .listModules::-webkit-scrollbar-corner, .listUser::-webkit-scrollbar-corner{
+  .listQuiz::-webkit-scrollbar-corner{
     background: transparent;
+  }
+}
+// responsive mobile
+@media (max-width: 825px)
+{
+  .quizsL
+  {
+    .listUser
+    {
+      height: 70%;
+    }
+    .listQuiz
+    {
+      width: 100%;
+      table
+      {
+        thead
+        { :nth-child(1)
+          {
+            width: 25%;
+          }
+          :nth-child(2)
+          {
+            width: 25%;
+          }
+        }
+      }
+    }
   }
 }

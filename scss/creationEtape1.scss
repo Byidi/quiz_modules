@@ -1,16 +1,41 @@
 @import 'mixin', 'colors', 'fontSize';
 .step1
 {
+  position: relative;
+  top: 0;
   width: 100%;
   height: 100%;
   font-family: "Muli";
   z-index: 2;
-  @include flex(center, center, column);
+  @include flex(flex-start, center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   h3
   {
     font-size: $fontSize2;
-    font-weight: 200;
     color: $police;
+    font-weight: 200;
+    font-family: "Montserrat";
+  }
+  .error
+  {
+    color: red;
+  }
+  .good
+  {
+    color: #3AD29F;
+  }
+  .mess
+  {
+    font-size: $fontSize2;
+    font-weight: 600;
+    text-align: center;
   }
   .steps
   {
@@ -84,12 +109,13 @@
       {
         position: relative;
         width: 100%;
-        @include flex(space-around, center, row);
+        @include flex(space-between, center, row);
         label
         {
           position: relative;
           width: 50%;
           text-align: start;
+          margin: 10px 0px;
         }
         input
         {
@@ -137,7 +163,8 @@
           color: $color1;
           font-size: $fontSize2;
           margin-bottom: 5px;
-          @include positionTR(absolute, 0px, 5px);
+          transform: translateY(-50%);
+          @include positionTR(absolute, 50%, 5px);
         }
         button
         {
@@ -192,6 +219,51 @@
     input[type=submit]:hover
     {
       background: $police;
+    }
+  }
+}
+// mobile responsive
+@media (max-width: 825px)
+{
+  .step1
+  {
+    .steps
+    {
+      width: 89%;
+    }
+    form
+    {
+      width: 100%;
+      flex-direction: column;
+      .textarea
+      {
+        width: 90%;
+        margin-bottom: 15px;
+      }
+      .content
+      {
+        margin-top: 60px;
+        width: 90%;
+      }
+      input[type="submit"]
+      {
+        position: relative;
+        transform: translate(0);
+        margin: 25px;
+        right: 0;
+      }
+    }
+  }  
+}
+// landscape responsive
+@media (max-height: 500px)
+{
+  .step1
+  {
+    form
+    {
+      width: 100%;
+      margin: 10px 0px;
     }
   }
 }

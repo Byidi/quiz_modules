@@ -2,6 +2,7 @@
 .add_tag
 {
   position: relative;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
@@ -171,5 +172,61 @@
     {
       font-size: $fontSize2;
     }
+  }
+}
+//mobile responsive
+@media (max-width: 825px) {
+  .add_tag
+  {
+    height: auto;
+    // align-items: start;
+    .contentTag
+    {
+      justify-content: flex-start;
+      flex-direction: column;
+      // margin-top: 20%;
+      margin-bottom: 15px;
+      form,div
+      {
+        width: 300px;
+      }
+      div
+      {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      form
+      {
+        div
+        {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+  }
+}
+// iphone 5 size responsive
+@media (min-width: 320px) and (max-width: 320px)
+{
+  .add_tag
+  {
+    .contentTag
+    {
+      margin-top: 25%;
+      div, form
+      {
+        width: 250px;
+      }
+    }
+  }
+}
+// landscape responsive
+@media(max-height: 500px)
+{
+  .add_tag
+  {
+    height: auto;
   }
 }

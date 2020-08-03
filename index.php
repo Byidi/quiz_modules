@@ -16,15 +16,15 @@ add_shortcode( 'qm_quiz_creation_3', 'qm_quiz_creation_3');
 function qm_display_quiz_menu(){
     global $wpdb;
     echo '
-    <div class="quizModules">
-    <h2 id="debut" class="h2">Nos quiz</h2>
+    <div id="debut" class="quizModules">
+    <h2 class="h2">Nos quiz</h2>
         
-            <a class="ancreTop" href="#debut">
+            <!--<a class="ancreTop" href="#debut">
                 <i class="fas fa-sort-up"></i>
             </a>
             <a class="ancreDown" href="#end">
                 <i class="fas fa-sort-down"></i>
-            </a>
+            </a>-->
             <div class="button-group filters-button-group">
                 <button class="button" data-filter="*">tout</button>';
             
@@ -36,7 +36,6 @@ function qm_display_quiz_menu(){
                 
             echo '</div>
             <div class="grid">
-                <div id="end"></div>
             </div>
         </div>
     ';
@@ -410,14 +409,19 @@ function qm_display_module_menu(){
   global $wpdb;
   echo '  
   
-  <div class="quizModules">
-  <h2 id="debut" class="h2">Nos modules</h2>
-    <a class="ancreTop" href="#debut">
+  <div id="debut" class="quizModules">
+  <h2 class="h2">Nos modules</h2>
+    <!--<a class="ancreTop" href="#debut">
       <i class="fas fa-sort-up"></i>
     </a>
     <a class="ancreDown" href="#end">
       <i class="fas fa-sort-down"></i>
+<<<<<<< HEAD
     </a>
+=======
+    </a>-->
+
+>>>>>>> gauthier
     <div class="button-group filters-button-group">
     <button class="button" data-filter="*">tout</button>';
 
@@ -434,8 +438,11 @@ function qm_display_module_menu(){
       echo '
       </div>
       <div class="grid">
-        <div id="end"></div>
       </div>
+<<<<<<< HEAD
+=======
+      
+>>>>>>> gauthier
     </div>';
 
     wp_enqueue_style( 'modMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
@@ -459,18 +466,24 @@ function qm_module_creation_1(){
         <div class="step">2</div>
         <div class="step">3</div>
         <div class="stick"></div>
+<<<<<<< HEAD
     </div>
     <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_1.php" method="post" enctype="multipart/form-data">';
+=======
+    </div>';
+
+    if(!empty($_SESSION["errorModule"])){
+      echo "<p class='mess error'>".$_SESSION["errorModule"]."</p>";
+      unset($_SESSION["errorModule"]);
+    }
+    elseif(!empty($_SESSION["moduleOk"])){
+      echo "<p class='mess good'>".$_SESSION["moduleOk"]."</p>";
+      unset($_SESSION["moduleOk"]);
+    }
+>>>>>>> gauthier
     
-      if(!empty($_SESSION["errorModule"])){
-          echo "<p class='mess error'>".$_SESSION["errorModule"]."</p>";
-          unset($_SESSION["errorModule"]);
-      }
-      elseif(!empty($_SESSION["moduleOk"])){
-          echo "<p class='mess good'>".$_SESSION["moduleOk"]."</p>";
-          unset($_SESSION["moduleOk"]);
-      }
-      echo '
+    echo '
+    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_1.php" method="post" enctype="multipart/form-data">
       <div class="textarea">
         <div>
           <label for="">Description :</label>
@@ -766,6 +779,7 @@ function qm_display_module_list(){
   ';
 
   wp_enqueue_style( 'moduleListe', WP_PLUGIN_URL .'/quiz_modules/css/moduleListe.css',false,'1.1','all');
+  wp_enqueue_style( 'moduleListe', WP_PLUGIN_URL .'/quiz_modules/css/moduleListe.css',false,'1.1','all');
   wp_enqueue_script('list_module', WP_PLUGIN_URL.'/quiz_modules/js/list_module.js', null, true);
         wp_localize_script('list_module', 'myScript', array(
             'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -779,8 +793,16 @@ add_shortcode( 'qm_display_quiz_list', 'qm_display_quiz_list' );
 function qm_display_quiz_list(){
   global $wpdb;
   echo '
+<<<<<<< HEAD
     <h2 class="h2"> Liste des Quizs </h2>
     <div class="quizsL">
+=======
+  
+  
+  
+  <div class="quizsL">
+  <h2 class="h2"> Liste des Quizs </h2>
+>>>>>>> gauthier
     
       <div class="listQuiz">
     
@@ -812,7 +834,7 @@ function qm_display_quiz_list(){
     
     ';
 
-
+    wp_enqueue_style( 'quizListe', WP_PLUGIN_URL .'/quiz_modules/css/quizListe.css',false,'1.1','all');
   wp_enqueue_script('list_quiz', WP_PLUGIN_URL.'/quiz_modules/js/list_quiz.js', null, true);
   wp_localize_script('list_quiz', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -827,8 +849,14 @@ function qm_display_tag_list(){
   global $wpdb;
   echo '
   
+<<<<<<< HEAD
     <h2 id="debut" class="h2">Gestion des tags</h2>
     <div class="add_tag">
+=======
+  
+  <div class="add_tag">
+  <h2 id="debut" class="h2">Gestion des tags</h2>
+>>>>>>> gauthier
         <div class="contentTag">
             <div class="listTag">
                 <h3>Tags existants</h3>
@@ -869,6 +897,7 @@ function qm_display_tag_list(){
         </div>
     </div>';
 
+  wp_enqueue_style( 'tagListe', WP_PLUGIN_URL .'/quiz_modules/css/tagListe.css',false,'1.1','all');
     wp_enqueue_script('gestion_tag', WP_PLUGIN_URL.'/quiz_modules/js/tag.js', null, true);
 }
 ///// Classements quiz admin ///// 
@@ -877,8 +906,15 @@ add_shortcode( 'qm_display_classement_admin', 'qm_display_classement_admin' );
 function qm_display_classement_admin(){
   global $wpdb;
   echo '
+<<<<<<< HEAD
       <h2 class="h2 h2board">Classements</h2>
     <div class="board">
+=======
+  
+  <div class="board">
+  <h2 class="h2 h2board">Classements</h2>
+    <div class=legendSpans>
+>>>>>>> gauthier
       <div class="legend">
         <p>Légende <i class="dropIcon fas fa-sort-down"></i></p>
         <div class="square_legend dropLegend">
@@ -896,6 +932,11 @@ function qm_display_classement_admin(){
           </div>
         </div>
       </div>
+        <div class="spans">
+        <span class="span_above"></span>
+        <span class="span_under"></span>
+      </div>
+    </div>
       <div class="btns">
         <div class="type"> 
           <label>Type :</label>
@@ -935,12 +976,9 @@ function qm_display_classement_admin(){
           <tbody></tbody>
         </table>
       </div>
-      <div class="spans">
-        <span class="span_above"></span>
-        <span class="span_under"></span>
-      </div>
     </div>';
 
+  wp_enqueue_style( 'classement', WP_PLUGIN_URL .'/quiz_modules/css/classement.css',false,'1.1','all');
     wp_enqueue_script('classement-admin', WP_PLUGIN_URL.'/quiz_modules/js/board.js', null, true);
     wp_localize_script('classement-admin', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script'
@@ -954,8 +992,15 @@ add_shortcode( 'qm_display_stats_admin', 'qm_display_stats_admin' );
 function qm_display_stats_admin(){
   global $wpdb;
   echo '
+<<<<<<< HEAD
   <h2 id="debut" class="h2">Statistiques</h2>
   <div class="stats">
+=======
+  
+  <div class="stats">
+  <h2 id="debut" class="h2">Statistiques</h2>
+
+>>>>>>> gauthier
     <div class="btns">
       <div>
         <label>Type :</label>
@@ -1056,6 +1101,8 @@ function qm_display_stats_admin(){
     </div>
   </div>  
   ';
+
+  wp_enqueue_style( 'statistiques', WP_PLUGIN_URL .'/quiz_modules/css/statistiques.css',false,'1.1','all');
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
   wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
   wp_localize_script('stats-admin', 'myScript', array(
@@ -1073,8 +1120,14 @@ function qm_display_creation_campagne(){
 
   global $wpdb;
   echo '
+<<<<<<< HEAD
   <h2 class="h2"> Nouvelle Campagne </h2>
+=======
+  
+>>>>>>> gauthier
   <div class="new_camp">
+  <h2 class="h2"> Nouvelle Campagne </h2>
+  <div class=createContainer>
     <div class="confirm hidden">
       <p>Êtes-vous sur de vouloir supprimer cette campagne "<span class="nameCamp"></span>"?</p>
       <div>
@@ -1129,9 +1182,11 @@ function qm_display_creation_campagne(){
       <ul class="camps">
       </ul>
     </div>
+    </div>
   </div>
   ';
 
+  wp_enqueue_style( 'campagneCreation', WP_PLUGIN_URL .'/quiz_modules/css/campagneCreation.css',false,'1.1','all');
   wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/camps.js', null, true);
   wp_localize_script('createcamp', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -1142,8 +1197,13 @@ function qm_display_creation_campagne(){
 function qm_display_campagne_stats(){
   global $wpdb;
   echo '
+<<<<<<< HEAD
   <h2 class="h2"> Statistiques des Campagnes </h2>
+=======
+  
+>>>>>>> gauthier
   <div class="stats_camp">
+  <h2 class="h2"> Statistiques des Campagnes </h2>
     <div class="select">
       <label>Votre campagne: <span class="camp_name name_camp">votre choix</span></label>
       <ul class="listCamp hidden">';
@@ -1264,6 +1324,7 @@ function qm_display_campagne_stats(){
   </div>
   ';
 
+  wp_enqueue_style( 'statsCampagne', WP_PLUGIN_URL .'/quiz_modules/css/statsCampagne.css',false,'1.1','all');
   wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/stats_camps.js', null, true);
         wp_localize_script('statscamp', 'myScript', array(
             'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
@@ -1288,6 +1349,7 @@ function qm_display_stats_acceuil(){
 
 function qm_display_classement_acceuil(){
   echo "
+<<<<<<< HEAD
   <h3>Classement</h3>
   <div class=btns>
     <button class=gen>Général</button>
@@ -1306,9 +1368,48 @@ function qm_display_classement_acceuil(){
     <tbody class=tbody>
     </tbody>
   </table>
+=======
+  <div class=containerLeadboard>
+    <h3>Classement</h3>
+
+    <div class=btns>
+
+      <button class=gen>Général</button>
+
+      <button class=town>Votre site</button>
+
+    </div>
+
+    <div class=leadboard>
+
+      <table>
+
+      <thead>
+
+          <tr>
+
+              <th colspan=1>Pos</th>
+
+              <th colspan=1>Joueur</th>
+
+              <th colspan=1>Site</th>
+
+              <th colspan=1>Moyenne</th>
+
+          </tr>
+
+      </thead>
+
+      <tbody class=tbody>
+
+      </tbody>
+
+    </table>
+>>>>>>> gauthier
   </div>
   ";
 
+  wp_enqueue_style( 'leadboardTemplate', WP_PLUGIN_URL .'/quiz_modules/css/leadboardTemplate.css',false,'1.1','all');
   wp_enqueue_script('my-script', WP_PLUGIN_URL . '/quiz_modules/js/home.js', null, true);
   wp_localize_script('my-script', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',

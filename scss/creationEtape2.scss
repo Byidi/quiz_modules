@@ -1,16 +1,42 @@
 @import 'mixin', 'colors', 'fontSize';
 .step2
 {
+  position: relative;
+  top: 0;
   font-family: "Muli";
   font-size: $fontSize2;
   color: $police;
   z-index: 2;
   width: 100%;
   @include flex(space-around, center, column);
-  // @include positionTL(absolute, 10%, 0);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  h3
+  {
+    font-size: $fontSize2;
+    color: $police;
+    font-family: "Montserrat";
+    font-weight: 200;
+  }
   img
   {
     max-width: 30%;
+  }
+  .error
+  {
+    color: red;
+  }
+  .mess
+  {
+    font-size: $fontSize2;
+    font-weight: 600;
+    text-align: center;
   }
   .steps
   {
@@ -48,12 +74,6 @@
   {
     margin-bottom: 10px;
     font-size: $fontSize3;
-  }
-  h3
-  {
-    font-size: $fontSize2;
-    font-weight: 200;
-    font-family: "Montserrat";
   }
   .trash
   {
@@ -247,5 +267,54 @@
   {
     background: $police;
     cursor: pointer;
+  }
+}
+// mobile responsive
+@media (max-width: 825px) {
+  .step2
+  {
+    .total
+    {
+      padding: 5px;
+      background: rgba(25, 34, 49, 0.7);
+      top: auto;
+      bottom: 5px;
+      right: 5px;
+      border-radius: 3px;
+    }
+    .sketching
+    {
+      margin-bottom: 15%;
+    }
+    .steps
+    {
+      width: 80%;
+    }
+    form
+    {
+      width: 100%;
+      .questionPage
+      {
+        width: 90%;
+        .media
+        {
+          flex-direction: column;
+          div
+          {
+            width: 80%;
+          }
+        }
+        .answers
+        {
+          .abcd
+          {
+            .answer
+            {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
   }
 }

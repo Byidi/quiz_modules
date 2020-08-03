@@ -1,0 +1,124 @@
+@import 'mixin', 'colors', 'fontSize';
+.containerLeadboard
+{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  @include flex(flex-start, center, column);
+  .btns
+  {
+    margin-bottom: 10px;
+    button
+    {
+      background: $color-btn;
+      border: none;
+      border-radius: 3px;
+      padding: 3px 6px;
+      color: $color1;
+      font-weight: 600;
+      transition: .2s;
+      font-size: 12px;
+      outline: none;
+    }
+    button:hover
+    {
+      background: $police;
+    }
+  }
+  .leadboard
+  {
+    border-collapse: collapse;
+    font-size: 13px;
+    overflow-y: scroll;
+    width: 98%;
+    height: 70%;
+    padding: 10px;
+    table
+    {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      thead
+      {
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        :nth-child(1)
+        {
+          border-left: none;
+        }
+        :nth-child(2)
+        {
+          width: 35%;
+        }
+        :nth-child(3)
+        {
+          width: 35%;
+        }
+        th
+        {
+          border-left: 1px solid rgba(255, 255, 255, 0.5);
+        }
+      }
+      tr
+      {
+        text-align: center;
+        :nth-child(1)
+        {
+          border-left: none;
+        }
+        td
+        {
+          word-break: break-word;
+          border-left: 1px solid rgba(255, 255, 255, 0.5);
+          border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+      }
+      .imp
+      {
+        font-weight: 600;
+        color: $color-imp;
+      }
+      .gold
+      {
+        font-weight: 600;
+        color: #FFD700;
+      }
+      .silver
+      {
+        font-weight: 600;
+        color: #C0C0C0;
+      }
+      .bronze
+      {
+        font-weight: 600;
+        color: #CD7F32;
+      }
+    }
+  }
+  .activated
+  {
+    background: $police !important;
+  }
+  .leadboard::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .leadboard::-webkit-scrollbar-thumb {
+    background: $color-btn;
+    border-radius: 100px;
+  }
+  .leadboard::-webkit-scrollbar-thumb:hover {
+    background: $color-btn;
+  }
+  .leadboard::-webkit-scrollbar-thumb:active {
+    background: $color-btn;
+  }
+  .leadboard::-webkit-scrollbar-track {
+    background: $color2;
+    border-radius: 50px;
+  }
+  .leadboard::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+}

@@ -7,9 +7,17 @@
   height: 100%;
   font-family: "Muli";
   @include flex("", center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   .mailSend
   {
-    @include positionTR(absolute, 5px, 5px);
+    width: 114px;
     background: $color-imp;
     color: $color1;
     transition: .2s;
@@ -83,6 +91,15 @@
     {
       text-align: center;
       font-weight: bold;
+    }
+    .fa-times
+    {
+      color: $police;
+    }
+    .fa-times:hover
+    {
+      color: $color-imp;
+      cursor: pointer;
     }
     .imp
     {
@@ -269,7 +286,6 @@
   .extract
   {
     width : 150px;
-    @include positionTL(absolute, 5px, 5px);
   }
   .hidden
   {
@@ -281,10 +297,9 @@
   }
   .btns
   {
+    margin: 20px;
     width: 100%;
     z-index: 10;
-    transform: translate(-50%, -50%);
-    @include positionTL(absolute, 15%, 50%);
     @include flex(space-evenly, center, "");
     label
     {
@@ -358,34 +373,142 @@
       }
     }
   }
-  canvas
+  .canvaDiv
   {
-    margin-top: 12%;
-    margin-bottom: 15px;
-    z-index: 3;
-    position : relative;
-    width: 82vw !important;
-    height: 41vw !important;
+    position: relative;
+    width: 85%;
+    canvas
+    {
+      position : relative;
+      z-index: 3;
+      width: 100%;
+    }
+    canvas::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    canvas::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    canvas::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    canvas::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    canvas::-webkit-scrollbar-track {
+      background: $color2;
+      border-radius: 50px;
+    }
+    canvas::-webkit-scrollbar-corner {
+      background: transparent;
+    }
   }
-  canvas::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+}
+//responsive mobile
+@media (max-width: 825px) {
+  .stats
+  {
+    .btns
+    {
+      flex-direction: column;
+    }
+    .users
+    {
+      .table
+      {
+        width: 95%;
+      }
+      .nbrUsers
+      {
+        width: 80%;
+      }
+      .select
+      {
+        top: 8%;
+        label
+        {
+          display: flex;
+          flex-direction: column;
+          span
+          {
+            text-align:center;
+          }
+        }
+        ul
+        {
+          width: auto;
+        }
+      }
+    }
+    .extract
+    {
+      top: 0px;
+      left: 0px;
+    }
+    .canvaDiv
+    {
+      // margin-top: 60%;
+      width:100vw;
+      height: 200vw;
+      overflow-x: scroll;
+      display: flex;
+    }
+    canvas
+    {
+      width: 240vw !important;
+      height: 120vw !important;
+    }
+    .canvaDiv::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .canvaDiv::-webkit-scrollbar-thumb {
+      background: $color-btn;
+      border-radius: 100px;
+    }
+    .canvaDiv::-webkit-scrollbar-thumb:hover {
+      background: $color-btn;
+    }
+    .canvaDiv::-webkit-scrollbar-thumb:active {
+      background: $color-btn;
+    }
+    .canvaDiv::-webkit-scrollbar-track {
+      background: $color2;
+      border-radius: 50px;
+    }
+    .canvaDiv::-webkit-scrollbar-corner {
+      background: transparent;
+    }
   }
-  canvas::-webkit-scrollbar-thumb {
-    background: $color-btn;
-    border-radius: 100px;
-  }
-  canvas::-webkit-scrollbar-thumb:hover {
-    background: $color-btn;
-  }
-  canvas::-webkit-scrollbar-thumb:active {
-    background: $color-btn;
-  }
-  canvas::-webkit-scrollbar-track {
-    background: $color2;
-    border-radius: 50px;
-  }
-  canvas::-webkit-scrollbar-corner {
-    background: transparent;
+}
+//responsive landscape
+@media(max-height: 500px)
+{
+  .stats
+  {
+    .btns
+    {
+      top: 35%;
+    }
+    .infoStats
+    {
+      top: 5px;
+      i
+      {
+        top: 10px;
+      }
+    }
+    .canvaDiv
+    {
+      overflow-x: initial;
+      justify-content: center;
+      canvas
+      {
+        width: 82vw !important;
+        height: 41vw !important;
+      }
+    }
   }
 }

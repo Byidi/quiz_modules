@@ -7,6 +7,20 @@
   font-family: "Muli";
   font-size: $fontSize2;
   @include flex(center, center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  h3
+  {
+    font-size: $fontSize2;
+    color: $police;
+    font-family: "Montserrat";
+  }
   .createContainer
   {
     position: relative;
@@ -219,6 +233,30 @@
     .hidden
     {
       display: none;
+    }
+  }
+}
+// mobile responsive
+@media (max-width: 825px)
+{
+  .new_camp
+  {
+    height: auto;
+    .createContainer
+    {
+      justify-content: flex-start;
+      align-items:center;
+      flex-direction : column;
+      form
+      {
+        width: 300px;
+        margin-bottom: 10px;
+      }
+      .listCamp
+      {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
     }
   }
 }

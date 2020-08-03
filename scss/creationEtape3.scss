@@ -1,6 +1,8 @@
 @import 'mixin', 'colors', 'fontSize';
 .step3
 {
+  position: relative;
+  top: 0;
   font-family: "Muli";
   font-size: $fontSize2;
   color: $police;
@@ -8,14 +10,25 @@
   width: 100%;
   @include flex(space-around, center, column);
   // @include positionTL(absolute, 10%, 0);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  h3
+  {
+    font-size: $fontSize2;
+    color: $police;
+    font-family: "Montserrat";
+    font-weight: 200;
+  }
   .img
   {
     position: relative;
     max-width: 30%;
-  }
-  h3
-  {
-    font-weight: 200;
   }
   .steps
   {
@@ -72,6 +85,12 @@
   .good
   {
     color: #3AD29F;
+  }
+  .mess
+  {
+    font-size: $fontSize2;
+    font-weight: 600;
+    text-align: center;
   }
   .recap
   {
@@ -239,6 +258,51 @@
       }
       .content::-webkit-scrollbar-corner {
         background: transparent;
+      }
+    }
+  }
+}
+// mobile responsive
+@media (max-width: 825px) {
+  .step3
+  {
+    .steps
+    {
+      width: 80%;
+    }
+    .recap
+    {
+      .questions
+      {
+        width: 100%;
+        .answers
+        {
+          div
+          {
+            div
+            {
+              i
+              {
+                margin: 5px;
+              }
+            }
+          }
+        }
+      }
+      .pages
+      {
+        width: 100%;
+        height: 50%;
+        flex-direction: column;
+        iframe
+        {
+          width: 213.6px;
+          height: 120px;
+        }
+        .content
+        {
+          width: 100%;
+        }
       }
     }
   }
