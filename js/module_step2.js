@@ -31,6 +31,27 @@ function getPageHtml(id){
         <label>Titre de la page :</label>
         <input type="text" name="content_${id}_title" value="">
     </div>
+    <div class="legend legend${id}">
+      <label>Stylisation du texte :</label>
+      <ul class="display">
+        <li><span>{{</span> Texte sur la gauche<br> ( ex : {{votre texte{{ ) *</li>
+        <li><span>}}</span> Texte sur la droite<br> ( ex : }}votre texte}} ) *</li>
+        <li><span>||</span> Texte centré<br> ( ex : ||votre texte|| ) *</li>
+        <li><span>~~</span> Texte justifié<br> ( ex : ~~votre texte~~ ) *</li>
+        <li><span>**</span> Texte en <b>gras</b><br> ( ex: **votre texte** )</li>
+        <li><span>//</span> Texte en <elem style="font-style: italic">italique</elem> <br>( ex: //votre texte// )</li>
+        <li><span>__</span> Texte <elem style="text-decoration: underline">souligné</elem> <br>( ex: __votre texte__ )</li>
+      </ul>
+      <br>
+      <p class="display">* pour la justification du texte, il y a une particularité a respecter: chaque bloc doit être entouré du symbole en question. <br>
+      <elem style="text-decoration: underline">ex</elem>: <br>{{Ma phrase d\'introduction
+        <br>
+        mon paragraphe}} -> cet exemple ne marchera pas
+        <br><br>
+        {{Ma phrase d\'introduction}}
+          <br>
+        {{mon paragraphe}} -> il faudra suivre cet exemple </p>
+    </div>
     <div>
         <label>Contenu de la page :</label>
         <textarea name="content_${id}" value=""></textarea>
@@ -115,6 +136,23 @@ plus.addEventListener("click", ()=>{
 
     addDeleteEvent();
     inputFile();
+
+    let legend = document.querySelector(`.legendn${nextId}`);
+    const ul = legend.childNodes[3];
+    const inst = legend.childNodes[7];
+    legend.addEventListener("click", ()=>{
+      if(ul.classList.contains("display"))
+      {
+        ul.classList.remove("display");
+        inst.classList.remove("display");
+      }
+      else
+      {
+        ul.classList.add("display");
+        inst.classList.add("display");
+      }
+    });
+    
     nextId++;
   }
 })
@@ -129,12 +167,22 @@ sketching.addEventListener("click", ()=>{
   document.querySelector("input[value='Enregistrer le brouillon']").click();
 })
 
-const textareas = document.querySelectorAll("textarea");
+const legends = document.querySelectorAll(".legend");
 
-textareas.forEach(text => {
-  text.addEventListener("input", ()=>{
-    const words = text.value.split(" ");
-
-    // console.log(words[words.length - 1]);
-  })
+legends.forEach(legend => {
+  const ul = legend.childNodes[3];
+  const inst = legend.childNodes[7];
+  legend.addEventListener("click", ()=>{
+    console.log(ul, inst);
+    if(ul.classList.contains("display"))
+    {
+      ul.classList.remove("display");
+      inst.classList.remove("display");
+    }
+    else
+    {
+      ul.classList.add("display");
+      inst.classList.add("display");
+    }
+  });
 });
