@@ -184,7 +184,7 @@ function processAnswers($id, $isNew){
 
 if($_SESSION['errorQuiz'] == ""){
     if(isset($_POST['brouillon'])){
-        wp_redirect(get_template_directory_uri()."/app/create_quiz_3.php?status=0" );
+        wp_redirect(WP_PLUGIN_URL."/quiz_modules/script/create_quiz_3.php?status=0" );
     }else{
         wp_redirect( home_url().'/creationquizetape3' );
     }
