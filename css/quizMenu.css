@@ -20,6 +20,14 @@
   /* ---- isotope ---- */
 }
 
+.quizModules .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
 .quizModules .button-group {
   width: 90%;
   border-radius: 100px;
@@ -54,40 +62,6 @@
 .quizModules .button-group .button:active,
 .quizModules .button-group .button.is-checked {
   background-color: #e6e6e6;
-}
-
-.quizModules .ancreTop, .quizModules .ancreDown {
-  z-index: 24;
-}
-
-.quizModules .ancreTop i, .quizModules .ancreDown i {
-  color: #e6e6e6;
-  font-size: 25px;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.quizModules .ancreTop i:hover, .quizModules .ancreDown i:hover {
-  color: #EBB94A;
-}
-
-.quizModules .ancreTop {
-  z-index: 25;
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-}
-
-.quizModules .ancreDown {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
-
-.quizModules #end {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 .quizModules .grid .element-item {
@@ -739,35 +713,19 @@
   opacity: 0;
 }
 
-.quizPlay #results .btn {
-  background: #EBB94A;
-  padding: 5px 10px;
-  border-radius: 150px;
-  font-weight: 600;
-  color: #131A28;
-  position: absolute;
-  bottom: 0px;
-  right: 50%;
-  -webkit-transform: translate(50%);
-          transform: translate(50%);
-  -webkit-transition: .2s;
-  transition: .2s;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.quizPlay #results .btn:hover {
-  background: #e6e6e6;
-  cursor: pointer;
-}
-
 .quizPlay #results .fa-times {
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 28px;
+  color: #e6e6e6;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizPlay #results .fa-times:hover {
+  color: #EBB94A;
+  cursor: pointer;
 }
 
 .quizPlay #results .recap {
@@ -879,6 +837,32 @@
 
 .quizPlay #results .recap::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+@media (max-width: 825px) {
+  .quizPlay .slide .answers {
+    width: 90%;
+    margin-bottom: 25px;
+  }
+  .quizPlay .slide .span {
+    top: -5%;
+    right: 2px;
+  }
+  .quizPlay .btns {
+    margin-bottom: 50px;
+  }
+  .quizPlay .timer {
+    left: 2px;
+    right: auto;
+    top: 2px;
+    bottom: auto;
+  }
+  .quizPlay .progress {
+    width: 95%;
+  }
+  .quizPlay #results .recap {
+    width: 95%;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 320px) {

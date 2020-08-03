@@ -1,5 +1,5 @@
 .step2 {
-  position: absolute;
+  position: relative;
   top: 0;
   font-family: "Muli";
   font-size: 1.5rem;
@@ -20,8 +20,33 @@
           flex-direction: column;
 }
 
+.step2 .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.step2 h3 {
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  font-family: "Montserrat";
+  font-weight: 200;
+}
+
 .step2 img {
   max-width: 30%;
+}
+
+.step2 .error {
+  color: red;
+}
+
+.step2 .mess {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .step2 .steps {
@@ -86,12 +111,6 @@
 .step2 .plus {
   margin-bottom: 10px;
   font-size: 2rem;
-}
-
-.step2 h3 {
-  font-size: 1.5rem;
-  font-weight: 200;
-  font-family: "Montserrat";
 }
 
 .step2 .trash {
@@ -377,4 +396,39 @@
 .step2 .validate:hover, .step2 .sketching:hover {
   background: #e6e6e6;
   cursor: pointer;
+}
+
+@media (max-width: 825px) {
+  .step2 .total {
+    padding: 5px;
+    background: rgba(25, 34, 49, 0.7);
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 3px;
+  }
+  .step2 .sketching {
+    margin-bottom: 15%;
+  }
+  .step2 .steps {
+    width: 80%;
+  }
+  .step2 form {
+    width: 100%;
+  }
+  .step2 form .questionPage {
+    width: 90%;
+  }
+  .step2 form .questionPage .media {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .step2 form .questionPage .media div {
+    width: 80%;
+  }
+  .step2 form .questionPage .answers .abcd .answer {
+    width: 80%;
+  }
 }

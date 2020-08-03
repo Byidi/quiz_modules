@@ -18,6 +18,14 @@
           flex-direction: column;
 }
 
+.modulesL .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
 .modulesL .popup {
   position: absolute;
   top: 50%;
@@ -28,6 +36,7 @@
   color: #e6e6e6;
   padding: 15px;
   border-radius: 5px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,7 +69,23 @@
   font-weight: 600;
 }
 
-.modulesL .listQuiz table tr :nth-child(4), .modulesL .listModules table tr :nth-child(4) {
+.modulesL .listModules {
+  bottom: 0;
+  width: 50%;
+  height: 80%;
+  border-collapse: collapse;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.modulesL .listModules table {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.modulesL .listModules table tr :nth-child(4) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,23 +101,7 @@
           flex-direction: column;
 }
 
-.modulesL .listQuiz, .modulesL .listModules, .modulesL .listUser {
-  bottom: 0;
-  width: 50%;
-  height: 80%;
-  border-collapse: collapse;
-  overflow-y: scroll;
-  padding: 10px;
-}
-
-.modulesL .listQuiz table, .modulesL .listModules table, .modulesL .listUser table {
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.modulesL .listQuiz table p, .modulesL .listQuiz table a, .modulesL .listModules table p, .modulesL .listModules table a, .modulesL .listUser table p, .modulesL .listUser table a {
+.modulesL .listModules table p, .modulesL .listModules table a {
   font-family: "Muli";
   margin: 10px;
   width: 100px;
@@ -105,51 +114,51 @@
   font-weight: 600;
 }
 
-.modulesL .listQuiz table p, .modulesL .listModules table p, .modulesL .listUser table p {
+.modulesL .listModules table p {
   background: #eb0d0d;
   color: #e6e6e6;
 }
 
-.modulesL .listQuiz table p:hover, .modulesL .listQuiz table a:hover, .modulesL .listModules table p:hover, .modulesL .listModules table a:hover, .modulesL .listUser table p:hover, .modulesL .listUser table a:hover {
+.modulesL .listModules table p:hover, .modulesL .listModules table a:hover {
   cursor: pointer;
   background: #e6e6e6;
   color: #131A28;
 }
 
-.modulesL .listQuiz table thead, .modulesL .listModules table thead, .modulesL .listUser table thead {
+.modulesL .listModules table thead {
   position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.modulesL .listQuiz table thead :nth-child(1), .modulesL .listModules table thead :nth-child(1), .modulesL .listUser table thead :nth-child(1) {
+.modulesL .listModules table thead :nth-child(1) {
   border-left: none;
 }
 
-.modulesL .listQuiz table thead :nth-child(2), .modulesL .listModules table thead :nth-child(2), .modulesL .listUser table thead :nth-child(2) {
+.modulesL .listModules table thead :nth-child(2) {
   width: 30%;
 }
 
-.modulesL .listQuiz table thead :nth-child(4), .modulesL .listModules table thead :nth-child(4), .modulesL .listUser table thead :nth-child(4) {
+.modulesL .listModules table thead :nth-child(4) {
   margin: 0;
 }
 
-.modulesL .listQuiz table thead th, .modulesL .listModules table thead th, .modulesL .listUser table thead th {
+.modulesL .listModules table thead th {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.modulesL .listQuiz table tr:nth-child(1) :nth-child(4), .modulesL .listModules table tr:nth-child(1) :nth-child(4), .modulesL .listUser table tr:nth-child(1) :nth-child(4) {
+.modulesL .listModules table tr:nth-child(1) :nth-child(4) {
   border-top: none;
 }
 
-.modulesL .listQuiz table tr, .modulesL .listModules table tr, .modulesL .listUser table tr {
+.modulesL .listModules table tr {
   text-align: center;
 }
 
-.modulesL .listQuiz table tr :nth-child(1), .modulesL .listModules table tr :nth-child(1), .modulesL .listUser table tr :nth-child(1) {
+.modulesL .listModules table tr :nth-child(1) {
   border-left: none;
 }
 
-.modulesL .listQuiz table tr td, .modulesL .listModules table tr td, .modulesL .listUser table tr td {
+.modulesL .listModules table tr td {
   word-break: break-word;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -200,29 +209,44 @@
   background: red;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar, .modulesL .listModules::-webkit-scrollbar, .modulesL .listUser::-webkit-scrollbar {
+.modulesL .listModules::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar-thumb, .modulesL .listModules::-webkit-scrollbar-thumb, .modulesL .listUser::-webkit-scrollbar-thumb {
+.modulesL .listModules::-webkit-scrollbar-thumb {
   background: #EBB94A;
   border-radius: 100px;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar-thumb:hover, .modulesL .listModules::-webkit-scrollbar-thumb:hover, .modulesL .listUser::-webkit-scrollbar-thumb:hover {
+.modulesL .listModules::-webkit-scrollbar-thumb:hover {
   background: #EBB94A;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar-thumb:active, .modulesL .listModules::-webkit-scrollbar-thumb:active, .modulesL .listUser::-webkit-scrollbar-thumb:active {
+.modulesL .listModules::-webkit-scrollbar-thumb:active {
   background: #EBB94A;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar-track, .modulesL .listModules::-webkit-scrollbar-track, .modulesL .listUser::-webkit-scrollbar-track {
+.modulesL .listModules::-webkit-scrollbar-track {
   background: #131A28;
   border-radius: 50px;
 }
 
-.modulesL .listQuiz::-webkit-scrollbar-corner, .modulesL .listModules::-webkit-scrollbar-corner, .modulesL .listUser::-webkit-scrollbar-corner {
+.modulesL .listModules::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+@media (max-width: 825px) {
+  .modulesL .listUser {
+    height: 70%;
+  }
+  .modulesL .listModules {
+    width: 100%;
+  }
+  .modulesL .listModules table thead :nth-child(1) {
+    width: 25%;
+  }
+  .modulesL .listModules table thead :nth-child(2) {
+    width: 25%;
+  }
 }

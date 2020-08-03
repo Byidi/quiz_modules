@@ -19,6 +19,20 @@
           flex-direction: column;
 }
 
+.new_camp .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.new_camp h3 {
+  font-size: 1.5rem;
+  color: #e6e6e6;
+  font-family: "Montserrat";
+}
+
 .new_camp .createContainer {
   position: relative;
   display: -webkit-box;

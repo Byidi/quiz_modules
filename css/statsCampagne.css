@@ -1,5 +1,5 @@
 .stats_camp {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   font-size: 1.5rem;
@@ -18,6 +18,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.stats_camp .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .stats_camp span {

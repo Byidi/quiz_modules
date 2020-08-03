@@ -7,6 +7,14 @@
   height: 100%;
   font-family: "Muli";
   @include flex("", center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   .mailSend
   {
     width: 114px;
@@ -83,6 +91,15 @@
     {
       text-align: center;
       font-weight: bold;
+    }
+    .fa-times
+    {
+      color: $police;
+    }
+    .fa-times:hover
+    {
+      color: $color-imp;
+      cursor: pointer;
     }
     .imp
     {

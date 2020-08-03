@@ -1,13 +1,21 @@
 @import 'mixin', 'colors', 'fontSize';
 .stats_camp
 {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   font-size: $fontSize2;
   color: $police;
   font-family: "Muli";
   @include flex(center, center, column);
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   span
   {
     font-weight: bold;
@@ -194,6 +202,7 @@
     display: none;
   }
 }
+//mobile responsive
 @media (max-width: 825px) 
 {
   .stats_camp

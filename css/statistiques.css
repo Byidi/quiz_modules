@@ -19,6 +19,14 @@
           flex-direction: column;
 }
 
+.stats .h2 {
+  color: #e6e6e6;
+  z-index: 4;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
 .stats .mailSend {
   width: 114px;
   background: #EBB94A;
@@ -122,6 +130,15 @@
 .stats .users p {
   text-align: center;
   font-weight: bold;
+}
+
+.stats .users .fa-times {
+  color: #e6e6e6;
+}
+
+.stats .users .fa-times:hover {
+  color: #EBB94A;
+  cursor: pointer;
 }
 
 .stats .users .imp {

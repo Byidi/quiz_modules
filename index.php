@@ -16,15 +16,15 @@ add_shortcode( 'qm_quiz_creation_3', 'qm_quiz_creation_3');
 function qm_display_quiz_menu(){
     global $wpdb;
     echo '
-    <div class="quizModules">
-    <h2 id="debut" class="h2">Nos quiz</h2>
+    <div id="debut" class="quizModules">
+    <h2 class="h2">Nos quiz</h2>
         
-            <a class="ancreTop" href="#debut">
+            <!--<a class="ancreTop" href="#debut">
                 <i class="fas fa-sort-up"></i>
             </a>
             <a class="ancreDown" href="#end">
                 <i class="fas fa-sort-down"></i>
-            </a>
+            </a>-->
             <div class="button-group filters-button-group">
                 <button class="button" data-filter="*">tout</button>';
             
@@ -36,7 +36,6 @@ function qm_display_quiz_menu(){
                 
             echo '</div>
             <div class="grid">
-                <div id="end"></div>
             </div>
         </div>
     ';
@@ -424,15 +423,15 @@ function qm_display_module_menu(){
   echo '  
 
   
-  <div class="quizModules">
-  <h2 id="debut" class="h2">Nos modules</h2>
-    <a class="ancreTop" href="#debut">
+  <div id="debut" class="quizModules">
+  <h2 class="h2">Nos modules</h2>
+    <!--<a class="ancreTop" href="#debut">
       <i class="fas fa-sort-up"></i>
     </a>
 
     <a class="ancreDown" href="#end">
       <i class="fas fa-sort-down"></i>
-    </a>
+    </a>-->
 
     <div class="button-group filters-button-group">
 
@@ -453,9 +452,8 @@ function qm_display_module_menu(){
       </div>
 
       <div class="grid">
-        <div id="end"></div>
       </div>
-
+      
     </div>';
 
     wp_enqueue_style( 'modMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
@@ -479,19 +477,19 @@ function qm_module_creation_1(){
         <div class="step">2</div>
         <div class="step">3</div>
         <div class="stick"></div>
-    </div>
+    </div>';
 
-    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_1.php" method="post" enctype="multipart/form-data">';
+    if(!empty($_SESSION["errorModule"])){
+      echo "<p class='mess error'>".$_SESSION["errorModule"]."</p>";
+      unset($_SESSION["errorModule"]);
+    }
+    elseif(!empty($_SESSION["moduleOk"])){
+      echo "<p class='mess good'>".$_SESSION["moduleOk"]."</p>";
+      unset($_SESSION["moduleOk"]);
+    }
     
-      if(!empty($_SESSION["errorModule"])){
-          echo "<p class='mess error'>".$_SESSION["errorModule"]."</p>";
-          unset($_SESSION["errorModule"]);
-      }
-      elseif(!empty($_SESSION["moduleOk"])){
-          echo "<p class='mess good'>".$_SESSION["moduleOk"]."</p>";
-          unset($_SESSION["moduleOk"]);
-      }
-      echo '
+    echo '
+    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_1.php" method="post" enctype="multipart/form-data">
       <div class="textarea">
         <div>
           <label for="">Description :</label>

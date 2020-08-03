@@ -5,7 +5,14 @@
   width: 100%;
   height: 100%;
   @include flex(space-between, center, column);
-  
+  .h2
+  {
+    color: $police;
+    z-index: 4;
+    font-size: $fontSize3;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+  }
   /* ---- button ---- */
   .button-group
   {
@@ -42,34 +49,30 @@
   }
   /* ---- ancre ---- */
   
-  .ancreTop, .ancreDown
-  {
-    z-index: 24;
-    i
-    {
-      color: $police;
-      font-size:25px;
-      transition:.2s;
-    }
-    i:hover
-    {
-      color: $color-imp;
-    }
-  }
-  .ancreTop
-  {
-    z-index: 25;
-    @include positionBR(fixed, 20px, 10px);
-  }
-  .ancreDown
-  {
-    @include positionBR(fixed, 10px, 10px);
-  }
+  // .ancreTop, .ancreDown
+  // {
+  //   z-index: 24;
+  //   i
+  //   {
+  //     color: $police;
+  //     font-size:25px;
+  //     transition:.2s;
+  //   }
+  //   i:hover
+  //   {
+  //     color: $color-imp;
+  //   }
+  // }
+  // .ancreTop
+  // {
+  //   z-index: 25;
+  //   @include positionBR(fixed, 20px, 10px);
+  // }
+  // .ancreDown
+  // {
+  //   @include positionBR(fixed, 10px, 10px);
+  // }
 
-  #end
-  {
-    @include positionBL(absolute, 0, 0);
-  }
   /* ---- isotope ---- */
   
   .grid {
@@ -489,27 +492,17 @@
     @include positionTR(fixed, 0, 0);
     z-index: 2;
     opacity: 0;
-    .btn
-    {
-      background: $color-btn;
-      padding: 5px 10px;
-      border-radius: 150px;
-      font-weight: 600;
-      color: $color1;
-      @include positionBR(absolute, 0px, 50%);
-      transform: translate(50%);
-      transition: .2s;
-      user-select: none;
-    }
-    .btn:hover
-    {
-      background: $police;
-      cursor: pointer;
-    }
     .fa-times
     {
       @include positionTR(absolute, 20px, 20px);
       font-size: 28px;
+      color: $police;
+      transition: .2s;
+    }
+    .fa-times:hover
+    {
+      color: $color-imp;
+      cursor: pointer;
     }
     .recap
     {
@@ -582,6 +575,49 @@
     }
   }
 }
+// mobile responsive
+@media (max-width: 825px)
+{
+  .quizPlay
+  {
+    .slide
+    {
+      .answers
+      {
+        width: 90%;
+        margin-bottom: 25px;
+      }
+      .span
+      {
+        top: -5%;
+        right: 2px;
+      }
+    }
+    .btns
+    {
+      margin-bottom: 50px;
+    }
+    .timer
+    {
+      left: 2px;
+      right: auto;
+      top: 2px;
+      bottom: auto;
+    }
+    .progress
+    {
+      width: 95%;
+    }
+    #results
+    {
+      .recap
+      {
+        width: 95%;
+      }
+    }
+  }
+}
+// iphone 5 size responsive
 @media (min-width: 320px) and (max-width: 320px)
 {
   .quizModules
