@@ -21,7 +21,8 @@ if(!checkAuthorized(true)){
 $error_quiz = "";
 if(!empty($_POST['title']) && !empty($_POST['theme']))
 {
-    $img_path = $_SESSION['quizData']['quiz']['img'];
+    $dir = md5($_POST['title']);
+    $img = $_SESSION['quizData']['quiz']['img'] === '' ? '' :  $_SESSION['quizData']['quiz']['img'];
     if((!isset($_FILES['img_quiz']) || $_FILES['img_quiz']['error'] == UPLOAD_ERR_NO_FILE) && $_SESSION['quizData']['quiz']['img'] === "")
     {
         $error_quiz = "Veuillez selectionner une image en format jpg ou png.";
@@ -43,13 +44,15 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
         }
             // on copie le fichier dans le dossier de destination
         $name_file = md5($_POST['title']).'.'.preg_replace("#image\/#","",$type_file);
-        $img = $name_file;
+        $img_path = $name_file;
 
-        if( !move_uploaded_file($tmp_file, $content_dir . $name_file) )
+        $uploading = wp_upload_bits($name_file, null, file_get_contents($_FILES["img_quiz"]["tmp_name"]));
+
+        if( $uploading['error'] !== false )
         {
-            $error_quiz = "Impossible de copier le fichier $name_file dans $content_dir";
+            $error_module = "Impossible de copier le fichier $name_file dans $content_dir";
         }
-        $img_path = $dir."/".$img;
+        $img = $uploading['url'];
     }
     //enregistrement des POST en SESSION pour passer à la seconde étape sans enregistrer en base de données en cas d'abandon
     $title = htmlspecialchars($_POST['title']);
@@ -66,7 +69,7 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
 
     $_SESSION['quizData']['quiz']['title'] = $title;
     $_SESSION['quizData']['quiz']['theme'] = $theme;
-    $_SESSION['quizData']['quiz']['img'] = $img_path;
+    $_SESSION['quizData']['quiz']['img'] = $img;
     $_SESSION['quizData']['quiz']['description'] = $description;
     $_SESSION['quizData']['quiz']['module_id']  = $moduleRelated;
 

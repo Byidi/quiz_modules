@@ -61,7 +61,6 @@ function qm_quiz_creation_1(){
         <div class="step">3</div>
         <div class="stick"></div>
     </div>
-
     <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_1.php" method="post" enctype="multipart/form-data">';
         
             if(!empty($_SESSION["errorQuiz"])){
@@ -152,7 +151,6 @@ function qm_quiz_creation_2(){
             $html .= ' new';
         }
         $html .= '">
-
        
           <div>
             <label>Votre question:</label>
@@ -237,12 +235,12 @@ function qm_quiz_creation_2(){
                 global $wpdb;
                 $img = $wpdb->get_var("SELECT img_path FROM question WHERE id='".$i."'");
                 if(!empty($img)){
-                    $html .= '<img style="width : 50px; margin-left : 6px;" src="'.get_template_directory_uri().'/img/quizs/'.$img.'">';
+                    $html .= '<img style="width : 50px; margin-left : 6px;" src="'.get_template_directory().'/img/quiz/'.$img.'">';
                 }
               }
               $html .= '
               </label>
-              <button type="button" disabled><p id="fakebtn" data-id="'.$i.'">Séléctionnez une image</p></button>
+              <button type="button" disabled><p id="fakebtn" data-id="'.$i.'">Sélectionnez une image</p></button>
               <span id="img_select'.$i.'">Aucune image sélectionnée.</span>
               <input id="realbtn'.$i.'" type="file" name="q_'.$i.'_img" hidden>
             </div>
@@ -263,11 +261,8 @@ function qm_quiz_creation_2(){
   
   <div class="step2">
   <h2 class="h2">'.$_SESSION['quizData']['quiz']['title'].'</h2>
-
-    <img src="'. get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
-
+    <img src="'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
     <h3>Étape 2: Les questions</h3>
-
     <div class="steps">
       <div class="step">1</div>
       <div class="step stepInto">2</div>
@@ -304,7 +299,6 @@ function qm_quiz_creation_2(){
       }
       echo '
       <input type="submit" name ="valider" value="Valider" hidden/>
-
       <input type="submit" name ="brouillon" value="Enregistrer le brouillon" hidden/>
     </form>
     <i class="plus fas fa-plus"></i>
@@ -321,21 +315,16 @@ function qm_quiz_creation_3(){
   echo '
   <div class="step3">
   <h2 class="h2">'. $_SESSION['quizData']['quiz']['title'].'</h2>
-
-    <img class="img" src="'.get_template_directory_uri().'/img/quizs/'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
-
+    <img class="img" src="'. $_SESSION['quizData']['quiz']['img'].'" alt="votre image">
    <h3>Étape 3: Confirmation</h3>
-
     <div class="steps">
       <div class="step">1</div>
       <div class="step">2</div>
       <div class="step stepInto">3</div>
       <div class="stick"></div>
     </div>
-
     <div class="recap">';
 
-      $img = get_template_directory_uri();
       $num = 0;
       if(!empty($_SESSION['quizData']['questions'])){
         echo '<div class="questions"><p class="introP"><span class="numQ">Description</span>'.nl2br(stripslashes($_SESSION['quizData']['quiz']['description'])).'</p></div>';
@@ -347,7 +336,7 @@ function qm_quiz_creation_3(){
           if(!empty($q['info']['img'])){
             echo '
             <div class="medias">
-              <img src="'.$img.'/img/quizs/'.$q['info']['img'].'" alt="votre image">
+              <img src="'.$q['info']['img'].'" alt="votre image">
             </div>
             ';
           }elseif (!empty($q['info']['video'])) {
@@ -400,10 +389,8 @@ function qm_quiz_creation_3(){
       };
   echo '
     </div>
-
   <a href="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_3.php">Confirmez la création de votre quiz</a>
   <a href="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_3.php?status=0">Enregistrer le brouillon</a>
-
   </div>';
 
   wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
@@ -422,20 +409,16 @@ add_shortcode( 'qm_module_creation_3', 'qm_module_creation_3');
 function qm_display_module_menu(){
   global $wpdb;
   echo '  
-
   
   <div class="quizModules">
   <h2 id="debut" class="h2">Nos modules</h2>
     <a class="ancreTop" href="#debut">
       <i class="fas fa-sort-up"></i>
     </a>
-
     <a class="ancreDown" href="#end">
       <i class="fas fa-sort-down"></i>
     </a>
-
     <div class="button-group filters-button-group">
-
     <button class="button" data-filter="*">tout</button>';
 
      //ajout boucle tags db
@@ -449,13 +432,10 @@ function qm_display_module_menu(){
       }
 
       echo '
-
       </div>
-
       <div class="grid">
         <div id="end"></div>
       </div>
-
     </div>';
 
     wp_enqueue_style( 'modMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
@@ -480,7 +460,6 @@ function qm_module_creation_1(){
         <div class="step">3</div>
         <div class="stick"></div>
     </div>
-
     <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_1.php" method="post" enctype="multipart/form-data">';
     
       if(!empty($_SESSION["errorModule"])){
@@ -549,11 +528,8 @@ function qm_module_creation_2(){
   
   <div class="step2">
   <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
-
     <img src="'. $_SESSION['moduleData']['module']['img'].'" alt="votre image">
-
     <h3>Étape 2: Les pages</h3>
-
     <div class="steps">
       <div class="step">1</div>
       <div class="step stepInto">2</div>
@@ -632,12 +608,9 @@ function qm_module_creation_2(){
       echo getPage('n1', true, null);
     }
     echo '
-
       <input type="submit" name="valider" value="Valider" hidden/>
-
       <input type="submit" name="brouillon" value="Enregistrer le brouillon" hidden/>
     </form>
-
     <i class="plus fas fa-plus"></i>
     <p class="validate">Suivant</p>
     <p class="sketching">Enregistrer en brouillon</p>
@@ -653,19 +626,14 @@ function qm_module_creation_3(){
   
   <div class="step3">
   <h2 class="h2">'. $_SESSION['moduleData']['module']['title'].'</h2>
-
     <img class="img" src="'.$_SESSION['moduleData']['module']['img'].'" alt="votre image">
-
     <h3>Étape 3: Confirmation</h3>
-
     <div class="steps">
       <div class="step">1</div>
       <div class="step">2</div>
       <div class="step stepInto">3</div>
       <div class="stick"></div>
     </div>
-
-
     <div class="recap">';
 
     $num = 0;
@@ -746,11 +714,8 @@ function qm_module_creation_3(){
     };
     echo '
     </div>
-
     <a href="'. WP_PLUGIN_URL.'/quiz_modules/script/create_module_3.php">Confirmez la création de votre module</a>
-
     <a href="'. WP_PLUGIN_URL.'/quiz_modules/script/create_module_3.php?status=0">Enregistrer le brouillon</a>
-
   </div>';
 
   wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
@@ -815,9 +780,6 @@ function qm_display_quiz_list(){
   global $wpdb;
   echo '
     <h2 class="h2"> Liste des Quizs </h2>
-
-
-
     <div class="quizsL">
     
       <div class="listQuiz">
@@ -848,7 +810,6 @@ function qm_display_quiz_list(){
     
     </div>
     
-
     ';
 
 
@@ -867,7 +828,6 @@ function qm_display_tag_list(){
   echo '
   
     <h2 id="debut" class="h2">Gestion des tags</h2>
-
     <div class="add_tag">
         <div class="contentTag">
             <div class="listTag">
@@ -898,7 +858,6 @@ function qm_display_tag_list(){
                         echo '
                 </ul>
             </div>
-
             <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/add_tag.php" method="post" enctype="multipart/form-data">
                 <h3>Ajoutez un tag</h3>
                 <div>
@@ -919,7 +878,6 @@ function qm_display_classement_admin(){
   global $wpdb;
   echo '
       <h2 class="h2 h2board">Classements</h2>
-
     <div class="board">
       <div class="legend">
         <p>Légende <i class="dropIcon fas fa-sort-down"></i></p>
@@ -971,7 +929,6 @@ function qm_display_classement_admin(){
           </ul>
         </div>
       </div>
-
       <div class="leadboard">
         <table>
           <thead></thead>
@@ -998,9 +955,7 @@ function qm_display_stats_admin(){
   global $wpdb;
   echo '
   <h2 id="debut" class="h2">Statistiques</h2>
-
   <div class="stats">
-
     <div class="btns">
       <div>
         <label>Type :</label>
@@ -1024,7 +979,6 @@ function qm_display_stats_admin(){
         </ul>
       </div>
     </div>
-
     <button class="extract">Tableaux utilisateurs</button>
     <p class="mailSend">Notifier par mail</p>';
 
@@ -1040,7 +994,6 @@ function qm_display_stats_admin(){
         <p class="no">Non</p>
       </div>
     </div>
-
     <div class="users userQuiz hidden">
       <i class="fas fa-times quizCross"></i>
       <div class="select">
@@ -1070,7 +1023,6 @@ function qm_display_stats_admin(){
         </table>
       </div>
     </div>
-
     <div class="users userModule hidden">
       <i class="fas fa-times modCross"></i>
       <div class="select">
@@ -1099,11 +1051,9 @@ function qm_display_stats_admin(){
         </table>
       </div>
     </div>
-
     <div class="canvaDiv">
       <canvas class="canva"></canvas>
     </div>
-
   </div>  
   ';
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
@@ -1124,7 +1074,6 @@ function qm_display_creation_campagne(){
   global $wpdb;
   echo '
   <h2 class="h2"> Nouvelle Campagne </h2>
-
   <div class="new_camp">
     <div class="confirm hidden">
       <p>Êtes-vous sur de vouloir supprimer cette campagne "<span class="nameCamp"></span>"?</p>
@@ -1194,7 +1143,6 @@ function qm_display_campagne_stats(){
   global $wpdb;
   echo '
   <h2 class="h2"> Statistiques des Campagnes </h2>
-
   <div class="stats_camp">
     <div class="select">
       <label>Votre campagne: <span class="camp_name name_camp">votre choix</span></label>
@@ -1341,39 +1289,22 @@ function qm_display_stats_acceuil(){
 function qm_display_classement_acceuil(){
   echo "
   <h3>Classement</h3>
-
   <div class=btns>
-
     <button class=gen>Général</button>
-
     <button class=town>Votre site</button>
-
   </div>
-
   <div class=leadboard>
-
     <table>
-
     <thead>
-
         <tr>
-
             <th colspan=1>Pos</th>
-
             <th colspan=1>Joueur</th>
-
             <th colspan=1>Site</th>
-
             <th colspan=1>Moyenne</th>
-
         </tr>
-
     </thead>
-
     <tbody class=tbody>
-
     </tbody>
-
   </table>
   </div>
   ";
