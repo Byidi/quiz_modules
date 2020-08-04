@@ -1302,10 +1302,10 @@ function qm_display_campagne_stats(){
 
   wp_enqueue_style( 'statsCampagne', WP_PLUGIN_URL .'/quiz_modules/css/statsCampagne.css',false,'1.1','all');
   wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/stats_camps.js', null, true);
-        wp_localize_script('statscamp', 'myScript', array(
-            'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
-            'home_url' => home_url()
-        ));
+  wp_localize_script('statscamp', 'myScript', array(
+      'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
+      'home_url' => home_url()
+  ));
 }
 
 //////////////////////////////////Acceuil/////////////////////////////////
@@ -1320,7 +1320,11 @@ function qm_display_stats_acceuil(){
   ";
 
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
-  // <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+  wp_enqueue_script('canvaResults', WP_PLUGIN_URL . '/quiz_modules/js/canvaResults.js', null, true);
+  wp_localize_script('canvaResults', 'myScript', array(
+    'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
+    'home_url' => home_url()
+));
 }
 
 function qm_display_classement_acceuil(){
@@ -1349,11 +1353,9 @@ function qm_display_classement_acceuil(){
   ";
 
   wp_enqueue_style( 'leadboardTemplate', WP_PLUGIN_URL .'/quiz_modules/css/leadboardTemplate.css',false,'1.1','all');
-  wp_enqueue_script('my-script', WP_PLUGIN_URL . '/quiz_modules/js/home.js', null, true);
-  wp_localize_script('my-script', 'myScript', array(
+  wp_enqueue_script('boardTemplate', WP_PLUGIN_URL . '/quiz_modules/js/boardTemplate.js', null, true);
+  wp_localize_script('boardTemplate', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
-      'admin' => current_user_can('administrator'),
-      'editor' => current_user_can('editor'),
   ));
 }
 

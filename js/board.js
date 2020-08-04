@@ -21,7 +21,6 @@ window.addEventListener('load', function () {
             selected = document.querySelector(".selected"),
             quizLi = document.querySelectorAll(".quizLi"),
             tagLi = document.querySelectorAll(".tagLi"),
-            btnList = document.querySelector(".btnList"),
             label = document.querySelector(".labelList"),
             selectCat = document.querySelector(".listCat"),
             selectQuiz = document.querySelector(".listQuiz"),
