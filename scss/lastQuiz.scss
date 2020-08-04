@@ -1,0 +1,64 @@
+@import 'mixin', 'colors', 'fontSize';
+.lastQ
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .contentQ
+  {
+    position:relative;
+    width: 50%;
+    height: 70%;
+    margin-bottom: 5px;
+    a
+    {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      color: $color-imp;
+      border-radius: 5px;
+      overflow: hidden;
+      @include flex(center, center, column);
+      img
+      {
+        position: relative;
+        min-width: 100%;
+      }
+      .filter
+      {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 1;
+        background: rgba(0,0,0, 0.6);
+        transition: .2s;
+      }
+      p,h2
+      {
+        font-size: $fontSize2;
+        position: absolute;
+        z-index: 2;
+      }
+      p
+      {
+        font-weight: 600;
+        color: $police;
+        bottom: 0;
+      }
+      h2
+      {
+        text-align: center;
+        top: 0;
+      }
+    }
+  }
+  .contentQ:hover
+  {
+    .filter
+    {
+      background: rgba(0,0,0, 0.4);
+    }
+  }
+}

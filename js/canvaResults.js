@@ -33,6 +33,7 @@ window.addEventListener('load', function () {
             label: 'score',
             data: points,
             pointBackgroundColor: '#E2B34A',
+            pointRadius: 2,
             borderWidth: 3,
             borderColor: 'rgba(226, 179, 74, 0.3)',
             backgroundColor: 'rgba(25,34,49,0.5)',
@@ -75,6 +76,12 @@ window.addEventListener('load', function () {
             cornerRadius: 2,
             xPadding: 10,
             yPadding: 10
+          },
+          layout: {
+            padding: {
+              right: 10,
+              left: 10
+            }
           },
         },
       })
