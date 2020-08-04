@@ -6,12 +6,26 @@
   Author: Marie Bonifacio
 */
 
+add_shortcode( 'qm_display_last_quiz', 'qm_display_last_quiz');
 add_shortcode( 'qm_display_quiz_menu', 'qm_display_quiz_menu' );
 add_shortcode( 'qm_quiz_creation_1', 'qm_quiz_creation_1');
 add_shortcode( 'qm_quiz_creation_2', 'qm_quiz_creation_2');
 add_shortcode( 'qm_quiz_creation_3', 'qm_quiz_creation_3');
 
+function qm_display_last_quiz(){
+  echo '
+    <div class=lastQ>  
+      <h3>Dernier quiz</h3>
+    </div>
+  ';
 
+  wp_enqueue_style( 'lastQuiz', WP_PLUGIN_URL .'/quiz_modules/css/lastQuiz.css',false,'1.1','all');
+  wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/lastQuiz.js', null, true);
+  wp_localize_script('quiz-menu', 'myScript', array(
+      'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
+      'home_url' => home_url()
+  ));
+}
 
 function qm_display_quiz_menu(){
     global $wpdb;
