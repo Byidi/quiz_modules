@@ -106,6 +106,49 @@
       margin-top: 15px;
       margin-bottom: 15px;
       @include flex(flex-start, flex-start, column);
+      .legend
+      {
+        background: $color1;
+        padding: 5px;
+        border-radius: 3px;
+        transition: .2s;
+        ul
+        {
+          padding: 0px;
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          user-select: none;
+          li
+          {
+            width: 30%;
+            margin-bottom: 10px;
+            span
+            {
+              font-weight: bold;
+              color: $color-imp;
+            }
+            span:nth-child(1)
+            {
+              font-size: $fontSize3;
+            }
+          }
+        }
+        p
+        {
+          user-select: none;
+        }
+        .display
+        {
+          display: none;
+        }
+      }
+      .legend:hover
+      {
+        background: $color2;
+        cursor: pointer;
+      }
       div
       {
         width: 100%;

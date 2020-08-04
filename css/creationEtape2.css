@@ -173,6 +173,61 @@
           flex-direction: column;
 }
 
+.step2 form .questionPage .legend {
+  background: #131A28;
+  padding: 5px;
+  border-radius: 3px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.step2 form .questionPage .legend ul {
+  padding: 0px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.step2 form .questionPage .legend ul li {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+.step2 form .questionPage .legend ul li span {
+  font-weight: bold;
+  color: #EBB94A;
+}
+
+.step2 form .questionPage .legend ul li span:nth-child(1) {
+  font-size: 2rem;
+}
+
+.step2 form .questionPage .legend p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.step2 form .questionPage .legend .display {
+  display: none;
+}
+
+.step2 form .questionPage .legend:hover {
+  background: #192231;
+  cursor: pointer;
+}
+
 .step2 form .questionPage div {
   width: 100%;
   margin-bottom: 10px;
