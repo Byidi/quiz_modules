@@ -1,0 +1,72 @@
+.lastQ {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lastQ .contentQ {
+  position: relative;
+  width: 50%;
+  height: 70%;
+  margin-bottom: 5px;
+}
+
+.lastQ .contentQ a {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: #EBB94A;
+  border-radius: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.lastQ .contentQ a img {
+  position: relative;
+  min-width: 100%;
+}
+
+.lastQ .contentQ a .filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.lastQ .contentQ a p, .lastQ .contentQ a h2 {
+  font-size: 1.5rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.lastQ .contentQ a p {
+  font-weight: 600;
+  color: #e6e6e6;
+  bottom: 0;
+}
+
+.lastQ .contentQ a h2 {
+  text-align: center;
+  top: 0;
+}
+
+.lastQ .contentQ:hover .filter {
+  background: rgba(0, 0, 0, 0.4);
+}
