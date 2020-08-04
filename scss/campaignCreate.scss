@@ -21,6 +21,20 @@
     color: $police;
     font-family: "Montserrat";
   }
+  .error
+  {
+    color: red;
+  }
+  .good
+  {
+    color: #3AD29F;
+  }
+  .mess
+  {
+    font-size: $fontSize2;
+    font-weight: 600;
+    text-align: center;
+  }
   .createContainer
   {
     position: relative;
@@ -115,7 +129,14 @@
       }
       i
       {
+        color: $police;
         @include positionTR(absolute, 5px, 5px);
+        transition: .2s;
+      }
+      i:hover
+      {
+        color: $color-imp;
+        cursor: pointer;
       }
     }
     .listCamp
@@ -215,11 +236,11 @@
         position: relative;
         width: 100%;
         @include flex(space-around, center, "");
-        .yes
+        .no
         {
           color: #3AD29F;
         }
-        .no
+        .yes
         {
           color: red;
         }

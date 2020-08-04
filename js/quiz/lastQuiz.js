@@ -12,12 +12,12 @@ window.addEventListener('load', function () {
 
       elementQuiz.classList.add("contentQ");
       elementQuiz.innerHTML = `
-        <a href="${myScriptDir.home_url}/menu-quiz/">
+        <div>
         <div class="filter"></div>
         <img src="${ url + `/img/quizs/${lastQuiz.img}`}" alt="photo du quiz"/>
         <h2>${lastQuiz.name}</h2>
         <p>${lastQuiz.tag_name}</p>
-        </a>
+        </div>
       `;
       lastQ.appendChild(elementQuiz);
 
@@ -49,7 +49,7 @@ window.addEventListener('load', function () {
               document.body.appendChild(divQuizz);
               divQuizz.innerHTML = `
               <div class="quiz" id="quiz"></div>
-              <div class="btns">
+              <div class="btnsQuiz">
               <button id="next">Prochaine question</button>
               <button id="submit">Terminer le quiz</button>
               </div>
@@ -69,7 +69,7 @@ window.addEventListener('load', function () {
                 const quizContainer = document.getElementById('quiz');
                 const resultsContainer = document.getElementById('results');
                 const submitButton = document.getElementById('submit');
-                const btns = document.querySelector('.btns');
+                const btns = document.querySelector('.btnsQuiz');
                 const progress = document.querySelector('.progressDone');
                 const percentage = document.querySelector('.percentage');
                 const timer = document.querySelector('.timer');

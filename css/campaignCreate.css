@@ -33,6 +33,20 @@
   font-family: "Montserrat";
 }
 
+.new_camp .error {
+  color: red;
+}
+
+.new_camp .good {
+  color: #3AD29F;
+}
+
+.new_camp .mess {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
 .new_camp .createContainer {
   position: relative;
   display: -webkit-box;
@@ -165,9 +179,17 @@
 }
 
 .new_camp .createContainer .modifyDiv i {
+  color: #e6e6e6;
   position: absolute;
   top: 5px;
   right: 5px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.new_camp .createContainer .modifyDiv i:hover {
+  color: #EBB94A;
+  cursor: pointer;
 }
 
 .new_camp .createContainer .listCamp {
@@ -303,11 +325,11 @@
           flex-direction: "";
 }
 
-.new_camp .createContainer .confirm div .yes {
+.new_camp .createContainer .confirm div .no {
   color: #3AD29F;
 }
 
-.new_camp .createContainer .confirm div .no {
+.new_camp .createContainer .confirm div .yes {
   color: red;
 }
 

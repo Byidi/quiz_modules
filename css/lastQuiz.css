@@ -24,7 +24,7 @@
   margin-bottom: 5px;
 }
 
-.lastQ .contentQ a {
+.lastQ .contentQ div {
   position: relative;
   width: 100%;
   height: 100%;
@@ -47,12 +47,12 @@
           flex-direction: column;
 }
 
-.lastQ .contentQ a img {
+.lastQ .contentQ div img {
   position: relative;
   min-width: 100%;
 }
 
-.lastQ .contentQ a .filter {
+.lastQ .contentQ div .filter {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -63,23 +63,55 @@
   transition: .2s;
 }
 
-.lastQ .contentQ a p, .lastQ .contentQ a h2 {
+.lastQ .contentQ div p, .lastQ .contentQ div h2 {
   font-size: 1.5rem;
   position: absolute;
   z-index: 2;
 }
 
-.lastQ .contentQ a p {
+.lastQ .contentQ div p {
   font-weight: 600;
   color: #e6e6e6;
   bottom: 0;
 }
 
-.lastQ .contentQ a h2 {
+.lastQ .contentQ div h2 {
   text-align: center;
   top: 0;
 }
 
+.lastQ .contentQ div:hover {
+  cursor: pointer;
+}
+
 .lastQ .contentQ:hover .filter {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.lastQuizMess {
+  z-index: 5;
+  background: #131A28;
+  border-radius: 3px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.lastQuizMess i {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #e6e6e6;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.lastQuizMess i:hover {
+  cursor: pointer;
+  color: #EBB94A;
 }

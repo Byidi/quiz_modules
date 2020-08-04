@@ -104,7 +104,7 @@
   left: 10px;
 }
 
-.quizPlay .btns {
+.quizPlay .btnsQuiz {
   position: relative;
   width: 50%;
   margin: 4%;
@@ -123,7 +123,7 @@
   z-index: inherit;
 }
 
-.quizPlay .btns button {
+.quizPlay .btnsQuiz button {
   background: #EBB94A;
   border-radius: 3px;
   border: none;
@@ -136,7 +136,7 @@
   outline: none;
 }
 
-.quizPlay .btns button:hover {
+.quizPlay .btnsQuiz button:hover {
   background: #e6e6e6;
 }
 
@@ -413,7 +413,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 28px;
+  font-size: 1.5rem;
   color: #e6e6e6;
   -webkit-transition: .2s;
   transition: .2s;
@@ -544,7 +544,7 @@
     top: -5%;
     right: 2px;
   }
-  .quizPlay .btns {
+  .quizPlay .btnsQuiz {
     margin-bottom: 50px;
   }
   .quizPlay .timer {

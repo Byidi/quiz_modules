@@ -46,6 +46,47 @@
   background: #e6e6e6;
 }
 
+.quizFinished {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 50;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  padding: 25px 30px;
+  background: #192231;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quizFinished p {
+  color: #EBB94A;
+}
+
+.quizFinished .fa-times {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #e6e6e6;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.quizFinished .fa-times:hover {
+  color: #EBB94A;
+  cursor: pointer;
+}
+
 .modulePlay {
   width: 100%;
   height: 100%;
@@ -74,7 +115,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #e6e6e6;
   -webkit-transition: .2s;
   transition: .2s;
@@ -82,6 +123,7 @@
 
 .modulePlay .endModule:hover {
   color: #EBB94A;
+  cursor: pointer;
 }
 
 .modulePlay .recapModule {
@@ -95,6 +137,7 @@
 }
 
 .modulePlay .recapModule .endRecap {
+  font-size: 1.5rem;
   color: #e6e6e6;
   -webkit-transition: .2s;
   transition: .2s;
@@ -301,13 +344,13 @@
   z-index: 12;
 }
 
-.modulePlay .btns {
+.modulePlay .btnsModule {
   position: relative;
   z-index: 53;
   margin: 5px 0px;
 }
 
-.modulePlay .btns button {
+.modulePlay .btnsModule button {
   position: relative;
   padding: 5px 10px;
   border-radius: 3px;
@@ -323,7 +366,7 @@
   margin: 10px;
 }
 
-.modulePlay .btns button:hover {
+.modulePlay .btnsModule button:hover {
   background: #e6e6e6;
 }
 
@@ -582,7 +625,7 @@
   .modulePlay .progress {
     width: 95%;
   }
-  .modulePlay .btns {
+  .modulePlay .btnsModule {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -621,7 +664,7 @@
   .modulePlay .progress {
     width: 95%;
   }
-  .modulePlay .btns {
+  .modulePlay .btnsModule {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;

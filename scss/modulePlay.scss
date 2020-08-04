@@ -31,6 +31,34 @@
     background: $police;
   }
 }
+.quizFinished
+{
+  @include positionTL(absolute, 50%, 50%);
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  padding: 25px 30px;
+  background: $color2;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  p
+  {
+    color: $color-imp;
+  }
+  .fa-times
+  {
+    @include positionTR(absolute, 5px, 5px);
+    color: $police;
+    transition: .2s;
+  }
+  .fa-times:hover
+  {
+    color: $color-imp;
+    cursor: pointer;
+  }
+}
 .modulePlay
 {
   width: 100%;
@@ -43,13 +71,14 @@
   {
     z-index: 25;
     @include positionTL(fixed, 10px, 10px);
-    font-size: $fontSize3;
+    font-size: $fontSize2;
     color: $police;
     transition: .2s;
   }
   .endModule:hover
   {
     color: $color-imp;
+    cursor: pointer;
   }
   .recapModule
   {
@@ -60,6 +89,7 @@
     @include positionTL(fixed, 0, 0);
     .endRecap
     {
+      font-size: $fontSize2;
       color: $police;
       transition: .2s;
     }
@@ -189,7 +219,7 @@
       z-index: 12;
     }
   }
-  .btns
+  .btnsModule
   {
     position: relative;
     z-index: 53;
@@ -407,7 +437,7 @@
     {
       width: 95%;
     }
-    .btns
+    .btnsModule
     {
       width: 100%;
       display: flex;
@@ -459,7 +489,7 @@
     {
       width: 95%;
     }
-    .btns
+    .btnsModule
     {
       width: 100%;
       display: flex;

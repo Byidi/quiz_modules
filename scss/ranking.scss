@@ -46,6 +46,12 @@
           @include positionTR(absolute, 50%, 5px);
           padding-bottom: 5px;
           transform: translateY(-50%);
+          transition: .2s;
+        }
+        i:hover
+        {
+          cursor: pointer;
+          color: $color-imp;
         }
       }
       .square_legend

@@ -11,7 +11,7 @@
     width: 50%;
     height: 70%;
     margin-bottom: 5px;
-    a
+    div
     {
       position: relative;
       width: 100%;
@@ -24,6 +24,7 @@
       img
       {
         position: relative;
+        // min-height: 100%;
         min-width: 100%;
       }
       .filter
@@ -54,6 +55,10 @@
         top: 0;
       }
     }
+    div:hover
+    {
+      cursor: pointer;
+    }
   }
   .contentQ:hover
   {
@@ -61,5 +66,27 @@
     {
       background: rgba(0,0,0, 0.4);
     }
+  }
+}
+.lastQuizMess
+{
+  z-index: 5;
+  background: $color1;
+  border-radius: 3px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  @include positionTL(fixed, 50%, 50%);
+  i
+  {
+    @include positionTR(absolute, 5px, 5px);
+    color: $police;
+    transition: .2s;
+  }
+  i:hover
+  {
+    cursor: pointer;
+    color: $color-imp;
   }
 }

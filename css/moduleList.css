@@ -1,7 +1,6 @@
-.quizsL {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+.modulesL {
+  width: 100%;
+  height: 100%;
   font-size: 1.5rem;
   color: #e6e6e6;
   display: -webkit-box;
@@ -19,7 +18,7 @@
           flex-direction: column;
 }
 
-.quizsL .h2 {
+.modulesL .h2 {
   color: #e6e6e6;
   z-index: 4;
   font-size: 2rem;
@@ -27,7 +26,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.quizsL .popup {
+.modulesL .popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,24 +52,24 @@
           flex-direction: column;
 }
 
-.quizsL .popup #yes, .quizsL .popup #no {
+.modulesL .popup #yes, .modulesL .popup #no {
   padding: 10px;
 }
 
-.quizsL .popup #yes {
+.modulesL .popup #no {
   color: #3AD29F;
 }
 
-.quizsL .popup #no {
+.modulesL .popup #yes {
   color: red;
 }
 
-.quizsL .popup #yes:hover, .quizsL .popup #no:hover {
+.modulesL .popup #yes:hover, .modulesL .popup #no:hover {
   cursor: pointer;
   font-weight: 600;
 }
 
-.quizsL .listQuiz {
+.modulesL .listModules {
   bottom: 0;
   width: 50%;
   height: 80%;
@@ -79,14 +78,14 @@
   padding: 10px;
 }
 
-.quizsL .listQuiz table {
+.modulesL .listModules table {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
-.quizsL .listQuiz table tr :nth-child(4) {
+.modulesL .listModules table tr :nth-child(4) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -102,7 +101,7 @@
           flex-direction: column;
 }
 
-.quizsL .listQuiz table p, .quizsL .listQuiz table a {
+.modulesL .listModules table p, .modulesL .listModules table a {
   font-family: "Muli";
   margin: 10px;
   width: 100px;
@@ -115,82 +114,82 @@
   font-weight: 600;
 }
 
-.quizsL .listQuiz table p {
+.modulesL .listModules table p {
   background: #eb0d0d;
   color: #e6e6e6;
 }
 
-.quizsL .listQuiz table p:hover, .quizsL .listQuiz table a:hover {
+.modulesL .listModules table p:hover, .modulesL .listModules table a:hover {
   cursor: pointer;
   background: #e6e6e6;
   color: #131A28;
 }
 
-.quizsL .listQuiz table thead {
+.modulesL .listModules table thead {
   position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.quizsL .listQuiz table thead :nth-child(1) {
+.modulesL .listModules table thead :nth-child(1) {
   border-left: none;
 }
 
-.quizsL .listQuiz table thead :nth-child(2) {
+.modulesL .listModules table thead :nth-child(2) {
   width: 30%;
 }
 
-.quizsL .listQuiz table thead :nth-child(4) {
+.modulesL .listModules table thead :nth-child(4) {
   margin: 0;
 }
 
-.quizsL .listQuiz table thead th {
+.modulesL .listModules table thead th {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.quizsL .listQuiz table tr:nth-child(1) :nth-child(4) {
+.modulesL .listModules table tr:nth-child(1) :nth-child(4) {
   border-top: none;
 }
 
-.quizsL .listQuiz table tr {
+.modulesL .listModules table tr {
   text-align: center;
 }
 
-.quizsL .listQuiz table tr :nth-child(1) {
+.modulesL .listModules table tr :nth-child(1) {
   border-left: none;
 }
 
-.quizsL .listQuiz table tr td {
+.modulesL .listModules table tr td {
   word-break: break-word;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.quizsL .bigger {
+.modulesL .bigger {
   width: 100%;
 }
 
-.quizsL .bigger table thead :nth-child(1) {
+.modulesL .bigger table thead :nth-child(1) {
   border-left: none;
   width: 12%;
 }
 
-.quizsL .bigger table thead :nth-child(2) {
+.modulesL .bigger table thead :nth-child(2) {
   width: 12%;
 }
 
-.quizsL .bigger table thead :nth-child(3) {
+.modulesL .bigger table thead :nth-child(3) {
   width: 10%;
 }
 
-.quizsL .bigger table thead :nth-child(4) {
+.modulesL .bigger table thead :nth-child(4) {
   width: 35%;
 }
 
-.quizsL .bigger table thead :nth-child(5) {
+.modulesL .bigger table thead :nth-child(5) {
   width: 15%;
 }
 
-.quizsL .bigger table button {
+.modulesL .bigger table button {
   background: #EBB94A;
   border: none;
   border-radius: 3px;
@@ -202,52 +201,52 @@
   margin: 5px;
 }
 
-.quizsL .bigger table button:hover {
+.modulesL .bigger table button:hover {
   background: #e6e6e6;
 }
 
-.quizsL .bigger table .red {
+.modulesL .bigger table .red {
   background: red;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar {
+.modulesL .listModules::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar-thumb {
+.modulesL .listModules::-webkit-scrollbar-thumb {
   background: #EBB94A;
   border-radius: 100px;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar-thumb:hover {
+.modulesL .listModules::-webkit-scrollbar-thumb:hover {
   background: #EBB94A;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar-thumb:active {
+.modulesL .listModules::-webkit-scrollbar-thumb:active {
   background: #EBB94A;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar-track {
+.modulesL .listModules::-webkit-scrollbar-track {
   background: #131A28;
   border-radius: 50px;
 }
 
-.quizsL .listQuiz::-webkit-scrollbar-corner {
+.modulesL .listModules::-webkit-scrollbar-corner {
   background: transparent;
 }
 
 @media (max-width: 825px) {
-  .quizsL .listUser {
+  .modulesL .listUser {
     height: 70%;
   }
-  .quizsL .listQuiz {
+  .modulesL .listModules {
     width: 100%;
   }
-  .quizsL .listQuiz table thead :nth-child(1) {
+  .modulesL .listModules table thead :nth-child(1) {
     width: 25%;
   }
-  .quizsL .listQuiz table thead :nth-child(2) {
+  .modulesL .listModules table thead :nth-child(2) {
     width: 25%;
   }
 }

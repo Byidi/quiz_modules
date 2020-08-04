@@ -115,10 +115,13 @@
 
 .add_tag .listTag ul li .deleteBtn i {
   color: #eb0d0d;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .add_tag .listTag ul li .deleteBtn:hover i {
   color: #880d0d;
+  cursor: pointer;
 }
 
 .add_tag .listTag ul li .confirm {

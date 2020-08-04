@@ -20,8 +20,9 @@ function qm_display_last_quiz(){
   ';
 
   wp_enqueue_style( 'lastQuiz', WP_PLUGIN_URL .'/quiz_modules/css/lastQuiz.css',false,'1.1','all');
-  wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/lastQuiz.js', null, true);
-  wp_localize_script('quiz-menu', 'myScript', array(
+  wp_enqueue_style( 'quizPlay', WP_PLUGIN_URL .'/quiz_modules/css/quizPlay.css',false,'1.1','all');
+  wp_enqueue_script('lastQuiz', WP_PLUGIN_URL .'/quiz_modules/js/quiz/lastQuiz.js', null, true);
+  wp_localize_script('lastQuiz', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
       'home_url' => home_url()
   ));
@@ -57,10 +58,11 @@ function qm_display_quiz_menu(){
 
     wp_enqueue_style( 'quizMenu', WP_PLUGIN_URL .'/quiz_modules/css/quizMenu.css',false,'1.1','all');
     wp_enqueue_style( 'quizPlay', WP_PLUGIN_URL .'/quiz_modules/css/quizPlay.css',false,'1.1','all');
-    wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/quiz.js', null, true);
+    wp_enqueue_script('isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array('jquery'));
+    wp_enqueue_script('quiz-menu', WP_PLUGIN_URL .'/quiz_modules/js/quiz/quizMenuPlay.js', null, true);
     wp_localize_script('quiz-menu', 'myScript', array(
-        'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
-        'home_url' => home_url()
+      'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
+      'home_url' => home_url()
     ));
 }
 
@@ -154,8 +156,8 @@ function qm_quiz_creation_1(){
     </div>
     ';
 
-    wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
-    wp_enqueue_script('quiz_step1', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step1.js', null, true);
+    wp_enqueue_style( 'creationStep1', WP_PLUGIN_URL .'/quiz_modules/css/creationStep1.css',false,'1.1','all');
+    wp_enqueue_script('quiz_step1', WP_PLUGIN_URL .'/quiz_modules/js/creation/quizStep1.js', null, true);
 }
 
 function qm_quiz_creation_2(){
@@ -321,8 +323,8 @@ function qm_quiz_creation_2(){
     <p class="sketching">Enregistrer le brouillon</p>
   </div>';
 
-  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
-  wp_enqueue_script('quiz_step2', WP_PLUGIN_URL .'/quiz_modules/js/quiz_step2.js', null, true);
+  wp_enqueue_style( 'creationStep2', WP_PLUGIN_URL .'/quiz_modules/css/creationStep2.css',false,'1.1','all');
+  wp_enqueue_script('quiz_step2', WP_PLUGIN_URL .'/quiz_modules/js/creation/quizStep2.js', null, true);
 }
 
 function qm_quiz_creation_3(){
@@ -408,7 +410,7 @@ function qm_quiz_creation_3(){
   <a href="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_3.php?status=0">Enregistrer le brouillon</a>
   </div>';
 
-  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
+  wp_enqueue_style( 'creationStep3', WP_PLUGIN_URL .'/quiz_modules/css/creationStep3.css',false,'1.1','all');
 
 }
 
@@ -453,10 +455,11 @@ function qm_display_module_menu(){
       </div>
     </div>';
 
-    wp_enqueue_style( 'modMenu', WP_PLUGIN_URL .'/quiz_modules/css/modMenu.css',false,'1.1','all');
+    wp_enqueue_style( 'moduleMenu', WP_PLUGIN_URL .'/quiz_modules/css/moduleMenu.css',false,'1.1','all');
     wp_enqueue_style( 'modulePlay', WP_PLUGIN_URL .'/quiz_modules/css/modulePlay.css',false,'1.1','all');
     wp_enqueue_style( 'quizPlay', WP_PLUGIN_URL .'/quiz_modules/css/quizPlay.css',false,'1.1','all');
-    wp_enqueue_script('module-menu', WP_PLUGIN_URL .'/quiz_modules/js/modules.js', null, true);
+    wp_enqueue_script('isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array('jquery'));
+    wp_enqueue_script('module-menu', WP_PLUGIN_URL .'/quiz_modules/js/modules/modulesMenuPlay.js', null, true);
     wp_localize_script('module-menu', 'myScript', array(
         'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
         'home_url' => home_url()
@@ -535,9 +538,9 @@ function qm_module_creation_1(){
     </form>
   </div>';
 
-  wp_enqueue_style( 'creationEtape1', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape1.css',false,'1.1','all');
+  wp_enqueue_style( 'creationStep1', WP_PLUGIN_URL .'/quiz_modules/css/creationStep1.css',false,'1.1','all');
 
-  wp_enqueue_script('module_step1', WP_PLUGIN_URL .'/quiz_modules/js/module_step1.js', null, true);
+  wp_enqueue_script('module_step1', WP_PLUGIN_URL .'/quiz_modules/js/creation/moduleStep1.js', null, true);
 }
 
 function qm_module_creation_2(){
@@ -655,8 +658,8 @@ function qm_module_creation_2(){
     <p class="sketching">Enregistrer en brouillon</p>
   </div>';
 
-  wp_enqueue_style( 'creationEtape2', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape2.css',false,'1.1','all');
-  wp_enqueue_script('module_step2', WP_PLUGIN_URL .'/quiz_modules/js/module_step2.js', null, true);
+  wp_enqueue_style( 'creationStep2', WP_PLUGIN_URL .'/quiz_modules/css/creationStep2.css',false,'1.1','all');
+  wp_enqueue_script('module_step2', WP_PLUGIN_URL .'/quiz_modules/js/creation/moduleStep2.js', null, true);
 }
 
 function qm_module_creation_3(){
@@ -757,8 +760,8 @@ function qm_module_creation_3(){
     <a href="'. WP_PLUGIN_URL.'/quiz_modules/script/create_module_3.php?status=0">Enregistrer le brouillon</a>
   </div>';
 
-  wp_enqueue_style( 'creationEtape3', WP_PLUGIN_URL .'/quiz_modules/css/creationEtape3.css',false,'1.1','all');
-  wp_enqueue_script('markdowns', WP_PLUGIN_URL .'/quiz_modules/js/markdowns.js', null, true);
+  wp_enqueue_style( 'creationStep3', WP_PLUGIN_URL .'/quiz_modules/css/creationStep3.css',false,'1.1','all');
+  wp_enqueue_script('markdowns', WP_PLUGIN_URL .'/quiz_modules/js/creation/markdowns.js', null, true);
 }
 
 
@@ -805,8 +808,8 @@ function qm_display_module_list(){
   </div>
   ';
 
-  wp_enqueue_style( 'moduleListe', WP_PLUGIN_URL .'/quiz_modules/css/moduleListe.css',false,'1.1','all');
-  wp_enqueue_script('list_module', WP_PLUGIN_URL.'/quiz_modules/js/list_module.js', null, true);
+  wp_enqueue_style( 'moduleList', WP_PLUGIN_URL .'/quiz_modules/css/moduleList.css',false,'1.1','all');
+  wp_enqueue_script('list_module', WP_PLUGIN_URL.'/quiz_modules/js/modules/listModule.js', null, true);
         wp_localize_script('list_module', 'myScript', array(
             'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
             'home_url' => home_url()
@@ -853,8 +856,8 @@ function qm_display_quiz_list(){
     
     ';
 
-  wp_enqueue_style( 'quizListe', WP_PLUGIN_URL .'/quiz_modules/css/quizListe.css',false,'1.1','all');
-  wp_enqueue_script('list_quiz', WP_PLUGIN_URL.'/quiz_modules/js/list_quiz.js', null, true);
+  wp_enqueue_style( 'quizList', WP_PLUGIN_URL .'/quiz_modules/css/quizList.css',false,'1.1','all');
+  wp_enqueue_script('list_quiz', WP_PLUGIN_URL.'/quiz_modules/js/quiz/listQuiz.js', null, true);
   wp_localize_script('list_quiz', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
       'home_url' => home_url()
@@ -910,8 +913,8 @@ function qm_display_tag_list(){
     </div>
   </div>';
 
-  wp_enqueue_style( 'tagListe', WP_PLUGIN_URL .'/quiz_modules/css/tagListe.css',false,'1.1','all');
-  wp_enqueue_script('gestion_tag', WP_PLUGIN_URL.'/quiz_modules/js/tag.js', null, true);
+  wp_enqueue_style( 'tagList', WP_PLUGIN_URL .'/quiz_modules/css/tagList.css',false,'1.1','all');
+  wp_enqueue_script('gestion_tag', WP_PLUGIN_URL.'/quiz_modules/js/tag/tags.js', null, true);
 }
 ///// Classements quiz admin ///// 
 add_shortcode( 'qm_display_classement_admin', 'qm_display_classement_admin' );
@@ -985,9 +988,9 @@ function qm_display_classement_admin(){
     </div>
   </div>';
 
-  wp_enqueue_style( 'classement', WP_PLUGIN_URL .'/quiz_modules/css/classement.css',false,'1.1','all');
-  wp_enqueue_script('classement-admin', WP_PLUGIN_URL.'/quiz_modules/js/board.js', null, true);
-  wp_localize_script('classement-admin', 'myScript', array(
+  wp_enqueue_style( 'ranking', WP_PLUGIN_URL .'/quiz_modules/css/ranking.css',false,'1.1','all');
+  wp_enqueue_script('rankings', WP_PLUGIN_URL.'/quiz_modules/js/stats/rankings.js', null, true);
+  wp_localize_script('rankings', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script'
   ));
 
@@ -1102,9 +1105,9 @@ function qm_display_stats_admin(){
   </div>  
   ';
 
-  wp_enqueue_style( 'statistiques', WP_PLUGIN_URL .'/quiz_modules/css/statistiques.css',false,'1.1','all');
+  wp_enqueue_style( 'statistics', WP_PLUGIN_URL .'/quiz_modules/css/statistics.css',false,'1.1','all');
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
-  wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats.js', null, true);
+  wp_enqueue_script('stats-admin', WP_PLUGIN_URL.'/quiz_modules/js/stats/stats.js', null, true);
   wp_localize_script('stats-admin', 'myScript', array(
       'script_directory' =>  WP_PLUGIN_URL.'/quiz_modules/script',
       'home_url' => home_url()
@@ -1181,8 +1184,8 @@ function qm_display_creation_campagne(){
   </div>
   ';
 
-  wp_enqueue_style( 'campagneCreation', WP_PLUGIN_URL .'/quiz_modules/css/campagneCreation.css',false,'1.1','all');
-  wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/camps.js', null, true);
+  wp_enqueue_style( 'campaignCreate', WP_PLUGIN_URL .'/quiz_modules/css/campaignCreate.css',false,'1.1','all');
+  wp_enqueue_script('createcamp', WP_PLUGIN_URL . '/quiz_modules/js/campaigns/campaigns.js', null, true);
   wp_localize_script('createcamp', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
       'home_url' => home_url()
@@ -1314,8 +1317,8 @@ function qm_display_campagne_stats(){
   </div>
   ';
 
-  wp_enqueue_style( 'statsCampagne', WP_PLUGIN_URL .'/quiz_modules/css/statsCampagne.css',false,'1.1','all');
-  wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/stats_camps.js', null, true);
+  wp_enqueue_style( 'statsCampaign', WP_PLUGIN_URL .'/quiz_modules/css/statsCampaign.css',false,'1.1','all');
+  wp_enqueue_script('statscamp', WP_PLUGIN_URL . '/quiz_modules/js/campaigns/statsCampaigns.js', null, true);
   wp_localize_script('statscamp', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
       'home_url' => home_url()
@@ -1334,8 +1337,8 @@ function qm_display_stats_acceuil(){
   ";
 
   wp_enqueue_script('charts', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js');
-  wp_enqueue_script('canvaResults', WP_PLUGIN_URL . '/quiz_modules/js/canvaResults.js', null, true);
-  wp_localize_script('canvaResults', 'myScript', array(
+  wp_enqueue_script('graphicTemplate', WP_PLUGIN_URL . '/quiz_modules/js/stats/graphicTemplate.js', null, true);
+  wp_localize_script('graphicTemplate', 'myScript', array(
     'script_directory' => WP_PLUGIN_URL .'/quiz_modules/script',
     'home_url' => home_url()
 ));
@@ -1345,7 +1348,7 @@ function qm_display_classement_acceuil(){
   echo "
   <div class=containerLeadboard>
     <h3>Classement</h3>
-    <div class=btns>
+    <div class=btnsBoard>
       <button class=gen>Général</button>
       <button class=town>Votre site</button>
     </div>
@@ -1366,9 +1369,9 @@ function qm_display_classement_acceuil(){
   </div>
   ";
 
-  wp_enqueue_style( 'leadboardTemplate', WP_PLUGIN_URL .'/quiz_modules/css/leadboardTemplate.css',false,'1.1','all');
-  wp_enqueue_script('boardTemplate', WP_PLUGIN_URL . '/quiz_modules/js/boardTemplate.js', null, true);
-  wp_localize_script('boardTemplate', 'myScript', array(
+  wp_enqueue_style( 'rankingTemplate', WP_PLUGIN_URL .'/quiz_modules/css/rankingTemplate.css',false,'1.1','all');
+  wp_enqueue_script('rankingTemplate', WP_PLUGIN_URL . '/quiz_modules/js/stats/rankingTemplate.js', null, true);
+  wp_localize_script('rankingTemplate', 'myScript', array(
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
   ));
 }

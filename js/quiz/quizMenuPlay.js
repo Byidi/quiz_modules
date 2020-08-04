@@ -107,7 +107,7 @@ window.addEventListener('load', function () {
             document.body.appendChild(divQuizz);
             divQuizz.innerHTML = `
             <div class="quiz" id="quiz"></div>
-            <div class="btns">
+            <div class="btnsQuiz">
             <button id="next">Prochaine question</button>
             <button id="submit">Terminer le quiz</button>
             </div>
@@ -127,7 +127,7 @@ window.addEventListener('load', function () {
               const quizContainer = document.getElementById('quiz');
               const resultsContainer = document.getElementById('results');
               const submitButton = document.getElementById('submit');
-              const btns = document.querySelector('.btns');
+              const btns = document.querySelector('.btnsQuiz');
               const progress = document.querySelector('.progressDone');
               const percentage = document.querySelector('.percentage');
               const timer = document.querySelector('.timer');
@@ -478,25 +478,27 @@ window.addEventListener('load', function () {
     });
 
     //isotope initialized (with jquery)
-    var $grid = $('.grid').isotope({
-      itemSelector: '.element-item',
-      masonry: {
-        columnWidth: 120,
-        isFitWidth: true
-        }
-    });
-    // bind filter button click
-    $('.filters-button-group').on( 'click', 'button', function() {
-      var filterValue = $( this ).attr('data-filter');
-      // use filterFn if matches value
-      $grid.isotope({ filter: filterValue });
-    });
-    // change is-checked class on buttons
-    $('.button-group').each( function( i, buttonGroup ) {
-      var $buttonGroup = $( buttonGroup );
-      $buttonGroup.on( 'click', 'button', function() {
-        $buttonGroup.find('.is-checked').removeClass('is-checked');
-        $( this ).addClass('is-checked');
+    jQuery(document).ready(function($) {
+      var $grid = $('.grid').isotope({
+        itemSelector: '.element-item',
+        masonry: {
+          columnWidth: 120,
+          isFitWidth: true
+          }
+      });
+      // bind filter button click
+      $('.filters-button-group').on( 'click', 'button', function() {
+        var filterValue = $( this ).attr('data-filter');
+        // use filterFn if matches value
+        $grid.isotope({ filter: filterValue });
+      });
+      // change is-checked class on buttons
+      $('.button-group').each( function( i, buttonGroup ) {
+        var $buttonGroup = $( buttonGroup );
+        $buttonGroup.on( 'click', 'button', function() {
+          $buttonGroup.find('.is-checked').removeClass('is-checked');
+          $( this ).addClass('is-checked');
+        });
       });
     });
   }

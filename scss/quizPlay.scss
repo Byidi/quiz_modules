@@ -57,7 +57,7 @@
     z-index: inherit;
     @include positionTL(absolute, 10px, 10px);
   }
-  .btns
+  .btnsQuiz
   {
     position: relative;
     width: 50%;
@@ -263,7 +263,7 @@
     .fa-times
     {
       @include positionTR(absolute, 20px, 20px);
-      font-size: 28px;
+      font-size: $fontSize2;
       color: $police;
       transition: .2s;
     }
@@ -362,7 +362,7 @@
         right: 2px;
       }
     }
-    .btns
+    .btnsQuiz
     {
       margin-bottom: 50px;
     }

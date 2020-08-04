@@ -78,7 +78,7 @@ window.addEventListener('load', function () {
             if(myModule.quizs.length != 0 && myModule.finish == "1")
             {
               divModule.innerHTML += `
-              <div class="btns">
+              <div class="btnsModule">
               <button id="previous">Page précédente</button>
               <button id="next">Page suivante</button>
               <button id="submit">Terminer le module</button>
@@ -88,7 +88,7 @@ window.addEventListener('load', function () {
             else
             {
               divModule.innerHTML += `
-              <div class="btns">
+              <div class="btnsModule">
               <button id="previous">Page précédente</button>
               <button id="next">Page suivante</button>
               <button id="submit">Terminer le module</button>
@@ -339,7 +339,7 @@ window.addEventListener('load', function () {
                           document.body.appendChild(divQuizz);
                           divQuizz.innerHTML = `
                           <div class="quiz" id="quiz"></div>
-                          <div class="btns btnQuiz">
+                          <div class="btnsQuiz btnQuiz">
                           <button id="nextQuiz">Prochaine question</button>
                           <button id="submitQuiz">Terminer le quiz</button>
                           </div>
@@ -799,25 +799,27 @@ window.addEventListener('load', function () {
       })
     });
       //isotope initialized (with jquery)
-    var $grid = $('.grid').isotope({
-      itemSelector: '.element-item',
-      masonry: {
-        columnWidth: 120,
-        isFitWidth: true
-        }
-    });
-    // bind filter button click
-    $('.filters-button-group').on( 'click', 'button', function() {
-      var filterValue = $( this ).attr('data-filter');
-      // use filterFn if matches value
-      $grid.isotope({ filter: filterValue });
-    });
-    // change is-checked class on buttons
-    $('.button-group').each( function( i, buttonGroup ) {
-      var $buttonGroup = $( buttonGroup );
-      $buttonGroup.on( 'click', 'button', function() {
-        $buttonGroup.find('.is-checked').removeClass('is-checked');
-        $( this ).addClass('is-checked');
+    jQuery(document).ready(function($) {
+      var $grid = $('.grid').isotope({
+        itemSelector: '.element-item',
+        masonry: {
+          columnWidth: 120,
+          isFitWidth: true
+          }
+      });
+      // bind filter button click
+      $('.filters-button-group').on( 'click', 'button', function() {
+        var filterValue = $( this ).attr('data-filter');
+        // use filterFn if matches value
+        $grid.isotope({ filter: filterValue });
+      });
+      // change is-checked class on buttons
+      $('.button-group').each( function( i, buttonGroup ) {
+        var $buttonGroup = $( buttonGroup );
+        $buttonGroup.on( 'click', 'button', function() {
+          $buttonGroup.find('.is-checked').removeClass('is-checked');
+          $( this ).addClass('is-checked');
+        });
       });
     });
   }

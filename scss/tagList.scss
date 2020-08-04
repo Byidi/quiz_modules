@@ -72,6 +72,7 @@
           i
           {
             color: rgb(235, 13, 13);
+            transition: .2s;
           }
         }
         .deleteBtn:hover
@@ -79,6 +80,7 @@
           i
           {
             color: rgb(136, 13, 13);
+            cursor: pointer;
           }
         }
         .confirm
