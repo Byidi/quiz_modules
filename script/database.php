@@ -4,7 +4,7 @@ $path = preg_replace('/wp-content(?!.*wp-content).*/','',__DIR__);
 include($path.'wp-load.php');
 
 
-register_activation_hook( __FILE__, 'qm_install' );
+
 
 function qm_install () {
 
@@ -28,55 +28,44 @@ function qm_install () {
 function createTableAnswer(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
-    if ( $installed_ver != $qm_db_version ) {
+    $table_name = 'answer';
 
-        $table_name = 'answer';
-
-        $sql = "CREATE TABLE $table_name (
-            id int(11) NOT NULL AUTO_INCREMENT,
-            id_question int(11) NOT NULL,
-            content varchar(255) NOT NULL,
-            is_true varchar(255) NOT NULL,
-            PRIMARY KEY  (id)
-        );";
+    $sql = "CREATE TABLE $table_name (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        id_question int(11) NOT NULL,
+        content varchar(255) NOT NULL,
+        is_true varchar(255) NOT NULL,
+        PRIMARY KEY  (id)
+    );";
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
 }
 
 function createTableCampaign(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
-    if ( $installed_ver != $qm_db_version ) {
+    $table_name = 'campaign';
 
-        $table_name = 'campaign';
-
-        $sql = "CREATE TABLE $table_name (
-            id int(11) NOT NULL AUTO_INCREMENT,
-            name varchar(255) NOT NULL,
-            start datetime NOT NULL,
-            end datetime NOT NULL,
-            PRIMARY KEY  (id)
-        );";
+    $sql = "CREATE TABLE $table_name (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        name varchar(255) NOT NULL,
+        start datetime NOT NULL,
+        end datetime NOT NULL,
+        PRIMARY KEY  (id)
+    );";
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
 }
 
 function createTableModule(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -97,15 +86,11 @@ function createTableModule(){
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
-
-        update_option( "qm_db_version", $qm_db_version );
-    }
 }
 
 function createTableModuleFinish(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -122,15 +107,11 @@ function createTableModuleFinish(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableModuleProgress(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -147,15 +128,11 @@ function createTableModuleProgress(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableModuleQuiz(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -171,15 +148,11 @@ function createTableModuleQuiz(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableModuleSlide(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -199,15 +172,11 @@ function createTableModuleSlide(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableNotifyDate(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -222,16 +191,11 @@ function createTableNotifyDate(){
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
-
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableQuestion(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -250,15 +214,11 @@ function createTableQuestion(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableQuiz(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -279,14 +239,12 @@ function createTableQuiz(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
 }
+
 
 function createTableQuizProgress(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -305,15 +263,12 @@ function createTableQuizProgress(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
-
 }
 
 function createTableQuizScore(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
+
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -332,15 +287,13 @@ function createTableQuizScore(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
 
 }
 
 function createTableTag(){
 
     global $wpdb;
-    $installed_ver = get_option( "qm_db_version" );
+
 
     if ( $installed_ver != $qm_db_version ) {
 
@@ -355,8 +308,6 @@ function createTableTag(){
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
 
-        update_option( "qm_db_version", $qm_db_version );
-    }
 
 }
 

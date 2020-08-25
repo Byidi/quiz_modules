@@ -36,7 +36,7 @@ class Question {
 
     //Set id_Quiz with id of quiz
     public function setIdQuizById(int $idQuiz){
-        $this->id_quiz = new quiz();
+        $this->id_quiz = new Quiz();
         $this->id_quiz->selectById($idQuiz);
     }
 
@@ -74,7 +74,6 @@ class Question {
             global $wpdb;
             $wpdb->insert(
                 'question', array(
-                    "id" => $this->id,
                     "id_quiz" => $this->id_quiz,
                     "content" => stripslashes($this->content),
                     "img_path" => $this->img_path,
