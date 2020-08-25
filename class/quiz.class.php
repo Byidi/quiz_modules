@@ -19,7 +19,7 @@ class Quiz {
         $r = $wpdb->get_row("SELECT * FROM quiz where id='".$id."'");
         $this->id = $r->id;
         $this->name = $r->name;
-        $tagId = new tag();
+        $tagId = new Tag();
         $tagId->selectById($r->tag_id);
         $this->tag = $tagId;
         $this->img_path = $r->img_path;

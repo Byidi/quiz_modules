@@ -1,4 +1,6 @@
 <?php
+ require_once(__DIR__ . '/script/database.php');
+ register_activation_hook( __FILE__, 'qm_install' );
 /*
   Plugin Name: quiz_modules
   Description: 

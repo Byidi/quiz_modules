@@ -90,7 +90,7 @@ $str_json = file_get_contents('php://input'); //($_POST doesn't work here)
 $request = json_decode($str_json, true); // decoding received JSON to array
 $site = $request['site'] ?? null;
 // $site = $_GET['site'];
-echo htmlspecialchars_decode(json_encode([
+echo htmlspecialchars_decode(json_encode([  
     "modules" => moduleStat($site),
     "quizs" => quizStat($site),
 ]));
