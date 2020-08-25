@@ -168,7 +168,6 @@ function qm_quiz_creation_2(){
             $html .= ' new';
         }
         $html .= '">
-       
           <div>
             <label>Votre question:</label>
             <input type="text" name="question_'.$i.'" value="'.$p['question_'.$i].'">

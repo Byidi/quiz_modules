@@ -150,6 +150,8 @@ const plus = document.querySelector(".plus"),
       form = document.querySelector("form"),
       total = document.createElement("p");
 
+console.log(plus)
+
 var nextId = document.querySelectorAll(".questionPage").length + 1;
 
 total.classList.add("total");
@@ -157,6 +159,7 @@ form.appendChild(total);
 total.innerHTML='Total de questions: ' + document.querySelector("input[name=nbrQuestion]").value;
 
 plus.addEventListener("click", ()=>{
+  console.log("click");
   if( document.querySelector("input[name=nbrQuestion]").value == 100)
   {
     plus.disabled = true;

@@ -459,15 +459,15 @@ window.addEventListener('load', function () {
                 btns.remove();
             }
 
-              // Event listeners
-              nextButton.addEventListener("click", function(){
-                  showNextSlide(false);
-              });
+            // Event listeners
+            nextButton.addEventListener("click", function(){
+                showNextSlide(false);
+            });
 
-              // on submit, show results
-              submitButton.addEventListener('click', function(){
-                  showNextSlide(true);
-              });
+            // on submit, show results
+            submitButton.addEventListener('click', function(){
+                showNextSlide(true);
+            });
           }
         };
 
