@@ -116,7 +116,7 @@ function getTagSiteClassement($idTag){
     return $wpdb->get_results($sql);
 }
 
-$userId = $_SESSION['userConnected'];
+$userId = get_current_user_id();
 $ville = $wpdb->get_var("SELECT meta_value FROM wp_usermeta WHERE meta_key='location' AND user_id='".$userId."'");
 
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)

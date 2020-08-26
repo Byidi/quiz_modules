@@ -16,6 +16,6 @@ if(!checkAuthorized(false, true)){
 $module = new Module();
 $module->selectById($_GET['id']);
 
-echo json_encode($module->getInfos($_SESSION['userConnected']));
+echo json_encode($module->getInfos(get_current_user_id()));
 
 ?>

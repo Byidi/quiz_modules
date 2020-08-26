@@ -13,7 +13,7 @@ $response = json_decode($str_json, true); // decoding received JSON to array
 $wpdb->delete(
     'module_progress',
     array(
-        'user_id' => $_SESSION['userConnected'],
+        'user_id' => get_current_user_id(),
         'module_id' => $response['module_id'],
         'slide_id' => $response['slide_id'],
     )
@@ -22,7 +22,7 @@ $wpdb->delete(
 $wpdb->insert(
     'module_progress',
     array(
-        'user_id' => $_SESSION['userConnected'],
+        'user_id' => get_current_user_id(),
         'module_id' => $response['module_id'],
         'slide_id' => $response['slide_id'],
     )

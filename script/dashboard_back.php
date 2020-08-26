@@ -17,7 +17,7 @@ if(!checkAuthorized(false, true)){
     wp_redirect( home_url() );  exit;
 }
 
-$userId = $_SESSION['userConnected'];
+$userId = get_current_user_id();
 
 //JSON ENCODE
 
@@ -71,7 +71,7 @@ $response = json_decode($str_json, true); // decoding received JSON to array
 
 
 
-$userId = $_SESSION['userConnected'];
+$userId = get_current_user_id();
 
 $ville = $wpdb->get_var("SELECT meta_value FROM wp_usermeta WHERE meta_key='location' AND user_id='".$userId."'");
 

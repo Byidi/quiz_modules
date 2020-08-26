@@ -46,7 +46,7 @@ foreach ($quizs as $q){
 
     $score = null;
 
-    $userId = $_SESSION['userConnected'];
+    $userId = get_current_user_id();
 
     $score = $wpdb->get_row( "SELECT score, time FROM quiz_score where quiz_id = ".$q->id." AND user_id = ".$userId." ");
 

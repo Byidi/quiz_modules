@@ -47,7 +47,7 @@ $moduleArray = [];
 
 
 
-            $userId = $_SESSION['userConnected'];
+            $userId = get_current_user_id();
 
             $moduleId = $m->id;
 

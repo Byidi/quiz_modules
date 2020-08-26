@@ -22,7 +22,7 @@ if(!empty($_SESSION['moduleData']['module']['id'])){
 //recuperation module
 $newModule->setTitle($_SESSION['moduleData']['module']['title']);
 $newModule->setTag($tag);
-$newModule->setAuthor($_SESSION['userConnected']);
+$newModule->setAuthor(get_current_user_id());
 $newModule->setImgPath($_SESSION['moduleData']['module']['img']);
 $newModule->setDescription($_SESSION['moduleData']['module']['description']);
 $newModule->setStatus($_GET['status'] ?? 1); 

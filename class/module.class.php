@@ -209,7 +209,7 @@ public function getInfos($player){
     foreach($quizQuery as $q){
         $quizRelated = new Quiz();
         $quizRelated->selectById($q->id_quiz);
-        $quizInfo[] = $quizRelated->getInfos($_SESSION['userConnected']);
+        $quizInfo[] = $quizRelated->getInfos(get_current_user_id());
     }
     $module["quizs"] = $quizInfo;
     /////

@@ -32,7 +32,7 @@ $module = new Module();
 
 $module->selectById($response['module_id']);
 
-$userId = $_SESSION['userConnected'];
+$userId = get_current_user_id();
 
 
 

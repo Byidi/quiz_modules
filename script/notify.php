@@ -67,7 +67,7 @@ function notify(){
         $mail = wp_mail($to, $subject, $message);
 
     }
-    $wpdb->insert("notify_date", ["date"=>(new DateTime())->format('Y-m-d H:i:s'), "author_id"=>$_SESSION['userConnected']]);
+    $wpdb->insert("notify_date", ["date"=>(new DateTime())->format('Y-m-d H:i:s'), "author_id"=> get_current_user_id()]);
     $_SESSION['notify'] = "Les mails ont été envoyés.";
     // wp_redirect(home_url()."/statistiques");
 }
