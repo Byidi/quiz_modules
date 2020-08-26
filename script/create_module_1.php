@@ -70,7 +70,7 @@ if(!empty($_POST['title']) && !empty($_POST['theme']))
 }
 
 if($error_module !== ""){
-    $_SESSION["errorModule"] = $error_quiz;
+    $_SESSION["errorModule"] = $error_module;
     wp_redirect( home_url().'/creationmoduleetape1' );
 }else{
     $_SESSION["moduleOk"] = $module_ok;
@@ -78,3 +78,4 @@ if($error_module !== ""){
 }
 
 ?>
+

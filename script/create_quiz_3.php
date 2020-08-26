@@ -15,10 +15,7 @@ if(!checkAuthorized(true)){
     wp_redirect( home_url() );  exit;
 }
 
-
-
 $id = get_current_user_id();
-
 
 $tag = new Tag();
 $tag->selectByName($_SESSION['quizData']['quiz']['theme']);

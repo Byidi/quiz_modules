@@ -86,7 +86,7 @@ class Module {
 
      //Set author with instance of author
 
-     public function setAuthor(int $author){
+     public function setAuthor($author){
         $this->author = $author;
     }
 
