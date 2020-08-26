@@ -1,4 +1,12 @@
 <?php
+function sessionstart() {
+  if ( ! session_id() ) {
+     @session_start();
+  }
+}
+
+ add_action( 'init', 'sessionstart', 1 );
+
  require_once(__DIR__ . '/script/database.php');
  register_activation_hook( __FILE__, 'qm_install' );
 /*
@@ -7,6 +15,8 @@
   Version: 1.0
   Author: Marie Bonifacio
 */
+
+
 
 add_shortcode( 'qm_display_last_quiz', 'qm_display_last_quiz');
 add_shortcode( 'qm_display_quiz_menu', 'qm_display_quiz_menu' );
@@ -1377,4 +1387,22 @@ function qm_display_classement_acceuil(){
       'script_directory' => WP_PLUGIN_URL.'/quiz_modules/script',
   ));
 }
+
+
+function checkAuthorized($needAdmin = false, $needLog = true){
+  if($needLog){
+      if(get_current_user_id() == 0){
+          return false;
+      }
+      if($needAdmin){
+          $currentUser = wp_get_current_user();
+          if(!user_can($currentUser,"administrator") ){
+              return false;
+          }
+      }
+  }
+  return true;
+}
+
+?>
 

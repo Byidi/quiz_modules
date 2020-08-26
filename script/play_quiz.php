@@ -34,6 +34,6 @@ $quiz = new Quiz();
 
 $quiz->selectById($_GET['id']);
 
-echo json_encode($quiz->getInfos($_SESSION['userConnected']));
+echo json_encode($quiz->getInfos(get_current_user_id()));
 
 ?>
