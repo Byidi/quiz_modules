@@ -147,10 +147,8 @@ inputFile();
 addDeleteEvent();
 
 const plus = document.querySelector(".plus"),
-      form = document.querySelector("form"),
+      form = document.querySelector(".formStep2"),
       total = document.createElement("p");
-
-console.log(plus)
 
 var nextId = document.querySelectorAll(".questionPage").length + 1;
 
@@ -159,7 +157,6 @@ form.appendChild(total);
 total.innerHTML='Total de questions: ' + document.querySelector("input[name=nbrQuestion]").value;
 
 plus.addEventListener("click", ()=>{
-  console.log("click");
   if( document.querySelector("input[name=nbrQuestion]").value == 100)
   {
     plus.disabled = true;
@@ -168,10 +165,10 @@ plus.addEventListener("click", ()=>{
   {
     let nbrQuestion = parseInt(document.querySelector("input[name=nbrQuestion]").value) + 1;
     document.querySelector("input[name=nbrQuestion]").value = nbrQuestion;
-
+    
     let totalText = document.querySelector('.total').innerHTML;
     total.innerHTML = totalText.replace(/\d+/gi, nbrQuestion);
-
+    
     var div = document.createElement("div");
     div.classList.add("questionPage");
     div.classList.add("new");

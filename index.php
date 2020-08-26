@@ -302,7 +302,7 @@ function qm_quiz_creation_2(){
       $p = $_SESSION['formQuizStep2'];
     }
     echo '
-    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_2.php" method="post" enctype="multipart/form-data">
+    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_2.php" method="post" enctype="multipart/form-data" class="formStep2">
       <input type="text" name="nbrQuestion" value="'. $nbrQuestion.'" hidden>';
       if(!empty($p)){
         foreach ($p as $key => $value) {
@@ -575,7 +575,7 @@ function qm_module_creation_2(){
     }
    
     echo '
-    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_2.php" method="post" enctype="multipart/form-data">
+    <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_module_2.php" method="post" enctype="multipart/form-data" class="formStep2">
       <input type="text" name="nbrPage" value="'. $nbrPage.'" hidden>';
 
       function getPage($i, $isNew, $p){

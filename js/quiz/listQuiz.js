@@ -26,13 +26,13 @@ window.addEventListener('load', function () {
           <span>${status}</span>
         </td>
         <td>
-          <p data-id="${quizs.quiz[i].id}" class="delete">Supprimer</p>
-          <a href="${home_url}/quiz_edit.php?id=${quizs.quiz[i].id}" target="_blank" class="modify">Modifier</a>
+          <p data-id="${quizs.quiz[i].id}" class="delete_listQuiz">Supprimer</p>
+          <a href="${home_url}/quiz_edit.php?id=${quizs.quiz[i].id}" target="_blank" class="modify_listQuiz">Modifier</a>
         </td>
       </tr>
       `;
     }
-    const btns = document.querySelectorAll(".delete");
+    const btns = document.querySelectorAll(".delete_listQuiz");
     btns.forEach(btn => {
       btn.addEventListener("click", (e)=>{
         let id =e.target.dataset.id;

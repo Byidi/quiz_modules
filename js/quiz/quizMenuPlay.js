@@ -366,7 +366,6 @@ window.addEventListener('load', function () {
                   "id_quiz" : myQuizz.id,
                 };
 
-
                 dbParam = JSON.stringify(obj);
                 xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
@@ -394,6 +393,7 @@ window.addEventListener('load', function () {
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         let result = JSON.parse(this.responseText);
+                        console.log(result);
                         showFinish(result);
                     }
                 };

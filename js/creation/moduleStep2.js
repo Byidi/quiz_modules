@@ -106,7 +106,7 @@ let pages = document.querySelectorAll(".questionPage");
 nbrPages = pages.length;
 
 const plus = document.querySelector(".plus"),
-      form = document.querySelector("form"),
+      form = document.querySelector(".formStep2"),
       total = document.createElement("p");
 
 var nextId = document.querySelectorAll(".questionPage").length + 1;
@@ -124,16 +124,16 @@ plus.addEventListener("click", ()=>{
   {
     let nbrPages = parseInt(document.querySelector("input[name=nbrPage]").value) + 1;
     document.querySelector("input[name=nbrPage]").value = nbrPages;
-
+    
     let totalText = document.querySelector('.total').innerHTML;
     total.innerHTML = totalText.replace(/\d+/gi, nbrPages);
-
+    
     var div = document.createElement("div");
     div.classList.add("questionPage");
     div.classList.add("new");
     div.innerHTML = getPageHtml('n'+nextId);
     form.appendChild(div);
-
+    
     addDeleteEvent();
     inputFile();
 

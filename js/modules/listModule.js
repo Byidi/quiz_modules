@@ -26,13 +26,13 @@ window.addEventListener('load', function () {
           <span>${status}</span>
         </td>
         <td>
-          <p data-id="${modules[i].id}" class="delete">Supprimer</p>
-          <a href="${home_url}/module_edit.php?id=${modules[i].id}" target="_blank" class="modify">Modifier</a>
+          <p data-id="${modules[i].id}" class="delete_listModule">Supprimer</p>
+          <a href="${home_url}/module_edit.php?id=${modules[i].id}" target="_blank" class="modify_listModule">Modifier</a>
         </td>
       </tr>
       `
     }
-    const btns = document.querySelectorAll(".delete");
+    const btns = document.querySelectorAll(".delete_listModule");
     btns.forEach(btn => {
       btn.addEventListener("click", (e)=>{
         let id =e.target.dataset.id;
