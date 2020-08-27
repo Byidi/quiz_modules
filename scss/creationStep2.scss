@@ -91,6 +91,44 @@
     margin-bottom: 10px;
     width: 60%;
     @include flex(space-around, center, column);
+    .nbrQuestionVisible{
+      position: relative;
+      width: 80%;
+      text-align: center;
+      @include flex(center, center, row);
+      div{
+        position: relative;
+        width: 50px;
+        margin-left: 5px;
+        select
+        {
+          position: relative;
+          width: 100%;
+          background: $color-btn;
+          color: $color1;
+          appearance: none;
+          padding: 5px 15px;
+          border: none;
+          border-radius: 3px;
+          outline: none;
+          transition: .2s;
+          font-size: $fontSize1;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+        i{
+          pointer-events: none;
+          color: $color1;
+          transform: translateY(50%);
+          @include positionBR(absolute,60%,5px);
+        }
+        select:hover
+        {
+          background: $police;
+          cursor: pointer;
+        }
+      }
+    }
     .hidden
     {
       display: none !important;

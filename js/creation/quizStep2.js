@@ -185,10 +185,19 @@ plus.addEventListener("click", ()=>{
 const validate = document.querySelector(".validate");
 const sketching = document.querySelector(".sketching");
 
+const selectNbrQuestionVisible = parseInt(document.querySelector('select[name=nbrQuestionVisible]').value);
+
 validate.addEventListener("click", ()=>{
-  document.querySelector("input[value='Valider']").click();
+  if(selectNbrQuestionVisible > document.querySelectorAll(".questionPage").length){
+    alert("Veuillez remplir un nombre de questions supérieur ou égal au nombre de questions visible pendant le quiz!");
+  }else{
+    document.querySelector("input[value='Valider']").click();
+  }
 })
 sketching.addEventListener("click", ()=>{
-  document.querySelector("input[value='Enregistrer le brouillon']").click();
-
+  if(selectNbrQuestionVisible > document.querySelectorAll(".questionPage").length){
+    alert("Veuillez remplir un nombre de question supérieur ou égale au nombre de questions visible pendant le quiz!");
+  }else{
+    document.querySelector("input[value='Enregistrer le brouillon']").click();
+  }
 })

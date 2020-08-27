@@ -145,6 +145,65 @@
           flex-direction: column;
 }
 
+.step2 form .nbrQuestionVisible {
+  position: relative;
+  width: 80%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.step2 form .nbrQuestionVisible div {
+  position: relative;
+  width: 50px;
+  margin-left: 5px;
+}
+
+.step2 form .nbrQuestionVisible div select {
+  position: relative;
+  width: 100%;
+  background: #EBB94A;
+  color: #131A28;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.step2 form .nbrQuestionVisible div i {
+  pointer-events: none;
+  color: #131A28;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  position: absolute;
+  bottom: 60%;
+  right: 5px;
+}
+
+.step2 form .nbrQuestionVisible div select:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+
 .step2 form .hidden {
   display: none !important;
 }
