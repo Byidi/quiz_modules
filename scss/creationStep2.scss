@@ -95,6 +95,12 @@
     {
       display: none !important;
     }
+    input[name=nbrQuestion]{
+      display:none;
+    }
+    input[type=submit]{
+      display:none;
+    }
     .questionPage
     {
       position: relative;

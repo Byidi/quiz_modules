@@ -619,39 +619,64 @@ window.addEventListener('load', function () {
                               <div class="recap">
                               </div>
                               `;
-              
                               const recap = document.querySelector('.recap');
-              
+
                               result.questions.forEach((question, i) => {
-                                  numQuestion = i+1;
-              
-                                  const questionDiv = document.createElement("div");
-                                  questionDiv.classList.add("question");
-                                  recap.appendChild(questionDiv);
-              
-                                  const p = document.createElement("p");
-                                  p.classList.add(`questionRecap`);
-                                  questionDiv.appendChild(p);
-                                  p.innerHTML =`<span>${numQuestion}.</span> ${question.content}`;
-              
-                                  const divAnswer = document.createElement("div");
-                                  divAnswer.classList.add(`answerRecap${[i]}`, "answerRecap");
-                                  questionDiv.appendChild(divAnswer);
-              
-                                  question.answers.forEach((answer, j) => {
-                                      const letters = ['A', 'B' , 'C', 'D'];
-              
-                                      const pAnswerDiv = document.createElement("div");
-                                      pAnswerDiv.classList.add(`answerTF${[j]}${[i]}`, 'answerTF');
-                                      divAnswer.appendChild(pAnswerDiv);
-                                      pAnswerDiv.innerHTML = `<span>${letters[j]}:</span> ${answer.content}`;
-                                      if(answer.is_true == "1" || answer.is_true == "true"){
-                                          pAnswerDiv.style.color = "#3AD29F";
-                                      }else{
-                                          pAnswerDiv.style.color = "red";
+                                numQuestion = i+1;
+            
+                                const questionDiv = document.createElement("div");
+                                questionDiv.classList.add("question");
+                                recap.appendChild(questionDiv);
+            
+                                const p = document.createElement("p");
+                                p.classList.add(`questionRecap`);
+                                questionDiv.appendChild(p);
+                                p.innerHTML =`<span>${numQuestion}.</span> ${question.content}`;
+            
+                                const divAnswer = document.createElement("div");
+                                divAnswer.classList.add(`answerRecap${[i]}`, "answerRecap");
+                                questionDiv.appendChild(divAnswer);
+            
+                                const pYourAnswer = document.createElement("p");
+                                pYourAnswer.classList.add(`questionRecap`);
+                                questionDiv.appendChild(pYourAnswer);
+                                pYourAnswer.innerHTML =`Vos réponses:`;
+            
+                                const divYourAnswer = document.createElement("div");
+                                divYourAnswer.classList.add(`answerRecap${[i]}`, "answerRecap");
+                                questionDiv.appendChild(divYourAnswer);
+            
+                                if(question.good == true){
+                                  questionDiv.style.backgroundColor = "rgba(58, 210, 159, 0.2)";
+                                }else{
+                                  questionDiv.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+                                }
+                                question.answers.forEach((answer, j) => {
+                                    const letters = ['A', 'B' , 'C', 'D'];
+                                    const yourAnswers = document.createElement("div"),
+                                          pAnswerDiv = document.createElement("div");
+                                    yourAnswers.classList.add(`answerTF${[j]}${[i]}`, 'answerTF');
+                                    pAnswerDiv.classList.add(`answerTF${[j]}${[i]}`, 'answerTF');
+                                    divAnswer.appendChild(pAnswerDiv);
+                                    divYourAnswer.appendChild(yourAnswers);
+                                    pAnswerDiv.innerHTML = `<span>${letters[j]}:</span> ${answer.content}`;
+                                    if(answer.is_true == "1" || answer.is_true == "true"){
+                                        pAnswerDiv.style.color = "#3AD29F";
+                                        yourAnswers.style.color = "#3AD29F";
+                                    }else{
+                                        pAnswerDiv.style.color = "red";
+                                        yourAnswers.style.color = "red";
+                                    }
+                                    for (let i = 0; i < question.user_answer.length; i++) {
+                                      const element = question.user_answer[i];
+                                      if(element == parseInt(answer.id)){
+                                        yourAnswers.innerHTML = `<span>${letters[j]}:</span>${answer.content}`;
                                       }
-                                  });
-                              });
+                                    }
+                                });
+            
+            
+                            });
               
                               const btnBackMenu = document.querySelectorAll(".btnBackMenu");
               

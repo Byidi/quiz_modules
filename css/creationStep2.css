@@ -149,6 +149,14 @@
   display: none !important;
 }
 
+.step2 form input[name=nbrQuestion] {
+  display: none;
+}
+
+.step2 form input[type=submit] {
+  display: none;
+}
+
 .step2 form .questionPage {
   position: relative;
   width: 80%;
