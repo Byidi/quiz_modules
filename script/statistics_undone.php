@@ -14,14 +14,20 @@ if(!checkAuthorized(true)){
 
 function moduleStat($moduleId){
     global $wpdb;
+
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
    
-    return  $wpdb->get_results( "SELECT wp_users.ID AS ID, wp_users.display_name AS Utilisateur, wp_usermeta.meta_value AS Site FROM wp_users LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' WHERE wp_users.ID NOT IN (SELECT user_id FROM module_finish WHERE module_id ='".$moduleId."')");
+    return  $wpdb->get_results( "SELECT ".$userTable.".ID AS ID, ".$userTable.".qm_display_name AS Utilisateur, ".$metaTable.".meta_value AS Site FROM ".$userTable." LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' WHERE ".$userTable.".ID NOT IN (SELECT user_id FROM module_finish WHERE module_id ='".$moduleId."')");
 }
 
 function quizStat($quizId){
     global $wpdb;
 
-    return  $wpdb->get_results( "SELECT wp_users.ID AS ID, wp_users.display_name AS Utilisateur, wp_usermeta.meta_value AS Site FROM wp_users LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' WHERE wp_users.ID NOT IN (SELECT user_id FROM quiz_score WHERE '".$quizId."' = quiz_id)");
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
+    return  $wpdb->get_results( "SELECT ".$userTable.".ID AS ID, ".$userTable.".qm_display_name AS Utilisateur, ".$metaTable.".meta_value AS Site FROM ".$userTable." LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' WHERE ".$userTable.".ID NOT IN (SELECT user_id FROM quiz_score WHERE '".$quizId."' = quiz_id)");
 }
 
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)

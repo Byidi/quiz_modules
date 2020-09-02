@@ -13,15 +13,19 @@ if(!checkAuthorized(true)){
 //Récupérer les created at etc des quizs et des modules
 function quizStatsByCampaign($campaignStart, $campaignEnd, $site, $nbQuiz, $nbUsers){
     global $wpdb;
+
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     $quizInfo = $wpdb->get_row("
         SELECT 
             count(quiz_score.id) AS nb, AVG(quiz_score.score) AS moyenne, AVG(quiz_score.time) AS temps
         FROM 
             quiz_score 
-        LEFT JOIN wp_usermeta ON quiz_score.user_id = wp_usermeta.user_id 
-                AND wp_usermeta.meta_key = 'location' 
+        LEFT JOIN ".$metaTable." ON quiz_score.user_id = ".$metaTable.".user_id 
+                AND ".$metaTable.".meta_key = 'location' 
         WHERE 
-            wp_usermeta.meta_value = '$site' 
+            ".$metaTable.".meta_value = '$site' 
         AND 
             quiz_score.created_at BETWEEN '$campaignStart' AND '$campaignEnd'"
     );
@@ -40,15 +44,19 @@ function quizStatsByCampaign($campaignStart, $campaignEnd, $site, $nbQuiz, $nbUs
 
 function moduleStatsByCampaign($campaignStart, $campaignEnd, $site, $nbModule, $nbUsers){
     global $wpdb;
+
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     $nbModuleDone = $wpdb->get_var("
         SELECT
             count(module_finish.id) 
         FROM
             module_finish
-        LEFT JOIN  wp_usermeta ON module_finish.user_id = wp_usermeta.user_id 
-            AND wp_usermeta.meta_key = 'location' 
+        LEFT JOIN  ".$metaTable." ON module_finish.user_id = ".$metaTable.".user_id 
+            AND ".$metaTable.".meta_key = 'location' 
         WHERE
-            wp_usermeta.meta_value = '$site' 
+            ".$metaTable.".meta_value = '$site' 
         AND
             module_finish.created_at BETWEEN '$campaignStart' AND '$campaignEnd'"
     );
@@ -57,6 +65,10 @@ function moduleStatsByCampaign($campaignStart, $campaignEnd, $site, $nbModule, $
 }
 
 global $wpdb;
+
+$userTable = $wpdb->prefix.'users';
+$metaTable = $wpdb->prefix.'usermeta';
+
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)
 $request = json_decode($str_json, true); // decoding received JSON to array
 
@@ -64,7 +76,7 @@ $campaignId = $request['id'];
 // $campaignId = 4;
 //récupérer les scores, taux de participation etc par ville 
 $campaign = $wpdb->get_row("SELECT * FROM campaign WHERE id = $campaignId");
-$sites = $wpdb->get_results("SELECT distinct(meta_value) FROM wp_usermeta WHERE meta_key = 'location' ORDER BY meta_value");
+$sites = $wpdb->get_results("SELECT distinct(meta_value) FROM ".$metaTable." WHERE meta_key = 'location' ORDER BY meta_value");
 $campaignStart = $campaign->start;
 $campaignEnd = $campaign->end;
 $nbQuiz = $wpdb->get_var("
@@ -98,7 +110,7 @@ $total = [
 ];
 foreach($sites as $site){
     $nbUsers = $wpdb->get_var("
-        SELECT count(umeta_id) FROM wp_usermeta WHERE wp_usermeta.meta_key = 'location' AND  wp_usermeta.meta_value = '$site->meta_value'
+        SELECT count(umeta_id) FROM ".$metaTable." WHERE ".$metaTable.".meta_key = 'location' AND  ".$metaTable.".meta_value = '$site->meta_value'
     ");
     
     $stats['sites'][$site->meta_value] = quizStatsByCampaign($campaign->start, $campaign->end, $site->meta_value, $nbQuiz, $nbUsers);

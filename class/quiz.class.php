@@ -101,10 +101,10 @@ class Quiz {
             $this->created_at = (new DateTime())->format('Y-m-d H:i:s');
             $wpdb->insert(
                 'quiz', array(
-                    "name" => stripslashes($this->name),
+                    "name" => stripslashes(htmlspecialchars($this->name)),
                     "tag_id" => $this->tag->getId(),
                     "img_path" => $this->img_path,
-                    "description" => stripslashes($this->description),
+                    "description" => stripslashes(htmlspecialchars($this->description)),
                     "author_id" => $this->author,
                     "status" => $this->status,
                     "created_at" => $this->created_at
@@ -115,10 +115,10 @@ class Quiz {
             global $wpdb;
             $u = $wpdb->update(
                 'quiz', array(
-                    "name" => stripslashes($this->name),
+                    "name" => stripslashes(htmlspecialchars($this->name)),
                     "tag_id" => $this->tag->getId(),
                     "img_path" => $this->img_path,
-                    "description" => stripslashes($this->description),
+                    "description" => stripslashes(htmlspecialchars($this->description)),
                     "author_id" => $this->author,
                     "status" => $this->status,
                     "created_at" => $this->created_at

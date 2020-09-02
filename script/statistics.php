@@ -16,6 +16,10 @@ if(!checkAuthorized(true)){
 
 function moduleStat($site){
     global $wpdb;
+
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     //Pour chaque module terminé
     $module = $wpdb->get_results( "SELECT id, title FROM module");
     $stats=[];
@@ -27,17 +31,17 @@ function moduleStat($site){
             $nbUsers = count_users()['total_users'];
             $sql = "SELECT count(module_id) FROM module_finish WHERE module_id = '$moduleId'";
         }else{
-            $nbUsers = $wpdb->get_var("SELECT count(meta_value) FROM wp_usermeta WHERE meta_key = 'location' AND meta_value = '$site'");
+            $nbUsers = $wpdb->get_var("SELECT count(meta_value) FROM ".$metaTable." WHERE meta_key = 'location' AND meta_value = '$site'");
             $sql="SELECT 
                 count(module_finish.module_id) 
             FROM 
                 module_finish
-                LEFT JOIN wp_users ON wp_users.ID = module_finish.user_id
-                LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID
-                    AND wp_usermeta.meta_key = 'location'
+                LEFT JOIN ".$userTable." ON ".$userTable.".ID = module_finish.user_id
+                LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID
+                    AND ".$metaTable.".meta_key = 'location'
             WHERE 
                 module_id = '$moduleId'
-                    AND wp_usermeta.meta_value = '$site'";
+                    AND ".$metaTable.".meta_value = '$site'";
         }
         $nbrDone = $wpdb->get_var($sql);
         $pourcent = ((int)$nbUsers ===  0) ? 0 : (round(((int)$nbrDone * 100)/(int)$nbUsers));
@@ -52,6 +56,10 @@ function moduleStat($site){
 
 function quizStat($site = null){
     global $wpdb;
+
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     //Pour chaque quiz terminé 
     $quiz = $wpdb->get_results( "SELECT id, name FROM quiz");
     $stats = [];
@@ -62,14 +70,14 @@ function quizStat($site = null){
             $nbUsers = count_users()['total_users'];
             $sql = "SELECT count(quiz_id) FROM quiz_score WHERE quiz_id = '$quizId'";
         }else{
-            $nbUsers = $wpdb->get_var("SELECT count(meta_value) FROM wp_usermeta WHERE meta_key = 'location' AND meta_value = '$site'");
+            $nbUsers = $wpdb->get_var("SELECT count(meta_value) FROM ".$metaTable." WHERE meta_key = 'location' AND meta_value = '$site'");
             $sql="SELECT 
                 count(quiz_score.quiz_id) 
             FROM 
                 quiz_score
-                LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id
-                LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID
-                    AND wp_usermeta.meta_key = 'location'
+                LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id
+                LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = wp_users.ID
+                    AND ".$metaTable.".meta_key = 'location'
             WHERE 
                 quiz_id = '$quizId'
                     AND wp_usermeta.meta_value = '$site'";

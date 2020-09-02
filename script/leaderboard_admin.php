@@ -13,16 +13,19 @@ if(!checkAuthorized(true, true)){
 function getQuizGeneralClassement($idQuiz){
     global $wpdb;
 
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     $sql = "
     SELECT 
-        wp_users.display_name AS Joueur,  
-        wp_usermeta.meta_value AS Site,
+        ".$userTable.".qm_display_name AS Joueur,  
+        ".$metaTable.".meta_value AS Site,
         quiz_score.score AS Score, 
         quiz_score.time AS Temps
     FROM 
         quiz_score 
-        LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
-        LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' 
+        LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
     WHERE 
         quiz_id = ".$idQuiz."
     ORDER BY 
@@ -32,24 +35,50 @@ function getQuizGeneralClassement($idQuiz){
     return $wpdb->get_results($sql);
 }
 
+// function getQuizGeneralClassement($idQuiz){
+//     global $wpdb;
+
+//     $sql = "
+//     SELECT 
+//         wp_users.display_name AS Joueur,  
+//         wp_usermeta.meta_value AS Site,
+//         quiz_score.score AS Score, 
+//         quiz_score.time AS Temps
+//     FROM 
+//         quiz_score 
+//         LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
+//         LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' 
+//     WHERE 
+//         quiz_id = ".$idQuiz."
+//     ORDER BY 
+//         quiz_score.score DESC, 
+//         quiz_score.time ASC";
+
+//     return $wpdb->get_results($sql);
+// }
+
 function getQuizSiteClassement($idQuiz){
     global $wpdb;
 
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
+
     $sql = "
     SELECT 
-        wp_usermeta.meta_value AS Site, 
+        ".$metaTable.".meta_value AS Site, 
         avg(quiz_score.score) AS Moyenne,  
         sum(quiz_score.time) AS Temps, 
         count(quiz_score.id) AS Nombre 
     FROM 
         quiz_score 
-        LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
-        LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID 
-            AND wp_usermeta.meta_key = 'location'
+        LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID 
+            AND ".$metaTable.".meta_key = 'location'
     WHERE
         quiz_score.quiz_id='".$idQuiz."'
     GROUP BY
-        wp_usermeta.meta_value 
+        ".$metaTable.".meta_value 
     ORDER BY
         avg(quiz_score.score) DESC, 
         sum(quiz_score.time) ASC, 
@@ -62,23 +91,26 @@ function getQuizSiteClassement($idQuiz){
 function getTagGeneralClassement($idTag){
     global $wpdb;
 
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     $sql = "
     SELECT 
-        wp_users.display_name AS Joueur, 
-        wp_usermeta.meta_value AS Site, 
+        wp_users.qm_display_name AS Joueur, 
+        ".$metaTable.".meta_value AS Site, 
         avg(quiz_score.score) AS Moyenne,  
         sum(quiz_score.time) AS Temps, 
         count(quiz_score.id) AS Nombre 
     FROM 
         quiz_score 
-        LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
-        LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' 
+        LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
         LEFT JOIN quiz ON quiz.id = quiz_score.quiz_id
         LEFT JOIN tag ON quiz.tag_id = tag.id
     WHERE 
         quiz.tag_id = ".$idTag."
     GROUP BY
-        wp_users.ID
+        ".$userTable.".ID
     ORDER BY
         avg(quiz_score.score) DESC, 
         sum(quiz_score.time) ASC, 
@@ -91,22 +123,25 @@ function getTagGeneralClassement($idTag){
 function getTagSiteClassement($idTag){
     global $wpdb;
 
+    $userTable = $wpdb->prefix.'users';
+    $metaTable = $wpdb->prefix.'usermeta';
+
     $sql = "
     SELECT 
-        wp_usermeta.meta_value AS Site, 
+        ".$metaTable.".meta_value AS Site, 
         avg(quiz_score.score) AS Moyenne,  
         sum(quiz_score.time) AS Temps, 
         count(quiz_score.id) AS Nombre 
     FROM 
         quiz_score 
-        LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
-        LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' 
+        LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
         LEFT JOIN quiz ON quiz.id = quiz_score.quiz_id
         LEFT JOIN tag ON quiz.tag_id = tag.id
     WHERE 
         tag_id = ".$idTag."
     GROUP BY
-        wp_usermeta.meta_value 
+        ".$metaTable.".meta_value 
     ORDER BY
         avg(quiz_score.score) DESC, 
         sum(quiz_score.time) ASC, 
@@ -116,8 +151,11 @@ function getTagSiteClassement($idTag){
     return $wpdb->get_results($sql);
 }
 
+$userTable = $wpdb->prefix.'users';
+$metaTable = $wpdb->prefix.'usermeta';
+
 $userId = get_current_user_id();
-$ville = $wpdb->get_var("SELECT meta_value FROM wp_usermeta WHERE meta_key='location' AND user_id='".$userId."'");
+$ville = $wpdb->get_var("SELECT meta_value FROM ".$metaTable." WHERE meta_key='location' AND user_id='".$userId."'");
 
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)
 $request = json_decode($str_json, true); // decoding received JSON to array

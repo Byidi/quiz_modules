@@ -75,7 +75,7 @@ class Question {
             $wpdb->insert(
                 'question', array(
                     "id_quiz" => $this->id_quiz,
-                    "content" => stripslashes($this->content),
+                    "content" => stripslashes(htmlspecialchars($this->content)),
                     "img_path" => $this->img_path,
                     "url" => $this->url,
                     "points" => $this->points,
@@ -87,7 +87,7 @@ class Question {
             $u = $wpdb->update(
                 'question', array(
                     "id_quiz" => $this->id_quiz,
-                    "content" => stripslashes($this->content),
+                    "content" => stripslashes(htmlspecialchars($this->content)),
                     "img_path" => $this->img_path,
                     "url" => $this->url,
                     "points" => $this->points,

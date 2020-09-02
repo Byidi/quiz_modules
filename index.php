@@ -313,7 +313,22 @@ function qm_quiz_creation_2(){
     }
     echo '
     <form action="'.WP_PLUGIN_URL.'/quiz_modules/script/create_quiz_2.php" method="post" enctype="multipart/form-data" class="formStep2">
-      <input type="text" name="nbrQuestion" value="'. $nbrQuestion.'" hidden>';
+    <input type="text" name="nbrQuestion" value="'. $nbrQuestion.'" hidden>
+    <div class="nbrQuestionVisible">
+        <label>Questions visibles pendant le quiz:</label>
+        <div>
+        <select name ="nbrQuestionVisible">';
+            for ($i=3; $i <= 10; $i++) { 
+              echo'
+                <option value="'.$i.'">'.$i.'</option>
+              ';
+            }
+        echo '
+        </select>
+        <i class="fas fa-sort-down"></i>
+        </div>
+      </div>';
+     
       if(!empty($p)){
         foreach ($p as $key => $value) {
           preg_match('/^question_(n)?(\d+)$/', $key, $matches);
@@ -1336,7 +1351,7 @@ function qm_display_campagne_stats(){
   ));
 }
 
-//////////////////////////////////Acceuil/////////////////////////////////
+//////////////////////////////////Accueil//////////////////////////////////////////////////////////
 
 add_shortcode( 'qm_display_classement_acceuil', 'qm_display_classement_acceuil' );
 add_shortcode( 'qm_display_stats_acceuil', 'qm_display_stats_acceuil');
@@ -1402,6 +1417,312 @@ function checkAuthorized($needAdmin = false, $needLog = true){
   }
   return true;
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//on dit à wordpress d'éxecuter la fonction siteMetaBridge, dès qu'un utilisateur se log
+
+add_action('wp_login', 'siteMetaBridge', 10, 2);
+function siteMetaBridge($user_login, $user){
+    global $wpdb;
+    update_user_meta($user->ID, 'test01', 'test01');
+    update_user_meta($user->ID, 'test02', 'test02');
+
+    if(function_exists('bp_loggedin_user_id')){
+        $bp_user_id = bp_loggedin_user_id();
+    }
+    update_user_meta($user->ID, 'test03', 'test03');
+
+    $wp_user_id = get_current_user_id();
+    update_user_meta($user->ID, 'test04', 'test04');
+
+    if($bp_user_id !== $wp_user_id){
+        $user_id = $bp_user_id;
+    }else{
+        $user_id = $wp_user_id;
+    }
+    update_user_meta($user->ID, 'test05', 'test05');
+
+    if(function_exists('xprofile_get_field_data')){
+        $site = xprofile_get_field_data('Site', $user_id);
+        update_user_meta($user_id, 'location', $site);
+    }
+    
+    update_user_meta($user->ID, 'test06', 'test06');
+
+    if(shortcode_exists('username')){
+        $displayName = do_shortcode('[username]');
+    }else{
+        $displayName = $user->first_name.' '.$user->last_name; 
+    }
+
+    update_user_meta($user->ID, 'qm_display_name', $displayName);
+    update_user_meta($user->ID, 'test08', 'test08');
+}
+
+/// LEADERBOARD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function getUserClassement($userId = null, $ville=null, $limit=null){
+  global $wpdb;
+
+  $userTable = $wpdb->prefix.'users';
+  $metaTable = $wpdb->prefix.'usermeta';
+
+  $sql = "SELECT quiz_score.user_id, avg(quiz_score.score) AS moyenne,  sum(quiz_score.time) AS time, count(quiz_score.id) AS count,  ".$metaTable.".meta_value, meta2.meta_value  AS display_name ";
+  $sql .= "FROM quiz_score LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' LEFT JOIN ".$metaTable." meta2 ON meta2.user_id = ".$userTable.".ID AND meta2.meta_key = 'qm_display_name' ";
+
+  if($ville !== null){
+      $sql .= "WHERE ".$metaTable.".meta_value='".$ville."'";
+  }
+
+  $sql .= "group by quiz_score.user_id ORDER BY avg(quiz_score.score) DESC, sum(quiz_score.time) ASC, count(quiz_score.id) DESC ";
+
+  if($limit != null){
+      $sql .= "LIMIT ".$limit;
+  }
+
+  $q = $wpdb->get_results($sql);
+  $userQuery = $wpdb->get_row("SELECT ".$metaTable.".qm_display_name AS name,  ".$metaTable.".meta_value as city FROM quiz_score LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' WHERE ".$userTable.".ID='.$userId.'");
+  $place = null;
+  $userStat = null;
+
+  if (array_search($userId, array_column($q,'user_id')) !== false){
+      $place = array_search($userId, array_column($q,'user_id')) + 1;
+      $userStat = $q[array_search($userId, array_column($q,'user_id'))];
+  }
+
+  return array(
+      "classement" => array_slice($q, 0, 30),
+      "userPlace" => $place,
+      "userStat" => $userStat,
+  );
+}
+
+
+function getCityClassement($quizId = null){
+  global $wpdb;
+
+  $userTable = $wpdb->prefix.'users';
+  $metaTable = $wpdb->prefix.'usermeta';
+  
+  //Select la moyenne du score de la table quiz_score comme "moyenne" + la somme du temps dans la table quiz_score comme "temps" 
+  //+ le nombre d'idi dans quiz_score comme "compteur de quizs" + le nom de la ville (meta value) dans la table wp_usermeta comme "ville"
+  $sql = "SELECT avg(quiz_score.score) AS moyenne,  sum(quiz_score.time) AS time, count(quiz_score.id) AS quizCount, wp_usermeta.meta_value AS city ";
+  $sql .= "FROM quiz_score LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' ";
+
+  if($quizId !== null){
+      $sql .= "WHERE quiz_score.quiz_id='".$quizId."'";
+  }
+  $sql .= "group by ".$metaTable.".meta_value order by avg(quiz_score.score) DESC, sum(quiz_score.time) ASC, count(quiz_score.id) DESC";
+  return $wpdb->get_results($sql);
+}
+
+// Tous les résultats de l'user
+function getUserResults($userId){
+  global $wpdb;
+
+  $userTable = $wpdb->prefix.'users';
+  $metaTable = $wpdb->prefix.'usermeta';
+
+  return $wpdb->get_results( "SELECT quiz.name, quiz_score.score, quiz_score.time FROM quiz_score left join quiz ON quiz_score.quiz_id = quiz.id WHERE quiz_score.user_id=$userId" );
+
+}
+
+
+/// CREATION PAGE A L'INSTALL//////////////////////////////////////////////////////////////////////////////////////////////
+
+function add_my_custom_page() {
+  // Create post object
+  $menuModule = array(
+    'post_title'    => wp_strip_all_tags( 'menu module' ),
+    'post_content'  => '[qm_display_module_menu]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $menuModule );
+
+  // Create post object
+  $menuQuiz = array(
+    'post_title'    => wp_strip_all_tags( 'menu quiz' ),
+    'post_content'  => '[qm_display_quiz_menu]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $menuQuiz );
+
+  
+  // Create post object
+  $createM1 = array(
+    'post_title'    => wp_strip_all_tags( 'create module 1' ),
+    'post_content'  => '[qm_module_creation_1]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $createM1 );
+
+// Create post object
+  $createM2 = array(
+    'post_title'    => wp_strip_all_tags( 'create module 2' ),
+    'post_content'  => '[qm_module_creation_2]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $createM2 );
+
+  // Create post object
+  $createM3 = array(
+    'post_title'    => wp_strip_all_tags( 'create module 3' ),
+    'post_content'  => '[qm_module_creation_3]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $createM3 );
+
+
+  // Create post object
+  $createQ1 = array(
+    'post_title'    => wp_strip_all_tags( 'create quiz 1' ),
+    'post_content'  => '[qm_quiz_creation_1]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $createQ1 );
+
+  // Create post object
+  $createQ2 = array(
+    'post_title'    => wp_strip_all_tags( 'create quiz 2' ),
+    'post_content'  => '[qm_quiz_creation_2]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $createQ2  );
+
+    // Create post object
+  $createQ3= array(
+    'post_title'    => wp_strip_all_tags( 'create quiz 3' ),
+    'post_content'  => '[qm_quiz_creation_3]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+  
+  // Insert the post into the database
+  wp_insert_post(  $createQ3 );
+  
+  
+
+  // Create post object
+  $listQuiz = array(
+    'post_title'    => wp_strip_all_tags( 'liste quizs' ),
+    'post_content'  => '[qm_display_quiz_list]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $listQuiz );
+
+
+    // Create post object
+  $listModule = array(
+    'post_title'    => wp_strip_all_tags( 'liste modules' ),
+    'post_content'  => '[qm_display_module_list]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+  
+  // Insert the post into the database
+  wp_insert_post( $listModule );
+  
+
+   // Create post object
+  $statistics = array(
+    'post_title'    => wp_strip_all_tags( 'statistics' ),
+    'post_content'  => '[qm_display_stats_admin]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $statistics );
+  
+  
+   // Create post object
+   $classements = array(
+    'post_title'    => wp_strip_all_tags( 'classements' ),
+    'post_content'  => '[qm_display_classement_admin]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $classements );
+
+
+   // Create post object
+  $tagList = array(
+    'post_title'    => wp_strip_all_tags( 'ajouter tag' ),
+    'post_content'  => '[qm_display_tag_list]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+
+  // Insert the post into the database
+  wp_insert_post( $tagList );
+
+
+     // Create post object
+  $newCamp = array(
+    'post_title'    => wp_strip_all_tags( 'nouvelle campagne' ),
+    'post_content'  => '[qm_display_creation_campagne]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+  
+    // Insert the post into the database
+    wp_insert_post( $newCamp );
+
+
+  // Create post object
+  $statsCamp = array(
+    'post_title'    => wp_strip_all_tags( 'stats campagnes' ),
+    'post_content'  => '[qm_display_campagne_stats]',
+    'post_status'   => 'publish',
+    'post_author'   => 1,
+    'post_type'     => 'page',
+  );
+      
+    // Insert the post into the database
+    wp_insert_post( $statsCamp );
+  
+}
+
+register_activation_hook(__FILE__, 'add_my_custom_page');
 
 ?>
 

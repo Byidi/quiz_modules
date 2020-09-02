@@ -127,11 +127,11 @@ class Module {
 
             $r = $wpdb->insert(
                 'module', array(
-                    "title" => stripslashes($this->title),
+                    "title" => stripslashes(htmlspecialchars($this->title)),
                     "content" => '123',
                     "tag_id" => $this->tag->getId(),
                     "img_path" => $this->img_path,
-                    "description" => stripslashes($this->description),
+                    "description" => stripslashes(htmlspecialchars($this->description)),
                     "author_id" => $this->author,
                     "status" => $this->status,
                     "created_at" => $this->created_at
@@ -143,11 +143,11 @@ class Module {
             global $wpdb;
             $wpdb->update(
                 'module', array(   
-                    "title" => stripslashes($this->title),
+                    "title" => stripslashes(htmlspecialchars($this->title)),
                     "content" => $this->content,
                     "tag_id" => $this->tag->getId(),
                     "img_path" => $this->img_path,
-                    "description" => stripslashes($this->description),
+                    "description" => stripslashes(htmlspecialchars($this->description)),
                     "author_id" => $this->author,
                     "status" => $this->status,
                     "created_at" => $this->created_at,
