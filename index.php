@@ -1533,6 +1533,7 @@ function add_my_custom_page() {
   // Create post object
   $menuModule = array(
     'post_title'    => wp_strip_all_tags( 'menu module' ),
+    'post_name'     => 'menu-module',
     'post_content'  => '[qm_display_module_menu]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1545,6 +1546,7 @@ function add_my_custom_page() {
   // Create post object
   $menuQuiz = array(
     'post_title'    => wp_strip_all_tags( 'menu quiz' ),
+    'post_name'     => 'menu-quiz',
     'post_content'  => '[qm_display_quiz_menu]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1558,6 +1560,7 @@ function add_my_custom_page() {
   // Create post object
   $createM1 = array(
     'post_title'    => wp_strip_all_tags( 'create module 1' ),
+    'post_name'     => 'creationmoduleetape1',
     'post_content'  => '[qm_module_creation_1]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1570,6 +1573,7 @@ function add_my_custom_page() {
 // Create post object
   $createM2 = array(
     'post_title'    => wp_strip_all_tags( 'create module 2' ),
+    'post_name'     => 'creationmoduleetape2',
     'post_content'  => '[qm_module_creation_2]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1582,6 +1586,7 @@ function add_my_custom_page() {
   // Create post object
   $createM3 = array(
     'post_title'    => wp_strip_all_tags( 'create module 3' ),
+    'post_name'     => 'creationmoduleetape3',
     'post_content'  => '[qm_module_creation_3]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1595,6 +1600,7 @@ function add_my_custom_page() {
   // Create post object
   $createQ1 = array(
     'post_title'    => wp_strip_all_tags( 'create quiz 1' ),
+    'post_name'     => 'creationquizetape1',
     'post_content'  => '[qm_quiz_creation_1]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1607,6 +1613,7 @@ function add_my_custom_page() {
   // Create post object
   $createQ2 = array(
     'post_title'    => wp_strip_all_tags( 'create quiz 2' ),
+    'post_name'     => 'creationquizetape2',
     'post_content'  => '[qm_quiz_creation_2]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1619,6 +1626,7 @@ function add_my_custom_page() {
     // Create post object
   $createQ3= array(
     'post_title'    => wp_strip_all_tags( 'create quiz 3' ),
+    'post_name'     => 'creationquizetape3',
     'post_content'  => '[qm_quiz_creation_3]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1633,6 +1641,7 @@ function add_my_custom_page() {
   // Create post object
   $listQuiz = array(
     'post_title'    => wp_strip_all_tags( 'liste quizs' ),
+    'post_name'     => 'liste-quizs',
     'post_content'  => '[qm_display_quiz_list]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1646,6 +1655,7 @@ function add_my_custom_page() {
     // Create post object
   $listModule = array(
     'post_title'    => wp_strip_all_tags( 'liste modules' ),
+    'post_name'     => 'liste-modules',
     'post_content'  => '[qm_display_module_list]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1658,7 +1668,8 @@ function add_my_custom_page() {
 
    // Create post object
   $statistics = array(
-    'post_title'    => wp_strip_all_tags( 'statistics' ),
+    'post_title'    => wp_strip_all_tags( 'statistiques' ),
+    'post_name'     => 'statistiques',
     'post_content'  => '[qm_display_stats_admin]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1672,6 +1683,7 @@ function add_my_custom_page() {
    // Create post object
    $classements = array(
     'post_title'    => wp_strip_all_tags( 'classements' ),
+    'post_name'     => 'classements',
     'post_content'  => '[qm_display_classement_admin]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1685,6 +1697,7 @@ function add_my_custom_page() {
    // Create post object
   $tagList = array(
     'post_title'    => wp_strip_all_tags( 'ajouter tag' ),
+    'post_name'     => 'ajouter-tag',
     'post_content'  => '[qm_display_tag_list]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1698,6 +1711,7 @@ function add_my_custom_page() {
      // Create post object
   $newCamp = array(
     'post_title'    => wp_strip_all_tags( 'nouvelle campagne' ),
+    'post_name'     => 'nouvelle-campagne',
     'post_content'  => '[qm_display_creation_campagne]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1711,6 +1725,7 @@ function add_my_custom_page() {
   // Create post object
   $statsCamp = array(
     'post_title'    => wp_strip_all_tags( 'stats campagnes' ),
+    'post_name'     => 'stats-campagnes',
     'post_content'  => '[qm_display_campagne_stats]',
     'post_status'   => 'publish',
     'post_author'   => 1,
@@ -1725,4 +1740,3 @@ function add_my_custom_page() {
 register_activation_hook(__FILE__, 'add_my_custom_page');
 
 ?>
-
