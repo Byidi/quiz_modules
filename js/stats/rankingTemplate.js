@@ -7,13 +7,16 @@ window.addEventListener('load', function () {
       const gen = document.querySelector(".gen"),
       town = document.querySelector(".town");
 
-      var myArray = JSON.parse(this.responseText),
-      leadTown = myArray.top30UserVille,
+      var myArray = JSON.parse(this.responseText);
+      var leadTown = myArray.top30UserVille,
       leadGen = myArray.top30User,
       top30Gen = leadGen.classement,
       top30Town = leadTown.classement,
-      userStat = leadGen.userStat,
-      userId = userStat.user_id;
+      userStat = leadGen.userStat;
+
+      if(userStat != null){
+        var userId = userStat.user_id;
+      }
       function buildTable(array, userId)
       {
         const tbody = document.querySelector("tbody");
@@ -23,7 +26,11 @@ window.addEventListener('load', function () {
           pos = i + 1;
           const tr = document.createElement("tr");
           tbody.appendChild(tr);
-          if(pos == 1)
+          if(array[i].user_id == userId)
+          {
+            tr.classList.add("imp");
+          }
+          else if(pos == 1)
           {
             tr.classList.add("gold");
           }
@@ -34,10 +41,6 @@ window.addEventListener('load', function () {
           else if(pos == 3)
           {
             tr.classList.add("bronze");
-          }
-          else if(array[i].user_id == userId)
-          {
-            tr.classList.add("imp");
           }
           tr.innerHTML += `
             <td>${pos}</td>
