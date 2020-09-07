@@ -76,11 +76,11 @@ function quizStat($site = null){
             FROM 
                 quiz_score
                 LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id
-                LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = wp_users.ID
+                LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID
                     AND ".$metaTable.".meta_key = 'location'
             WHERE 
                 quiz_id = '$quizId'
-                    AND wp_usermeta.meta_value = '$site'";
+                    AND ".$metaTable.".meta_value = '$site'";
         }
         $nbrDone = $wpdb->get_var($sql);
         $pourcent = ((int)$nbUsers ===  0) ? 0 : ( round ( ( (int)$nbrDone * 100) / (int)$nbUsers) );

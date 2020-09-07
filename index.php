@@ -9,6 +9,7 @@ function sessionstart() {
 
  require_once(__DIR__ . '/script/database.php');
  register_activation_hook( __FILE__, 'qm_install' );
+ register_activation_hook( __FILE__, 'qm_usermeta' );
 /*
   Plugin Name: quiz_modules
   Description: 
@@ -1423,42 +1424,56 @@ function checkAuthorized($needAdmin = false, $needLog = true){
 
 add_action('wp_login', 'siteMetaBridge', 10, 2);
 function siteMetaBridge($user_login, $user){
-    global $wpdb;
-    update_user_meta($user->ID, 'test01', 'test01');
-    update_user_meta($user->ID, 'test02', 'test02');
+  global $wpdb;
 
-    if(function_exists('bp_loggedin_user_id')){
-        $bp_user_id = bp_loggedin_user_id();
-    }
-    update_user_meta($user->ID, 'test03', 'test03');
+  if(function_exists('bp_loggedin_user_id')){
+      $bp_user_id = bp_loggedin_user_id();
+  }
 
-    $wp_user_id = get_current_user_id();
-    update_user_meta($user->ID, 'test04', 'test04');
+  $wp_user_id = get_current_user_id();
 
-    if($bp_user_id !== $wp_user_id){
-        $user_id = $bp_user_id;
-    }else{
-        $user_id = $wp_user_id;
-    }
-    update_user_meta($user->ID, 'test05', 'test05');
+  if($bp_user_id !== $wp_user_id){
+      $user_id = $bp_user_id;
+  }else{
+      $user_id = $wp_user_id;
+  }
 
-    if(function_exists('xprofile_get_field_data')){
-        $site = xprofile_get_field_data('Site', $user_id);
-        update_user_meta($user_id, 'location', $site);
-    }
-    
-    update_user_meta($user->ID, 'test06', 'test06');
+  $user_meta=wp_get_current_user();
+  $user_role= (array) $user_meta->roles;
 
-    if(shortcode_exists('username')){
-        $displayName = do_shortcode('[username]');
-    }else{
-        $displayName = $user->first_name.' '.$user->last_name; 
-    }
+  $site = $user_role[0];
 
-    update_user_meta($user->ID, 'qm_display_name', $displayName);
-    update_user_meta($user->ID, 'test08', 'test08');
+  // $user_meta=get_userdata($user_id);
+  // $user_roles=$user_meta->roles; 
+
+  // $site = user_roles[0];
+  
+  update_user_meta($user_id, 'location', $site);
+  
+  $displayName = $user->first_name.' '.$user->last_name; 
+
+  update_user_meta($user->ID, 'qm_display_name', $displayName);
 }
 
+
+function qm_usermeta(){
+  global $wpdb;
+  $userTable = $wpdb->prefix."users";
+  $metaTable = $wpdb->prefix."usermeta";
+  $users = $wpdb->get_results("SELECT * FROM ".$userTable."");
+  foreach ($users as $user) {
+    $user_id = $user->ID;
+    $userData = get_userdata($user_id);
+    $userRole = (array) $userData->roles;
+
+    $displayName = $userData->first_name.' '.$userData->last_name;
+    update_user_meta($user_id, 'qm_display_name', $displayName);
+
+    $site = $userRole[0];
+    update_user_meta($user_id, 'location', $site);
+  }
+
+}
 /// LEADERBOARD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function getUserClassement($userId = null, $ville=null, $limit=null){
   global $wpdb;

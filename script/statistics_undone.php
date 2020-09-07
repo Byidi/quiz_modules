@@ -18,7 +18,19 @@ function moduleStat($moduleId){
     $userTable = $wpdb->prefix.'users';
     $metaTable = $wpdb->prefix.'usermeta';
    
-    return  $wpdb->get_results( "SELECT ".$userTable.".ID AS ID, ".$userTable.".qm_display_name AS Utilisateur, ".$metaTable.".meta_value AS Site FROM ".$userTable." LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' WHERE ".$userTable.".ID NOT IN (SELECT user_id FROM module_finish WHERE module_id ='".$moduleId."')");
+
+    $sql = "
+    SELECT 
+        ".$userTable.".ID AS ID, 
+        meta2.meta_value AS Utilisateur, 
+        ".$metaTable.".meta_value AS Site 
+    FROM 
+        ".$userTable." 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
+        LEFT JOIN ".$metaTable." meta2 ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'qm_display_name'  
+    WHERE 
+        ".$userTable.".ID NOT IN (SELECT user_id FROM module_finish WHERE module_id ='".$moduleId."')";
+    return  $wpdb->get_results($sql);
 }
 
 function quizStat($quizId){
@@ -27,7 +39,18 @@ function quizStat($quizId){
     $userTable = $wpdb->prefix.'users';
     $metaTable = $wpdb->prefix.'usermeta';
 
-    return  $wpdb->get_results( "SELECT ".$userTable.".ID AS ID, ".$userTable.".qm_display_name AS Utilisateur, ".$metaTable.".meta_value AS Site FROM ".$userTable." LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' WHERE ".$userTable.".ID NOT IN (SELECT user_id FROM quiz_score WHERE '".$quizId."' = quiz_id)");
+    $sql = "
+    SELECT 
+        ".$userTable.".ID AS ID, 
+        meta2.meta_value AS Utilisateur, 
+        ".$metaTable.".meta_value AS Site 
+    FROM 
+        ".$userTable." 
+        LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
+        LEFT JOIN ".$metaTable." meta2 ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'qm_display_name'  
+    WHERE ".$userTable.".ID NOT IN (SELECT user_id FROM quiz_score WHERE '".$quizId."' = quiz_id)";
+
+    return  $wpdb->get_results($sql);
 }
 
 $str_json = file_get_contents('php://input'); //($_POST doesn't work here)

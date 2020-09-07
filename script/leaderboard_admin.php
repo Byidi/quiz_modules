@@ -18,7 +18,7 @@ function getQuizGeneralClassement($idQuiz){
 
     $sql = "
     SELECT 
-        ".$userTable.".qm_display_name AS Joueur,  
+        meta2.meta_value AS Joueur,  
         ".$metaTable.".meta_value AS Site,
         quiz_score.score AS Score, 
         quiz_score.time AS Temps
@@ -26,6 +26,7 @@ function getQuizGeneralClassement($idQuiz){
         quiz_score 
         LEFT JOIN ".$userTable." ON ".$userTable.".ID = quiz_score.user_id 
         LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
+        LEFT JOIN ".$metaTable." meta2 ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'qm_display_name' 
     WHERE 
         quiz_id = ".$idQuiz."
     ORDER BY 
@@ -35,27 +36,6 @@ function getQuizGeneralClassement($idQuiz){
     return $wpdb->get_results($sql);
 }
 
-// function getQuizGeneralClassement($idQuiz){
-//     global $wpdb;
-
-//     $sql = "
-//     SELECT 
-//         wp_users.display_name AS Joueur,  
-//         wp_usermeta.meta_value AS Site,
-//         quiz_score.score AS Score, 
-//         quiz_score.time AS Temps
-//     FROM 
-//         quiz_score 
-//         LEFT JOIN wp_users ON wp_users.ID = quiz_score.user_id 
-//         LEFT JOIN wp_usermeta ON wp_usermeta.user_id = wp_users.ID AND wp_usermeta.meta_key = 'location' 
-//     WHERE 
-//         quiz_id = ".$idQuiz."
-//     ORDER BY 
-//         quiz_score.score DESC, 
-//         quiz_score.time ASC";
-
-//     return $wpdb->get_results($sql);
-// }
 
 function getQuizSiteClassement($idQuiz){
     global $wpdb;
@@ -96,7 +76,7 @@ function getTagGeneralClassement($idTag){
 
     $sql = "
     SELECT 
-        wp_users.qm_display_name AS Joueur, 
+        meta2.meta_value AS Joueur, 
         ".$metaTable.".meta_value AS Site, 
         avg(quiz_score.score) AS Moyenne,  
         sum(quiz_score.time) AS Temps, 
@@ -107,6 +87,7 @@ function getTagGeneralClassement($idTag){
         LEFT JOIN ".$metaTable." ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'location' 
         LEFT JOIN quiz ON quiz.id = quiz_score.quiz_id
         LEFT JOIN tag ON quiz.tag_id = tag.id
+        LEFT JOIN ".$metaTable." meta2 ON ".$metaTable.".user_id = ".$userTable.".ID AND ".$metaTable.".meta_key = 'qm_display_name' 
     WHERE 
         quiz.tag_id = ".$idTag."
     GROUP BY
